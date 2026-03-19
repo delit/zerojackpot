@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jakten på Jackpotten - ZeroJackpot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <style>
+        .live-ball {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .live-ball.main {
+            background: var(--primary-orange);
+            color: var(--white);
+            border: 3px solid var(--dark-orange);
+        }
+        
+        .live-ball.star {
+            background: var(--star-yellow);
+            color: var(--dark-gray);
+            border: 3px solid #ffc800;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        }
+        
+        .live-ball.match {
+            background: var(--success);
+            border-color: #2e7d32;
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.6);
+            animation: pulse 0.5s ease;
+        }
+        
+        .live-ball.rolling {
+            animation: none;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .live-numbers-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .live-row {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .live-row h2 {
+            font-size: 1.2rem;
+            color: #666;
+        }
+        
+        @media (min-width: 768px) {
+            .live-section {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .live-row {
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                width: 100%;
+                max-width: 750px;
+            }
+            
+            .live-row h2 {
+                margin: 0;
+                width: 220px;
+                text-align: right;
+                padding-right: 20px;
+                flex-shrink: 0;
+            }
+            
+            .live-row .live-numbers-container {
+                justify-content: flex-start;
+                flex: 0 0 auto;
+            }
+        }
+        
+        .live-section {
+            background: var(--light-gray);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        @media (min-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .live-stat-card {
+            background: var(--white);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px var(--shadow);
+            text-align: center;
+        }
+        
+        .live-stat-label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .live-stat-value {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+        }
+        @media (max-width: 767px) {
+            .live-ball {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .live-stat-value {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ZeroJackpot</h1>
+            <p class="subtitle">Eurojackpot Simulator</p>
+        </header>
+
+        <main>
+            <section class="live-section">
+                <div style="margin-bottom: 15px; text-align: left; width: 100%; align-self: flex-start;">
+                    <a href="index.html" style="color: var(--primary-orange); text-decoration: none; font-weight: 600; display: inline-block;">← Tillbaka till simulatorn</a>
+                </div>
+                
+                <h2 style="font-size: 2rem; margin-bottom: 30px;">Jakten på Jackpotten</h2>
+                
+                <div class="live-row">
+                    <h2>Lottorad</h2>
+                    <div class="live-numbers-container">
+                        <div id="myMainNumbers" style="display: flex; gap: 10px;"></div>
+                        <div id="myStarNumbers" style="display: flex; gap: 10px;"></div>
+                    </div>
+                </div>
+                
+                <div class="live-row">
+                    <h2>Dragning</h2>
+                    <div class="live-numbers-container">
+                        <div id="liveMainNumbers" style="display: flex; gap: 10px;"></div>
+                        <div id="liveStarNumbers" style="display: flex; gap: 10px;"></div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; padding: 15px; background: var(--white); border-radius: 12px; margin-bottom: 20px; margin-top: 30px;">
+                    <p style="font-size: 1.1rem; font-weight: 600; color: var(--dark-gray);" id="currentMatch">-</p>
+                    <p style="font-size: 1.3rem; font-weight: 700; margin-top: 5px;" id="currentWin">-</p>
+                </div>
+            </section>
+            
+            <section class="results-panel">
+                <h2>Statistik</h2>
+                <div class="stats-grid">
+                    <div class="live-stat-card">
+                        <div class="live-stat-label">Dagar utan jackpot</div>
+                        <div class="live-stat-value" id="daysElapsed">0</div>
+                    </div>
+                    
+                    <div class="live-stat-card">
+                        <div class="live-stat-label">Dragningar</div>
+                        <div class="live-stat-value" id="totalDraws">0</div>
+                    </div>
+                    
+                    <div class="live-stat-card">
+                        <div class="live-stat-label">Total kostnad</div>
+                        <div class="live-stat-value" id="totalCost" style="font-size: 1.1rem;">0 kr</div>
+                    </div>
+                    
+                    <div class="live-stat-card">
+                        <div class="live-stat-label">Total vinst</div>
+                        <div class="live-stat-value" id="totalWin" style="font-size: 1.1rem;">0 kr</div>
+                    </div>
+                    
+                    <div class="live-stat-card">
+                        <div class="live-stat-label">Högsta vinst</div>
+                        <div class="live-stat-value" id="bestWin" style="font-size: 1.1rem;">0 kr</div>
+                    </div>
+                    
+                    <div class="live-stat-card">
+                        <div class="live-stat-label">Jackpots</div>
+                        <div class="live-stat-value" id="jackpotCount">0</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p class="footer-links"><a href="jakten-pa-jackpotten.html" class="footer-link">Jakten på Jackpotten</a> | <a href="about.html" class="footer-link">Om ZeroJackpot</a> | <a href="https://www.stodlinjen.se" target="_blank" class="footer-link">Stödlinjen</a></p>
+            <p class="footer-description">ZeroJackpot - En simulator för att visa sannolikheten i Eurojackpot</p>
+        </footer>
+    </div>
+
+    <script>
+        // START DATE - All visitors see simulation from this point
+        // 2026-03-19 kl 17:08 Stockholm tid (UTC+1)
+        const START_DATE = new Date('2026-03-19T16:08:00Z');
+        
+        // STANDING ROW - "My Numbers" (fixed for everyone)
+        const MY_NUMBERS = {
+            main: [7, 14, 21, 35, 42],
+            stars: [3, 9]
+        };
+        
+        // PRIZE TIERS (Eurojackpot)
+        const PRIZE_TIERS = [
+            { main: 5, stars: 2, name: '5+2', prize: 400000000 },
+            { main: 5, stars: 1, name: '5+1', prize: 2000000 },
+            { main: 5, stars: 0, name: '5+0', prize: 400000 },
+            { main: 4, stars: 2, name: '4+2', prize: 16000 },
+            { main: 4, stars: 1, name: '4+1', prize: 900 },
+            { main: 3, stars: 2, name: '3+2', prize: 500 },
+            { main: 4, stars: 0, name: '4+0', prize: 400 },
+            { main: 2, stars: 2, name: '2+2', prize: 175 },
+            { main: 3, stars: 1, name: '3+1', prize: 150 },
+            { main: 3, stars: 0, name: '3+0', prize: 120 },
+            { main: 1, stars: 2, name: '1+2', prize: 90 },
+            { main: 2, stars: 1, name: '2+1', prize: 65 }
+        ];
+        
+        const COST_PER_DRAW = 25;
+        
+        // Global state
+        let totalWinnings = 0;
+        let bestWin = { amount: 0, category: null, drawNumber: 0 };
+        let jackpotCount = 0;
+        let currentDrawNumber = 0;
+        
+        // Seeded random number generator (for consistent draws based on timestamp)
+        function seededRandom(seed) {
+            const x = Math.sin(seed) * 10000;
+            return x - Math.floor(x);
+        }
+        
+        function generateNumbersFromSeed(seed, min, max, count) {
+            const numbers = [];
+            let currentSeed = seed;
+            
+            while (numbers.length < count) {
+                currentSeed = (currentSeed * 9301 + 49297) % 233280;
+                const num = min + Math.floor(seededRandom(currentSeed) * (max - min + 1));
+                
+                if (!numbers.includes(num)) {
+                    numbers.push(num);
+                }
+            }
+            
+            return numbers.sort((a, b) => a - b);
+        }
+        
+        function generateDrawFromTimestamp(timestamp) {
+            const main = generateNumbersFromSeed(timestamp, 1, 50, 5);
+            const stars = generateNumbersFromSeed(timestamp * 2, 1, 12, 2);
+            return { main, stars };
+        }
+        
+        function checkMatches(myRow, drawnRow) {
+            const mainMatches = myRow.main.filter(num => drawnRow.main.includes(num)).length;
+            const starMatches = myRow.stars.filter(num => drawnRow.stars.includes(num)).length;
+            return { mainMatches, starMatches };
+        }
+        
+        function getWinAmount(mainMatches, starMatches) {
+            const category = PRIZE_TIERS.find(tier => 
+                tier.main === mainMatches && tier.stars === starMatches
+            );
+            return category ? { amount: category.prize, name: category.name } : { amount: 0, name: null };
+        }
+        
+        function formatNumber(num) {
+            return new Intl.NumberFormat('sv-SE').format(num);
+        }
+        
+        function formatCurrency(amount) {
+            return formatNumber(amount) + ' kr';
+        }
+        
+        function createBall(number, type, isMatch = false) {
+            const ball = document.createElement('div');
+            ball.className = `live-ball ${type} ${isMatch ? 'match' : ''}`;
+            ball.textContent = number;
+            return ball;
+        }
+        
+        function displayMyNumbers() {
+            const mainContainer = document.getElementById('myMainNumbers');
+            const starContainer = document.getElementById('myStarNumbers');
+            
+            mainContainer.innerHTML = '';
+            starContainer.innerHTML = '';
+            
+            MY_NUMBERS.main.forEach(num => {
+                mainContainer.appendChild(createBall(num, 'main'));
+            });
+            
+            MY_NUMBERS.stars.forEach(num => {
+                mainContainer.appendChild(createBall(num, 'star'));
+            });
+        }
+        
+        function displayLiveDraw(draw, matches) {
+            const mainContainer = document.getElementById('liveMainNumbers');
+            const starContainer = document.getElementById('liveStarNumbers');
+            
+            // Create balls if they don't exist
+            if (mainContainer.children.length === 0) {
+                draw.main.forEach(() => mainContainer.appendChild(createBall(0, 'main')));
+            }
+            if (starContainer.children.length === 0) {
+                draw.stars.forEach(() => starContainer.appendChild(createBall(0, 'star')));
+            }
+            
+            const mainBalls = Array.from(mainContainer.children);
+            const starBalls = Array.from(starContainer.children);
+            
+            // Animate the numbers
+            const animationDuration = 400;
+            const intervalTime = 40;
+            const steps = animationDuration / intervalTime;
+            let currentStep = 0;
+            
+            const interval = setInterval(() => {
+                currentStep++;
+                const progress = currentStep / steps;
+                
+                if (progress < 0.85) {
+                    // Show random numbers while animating
+                    mainBalls.forEach((ball, index) => {
+                        const randomNum = Math.floor(Math.random() * 50) + 1;
+                        ball.textContent = randomNum;
+                        ball.className = 'live-ball main';
+                    });
+                    
+                    starBalls.forEach((ball, index) => {
+                        const randomNum = Math.floor(Math.random() * 12) + 1;
+                        ball.textContent = randomNum;
+                        ball.className = 'live-ball star';
+                    });
+                } else {
+                    // Show final numbers
+                    clearInterval(interval);
+                    
+                    mainBalls.forEach((ball, index) => {
+                        ball.textContent = draw.main[index];
+                        const isMatch = MY_NUMBERS.main.includes(draw.main[index]);
+                        ball.className = `live-ball main ${isMatch ? 'match' : ''}`;
+                    });
+                    
+                    starBalls.forEach((ball, index) => {
+                        ball.textContent = draw.stars[index];
+                        const isMatch = MY_NUMBERS.stars.includes(draw.stars[index]);
+                        ball.className = `live-ball star ${isMatch ? 'match' : ''}`;
+                    });
+                    
+                    // Update current match info
+                    const matchText = `${matches.mainMatches} rätt + ${matches.starMatches} stjärnor`;
+                    document.getElementById('currentMatch').textContent = matchText;
+                    
+                    const win = getWinAmount(matches.mainMatches, matches.starMatches);
+                    const winText = win.amount > 0 ? `${win.name}: ${formatCurrency(win.amount)}` : 'Ingen vinst';
+                    document.getElementById('currentWin').textContent = winText;
+                    document.getElementById('currentWin').style.color = win.amount > 0 ? 'var(--success)' : '#999';
+                }
+            }, intervalTime);
+        }
+        
+        function simulateHistoricalDraws(secondsElapsed) {
+            totalWinnings = 0;
+            bestWin = { amount: 0, category: null, drawNumber: 0 };
+            jackpotCount = 0;
+            
+            // Sample every 100th draw for performance on long durations
+            const sampleRate = secondsElapsed > 10000 ? 100 : 1;
+            
+            for (let i = 0; i < secondsElapsed; i += sampleRate) {
+                const timestamp = Math.floor(START_DATE.getTime() / 1000) + i;
+                const draw = generateDrawFromTimestamp(timestamp);
+                const matches = checkMatches(MY_NUMBERS, draw);
+                const win = getWinAmount(matches.mainMatches, matches.starMatches);
+                
+                if (win.amount > 0) {
+                    totalWinnings += win.amount * sampleRate;
+                    
+                    if (win.amount > bestWin.amount) {
+                        bestWin = {
+                            amount: win.amount,
+                            category: win.name,
+                            drawNumber: i + 1
+                        };
+                    }
+                    
+                    if (matches.mainMatches === 5 && matches.starMatches === 2) {
+                        jackpotCount += sampleRate;
+                    }
+                }
+            }
+        }
+        
+        function updateStats(secondsElapsed) {
+            const days = Math.floor(secondsElapsed / 86400);
+            const totalDrawsCount = secondsElapsed;
+            const totalCost = totalDrawsCount * COST_PER_DRAW;
+            
+            document.getElementById('daysElapsed').textContent = formatNumber(days);
+            document.getElementById('totalDraws').textContent = formatNumber(totalDrawsCount);
+            document.getElementById('totalCost').textContent = formatCurrency(totalCost);
+            document.getElementById('totalWin').textContent = formatCurrency(totalWinnings);
+            document.getElementById('bestWin').textContent = formatCurrency(bestWin.amount);
+            document.getElementById('jackpotCount').textContent = formatNumber(jackpotCount);
+        }
+        
+        function tick() {
+            const now = Math.floor(Date.now() / 1000);
+            const startTimestamp = Math.floor(START_DATE.getTime() / 1000);
+            const secondsElapsed = now - startTimestamp;
+            
+            if (secondsElapsed < 0) {
+                return;
+            }
+            
+            currentDrawNumber = secondsElapsed;
+            
+            // Generate current draw based on current timestamp
+            const currentDraw = generateDrawFromTimestamp(now);
+            const matches = checkMatches(MY_NUMBERS, currentDraw);
+            const win = getWinAmount(matches.mainMatches, matches.starMatches);
+            
+            // Update current draw display
+            displayLiveDraw(currentDraw, matches);
+            
+            // Update winnings
+            if (win.amount > 0) {
+                totalWinnings += win.amount;
+                
+                if (win.amount > bestWin.amount) {
+                    bestWin = {
+                        amount: win.amount,
+                        category: win.name,
+                        drawNumber: currentDrawNumber
+                    };
+                }
+                
+                if (matches.mainMatches === 5 && matches.starMatches === 2) {
+                    jackpotCount++;
+                }
+            }
+            
+            // Update all stats
+            updateStats(secondsElapsed);
+        }
+        
+        // Initialize
+        function init() {
+            displayMyNumbers();
+            
+            // Calculate historical stats on load
+            const now = Math.floor(Date.now() / 1000);
+            const startTimestamp = Math.floor(START_DATE.getTime() / 1000);
+            const secondsElapsed = now - startTimestamp;
+            
+            if (secondsElapsed > 0) {
+                simulateHistoricalDraws(secondsElapsed);
+            }
+            
+            // First tick immediately
+            tick();
+            
+            // Then tick every second
+            setInterval(tick, 1000);
+        }
+        
+        // Start when page loads
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

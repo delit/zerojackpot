@@ -310,6 +310,7 @@ function displayResults(simulation, numberOfDraws, costPerRow) {
     }
     
     document.getElementById('resultsPanel').style.display = 'block';
+    document.getElementById('promoSection').style.display = 'block';
     
     setTimeout(() => {
         document.getElementById('resultsPanel').scrollIntoView({ 
@@ -447,6 +448,7 @@ function displayInvestmentComparison(numberOfDraws, costPerRow, lotteryNetResult
 function hideResults() {
     document.getElementById('resultsPanel').style.display = 'none';
     document.getElementById('investmentComparison').style.display = 'none';
+    document.getElementById('promoSection').style.display = 'none';
 }
 
 document.addEventListener('DOMContentLoaded', initializeApp);

@@ -267,6 +267,38 @@
         font-size: 0.9rem;
     }
 
+    .comparison-timeline {
+        padding: 20px 15px;
+    }
+
+    .comparison-timeline h4 {
+        font-size: 1.1rem;
+    }
+
+    .comparison-boxes {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .comparison-box {
+        min-width: unset;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .comparison-vs {
+        font-size: 1.2rem;
+        padding: 5px 0;
+    }
+
+    .comparison-amount {
+        font-size: 1.5rem;
+    }
+
+    .comparison-result {
+        font-size: 1.1rem;
+    }
+
 }
 
 @media (max-width: 400px) {

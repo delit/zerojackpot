@@ -578,14 +578,22 @@ footer {
 
 footer p {
     margin: 5px 0;
-    font-size: 0.85rem;
-    opacity: 0.6;
+}
+
+.footer-links {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+.footer-description {
+    font-size: 0.75rem;
+    opacity: 0.5;
 }
 
 .footer-link {
     color: var(--white);
     text-decoration: none;
-    opacity: 0.8;
+    opacity: 0.9;
     transition: opacity 0.2s ease;
 }
 
@@ -712,6 +720,20 @@ footer p {
     border-radius: 8px;
     border-left: 4px solid var(--primary-orange);
     font-size: 1.05rem;
+}
+
+.highlight-quote {
+    background: linear-gradient(135deg, #ff6b35, #ff8c42);
+    color: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 30px 0;
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    line-height: 1.6;
 }
 
 @media (min-width: 768px) {

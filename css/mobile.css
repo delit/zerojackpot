@@ -1,0 +1,290 @@
+@media (max-width: 767px) {
+    body {
+        padding: 0;
+    }
+
+    .container {
+        border-radius: 0;
+        min-height: 100vh;
+    }
+
+    header {
+        padding: 20px 15px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header .subtitle {
+        font-size: 1rem;
+    }
+
+    main {
+        padding: 20px 15px;
+    }
+
+    section {
+        margin-bottom: 30px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .simulation-panel {
+        display: none;
+    }
+
+    .simulation-panel.visible {
+        display: block;
+    }
+
+    .simulation-panel.inactive {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+
+    .selection-group {
+        padding: 20px 15px;
+    }
+
+    .instructions-inline p {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    .number-slots-container {
+        gap: 10px;
+        flex-wrap: nowrap;
+    }
+
+    .number-slot {
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+    }
+
+    .number-slots {
+        gap: 6px;
+        flex-wrap: nowrap;
+    }
+
+    .star-separator {
+        font-size: 1.5rem;
+        flex-shrink: 0;
+    }
+
+    .picker-grid {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 8px;
+    }
+
+    .modal-content {
+        padding: 20px;
+        max-height: 90vh;
+    }
+
+    .modal-content h3 {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+
+    .picker-number {
+        font-size: 1rem;
+    }
+
+    .number-btn {
+        font-size: 1rem;
+        min-height: 50px;
+    }
+
+    .selected-display {
+        min-height: 70px;
+        padding: 10px;
+    }
+
+    .selected-number {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .action-buttons {
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .action-buttons .btn {
+        flex: 1;
+    }
+
+    .simulation-panel {
+        padding: 20px 15px;
+    }
+
+    .simulation-buttons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .btn-sim {
+        width: 100%;
+        min-width: unset;
+        max-width: unset;
+        flex: none;
+    }
+
+    .summary-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .summary-card {
+        padding: 15px;
+    }
+
+    .card-value {
+        font-size: 1.1rem;
+    }
+
+    .results-table-container {
+        padding: 15px;
+    }
+
+    .results-table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .results-table {
+        font-size: 0.75rem;
+        min-width: 100%;
+        table-layout: fixed;
+        width: 100%;
+    }
+
+    .results-table th {
+        font-size: 0.7rem;
+        padding: 8px 4px;
+        white-space: nowrap;
+    }
+
+    .results-table td {
+        padding: 8px 4px;
+        white-space: nowrap;
+        font-size: 0.75rem;
+    }
+
+    .results-table th:first-child,
+    .results-table td:first-child {
+        width: 18%;
+        min-width: 45px;
+    }
+
+    .results-table th:nth-child(2),
+    .results-table td:nth-child(2) {
+        width: 28%;
+        min-width: 70px;
+        font-size: 0.7rem;
+    }
+
+    .results-table th:nth-child(3),
+    .results-table td:nth-child(3) {
+        width: 27%;
+        min-width: 70px;
+    }
+
+    .results-table th:nth-child(4),
+    .results-table td:nth-child(4) {
+        width: 27%;
+        min-width: 70px;
+    }
+
+    .best-result {
+        padding: 20px 15px;
+    }
+
+    .investment-comparison {
+        padding: 20px 15px;
+    }
+
+    .investment-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .investment-card {
+        padding: 15px;
+    }
+
+    .draw-number {
+        width: 32px;
+        height: 32px;
+        font-size: 0.85rem;
+    }
+
+    footer {
+        padding: 20px 15px;
+        font-size: 0.9rem;
+        margin-top: auto;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    main {
+        flex: 1;
+    }
+
+}
+
+@media (max-width: 400px) {
+    .picker-grid {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 6px;
+    }
+
+    .summary-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .number-slot {
+        width: 40px;
+        height: 40px;
+        font-size: 0.95rem;
+    }
+
+    .number-slots {
+        gap: 4px;
+    }
+
+    .star-separator {
+        font-size: 1.3rem;
+    }
+
+    .number-slots-container {
+        gap: 8px;
+    }
+
+    .picker-number {
+        font-size: 0.95rem;
+    }
+
+    .instructions-inline p {
+        font-size: 0.95rem;
+    }
+}

@@ -250,6 +250,23 @@
         flex: 1;
     }
 
+    .perspective-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .perspective-card {
+        padding: 20px;
+    }
+
+    .perspective-icon {
+        font-size: 2rem;
+    }
+
+    .perspective-text {
+        font-size: 0.9rem;
+    }
+
 }
 
 @media (max-width: 400px) {

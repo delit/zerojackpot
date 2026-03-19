@@ -612,6 +612,10 @@ footer p {
     border-radius: 15px;
 }
 
+.about-section h2 {
+    font-size: 2rem;
+}
+
 .nav-link {
     margin-bottom: 20px;
 }
@@ -640,7 +644,7 @@ footer p {
 .about-content h3 {
     color: var(--primary-orange);
     margin-top: 30px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     font-size: 1.4rem;
 }
 

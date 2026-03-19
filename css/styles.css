@@ -330,16 +330,14 @@ h3 {
     background: var(--light-gray);
     padding: 25px;
     border-radius: 15px;
-    transition: opacity 0.3s ease;
 }
 
 .simulation-panel.inactive {
-    opacity: 0.4;
-    pointer-events: none;
+    display: none;
 }
 
 .simulation-panel.active {
-    opacity: 1;
+    display: block;
 }
 
 .progress-container {
@@ -580,11 +578,140 @@ footer {
 
 footer p {
     margin: 5px 0;
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+
+.footer-link {
+    color: var(--white);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.footer-link:hover {
+    opacity: 1;
+    text-decoration: underline;
 }
 
 .disclaimer {
     font-size: 0.85rem;
     opacity: 0.8;
+}
+
+.about-section {
+    background: var(--light-gray);
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.nav-link {
+    margin-bottom: 20px;
+}
+
+.back-link {
+    display: inline-block;
+    color: var(--primary-orange);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.back-link:hover {
+    color: var(--dark-orange);
+    transform: translateX(-3px);
+}
+
+.about-content {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    line-height: 1.8;
+}
+
+.about-content h3 {
+    color: var(--primary-orange);
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.about-content h3:first-child {
+    margin-top: 0;
+}
+
+.about-content p {
+    margin-bottom: 15px;
+    color: var(--dark-gray);
+}
+
+.about-content ul {
+    margin: 15px 0 15px 30px;
+    color: var(--dark-gray);
+}
+
+.about-content ul li {
+    margin-bottom: 10px;
+}
+
+.help-box {
+    background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+    padding: 25px;
+    border-radius: 12px;
+    border: 2px solid var(--primary-orange);
+    margin: 25px 0;
+}
+
+.help-box h4 {
+    color: var(--primary-orange);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.help-box p {
+    margin-bottom: 10px;
+}
+
+.help-box a {
+    color: var(--primary-orange);
+    font-weight: 600;
+}
+
+.odds-table-container {
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.odds-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--white);
+}
+
+.odds-table th,
+.odds-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--gray);
+}
+
+.odds-table th {
+    background: var(--light-gray);
+    font-weight: 700;
+    color: var(--dark-gray);
+}
+
+.odds-table tr:hover {
+    background: var(--light-gray);
+}
+
+.odds-summary {
+    background: #fff3e0;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-orange);
+    font-size: 1.05rem;
 }
 
 @media (min-width: 768px) {

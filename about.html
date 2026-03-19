@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Om ZeroJackpot - Eurojackpot Simulator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mobile.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ZeroJackpot</h1>
+            <p class="subtitle">Eurojackpot Simulator</p>
+        </header>
+
+        <main>
+            <section class="about-section">
+                <div class="nav-link">
+                    <a href="index.html" class="back-link">← Tillbaka till simulatorn</a>
+                </div>
+
+                <h2>Om ZeroJackpot</h2>
+                
+                <div class="about-content">
+                    <h3>Varför finns denna simulator?</h3>
+                    <p>
+                        ZeroJackpot är en simulator som visar den hårda sanningen om lotterispel: <strong>chansen att vinna är nästan obefintlig</strong>. 
+                        Många människor spelar lotteri varje vecka utan att förstå de extremt låga oddsen. Denna simulator låter dig se resultatet 
+                        av tusentals, eller till och med miljontals dragningar på några sekunder.
+                    </p>
+                    <p>
+                        När du simulerar 10 000 dragningar och fortfarande inte har vunnit mer än några hundralappar, börjar verkligheten att sjunka in. 
+                        När du simulerar 1 000 000 dragningar (motsvarande nästan 2 740 år av veckovisa spel) och kanske fortfarande inte har vunnit 
+                        jackpotten, förstår du hur osannolik en vinst egentligen är.
+                    </p>
+
+                    <h3>Syftet med simulatorn</h3>
+                    <p>
+                        Målet är inte att förstöra drömmen om att vinna, utan att ge en <strong>realistisk bild av sannolikheten</strong>. 
+                        Vi vill att människor ska:
+                    </p>
+                    <ul>
+                        <li>Förstå de verkliga oddsen innan de spelar</li>
+                        <li>Inse att lotteri är underhållning, inte en investering</li>
+                        <li>Se vad som händer om man lägger samma pengar på långsiktig investering istället</li>
+                        <li>Fatta informerade beslut om hur de spenderar sina pengar</li>
+                    </ul>
+
+                    <h3>Investeringsjämförelsen</h3>
+                    <p>
+                        Simulatorn visar vad som händer om du investerar samma 25 kr per dag i en global indexfond med 7% årlig avkastning istället. 
+                        För de flesta blir skillnaden chockerande - efter bara några år växer ett litet dagligt sparande till betydande summor tack 
+                        vare ränta-på-ränta-effekten.
+                    </p>
+                    <p>
+                        En lottorad kostar 25 kr. Om du spelar varje vecka i 10 år har du lagt 13 000 kr och förmodligen vunnit några hundralappar. 
+                        Om du istället investerat de pengarna hade du haft över 18 000 kr. Efter 30 år är skillnaden ännu mer dramatisk.
+                    </p>
+
+                    <h3>Om Eurojackpot</h3>
+                    <p>
+                        Eurojackpot är ett europeiskt lotterispel där du väljer 5 nummer mellan 1-50 och 2 stjärnnummer mellan 1-12. 
+                        Det finns 12 vinstkategorier, från jackpotten (5+2) ner till minsta vinsten (2+1).
+                    </p>
+                    <p>
+                        <strong>Sannolikheten att vinna jackpotten är 1 på 139 838 160.</strong> Det betyder att om du spelade en gång per vecka 
+                        skulle det ta i genomsnitt nästan 2,7 miljoner år innan du vinner jackpotten.
+                    </p>
+
+                    <h3>De verkliga oddsen</h3>
+                    <p>Här är sannolikheten för varje vinstkategori i Eurojackpot:</p>
+                    
+                    <div class="odds-table-container">
+                        <table class="odds-table">
+                            <thead>
+                                <tr>
+                                    <th>Kategori</th>
+                                    <th>Vinst (ca)</th>
+                                    <th>Odds</th>
+                                    <th>Sannolikhet</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>5+2</td>
+                                    <td>400 000 000 kr</td>
+                                    <td>1:139 838 160</td>
+                                    <td>0,0000007%</td>
+                                </tr>
+                                <tr>
+                                    <td>5+1</td>
+                                    <td>2 000 000 kr</td>
+                                    <td>1:6 991 908</td>
+                                    <td>0,000014%</td>
+                                </tr>
+                                <tr>
+                                    <td>5+0</td>
+                                    <td>400 000 kr</td>
+                                    <td>1:3 107 515</td>
+                                    <td>0,000032%</td>
+                                </tr>
+                                <tr>
+                                    <td>4+2</td>
+                                    <td>16 000 kr</td>
+                                    <td>1:621 503</td>
+                                    <td>0,00016%</td>
+                                </tr>
+                                <tr>
+                                    <td>4+1</td>
+                                    <td>900 kr</td>
+                                    <td>1:31 075</td>
+                                    <td>0,0032%</td>
+                                </tr>
+                                <tr>
+                                    <td>3+2</td>
+                                    <td>500 kr</td>
+                                    <td>1:14 125</td>
+                                    <td>0,0071%</td>
+                                </tr>
+                                <tr>
+                                    <td>4+0</td>
+                                    <td>400 kr</td>
+                                    <td>1:13 811</td>
+                                    <td>0,0072%</td>
+                                </tr>
+                                <tr>
+                                    <td>2+2</td>
+                                    <td>175 kr</td>
+                                    <td>1:985</td>
+                                    <td>0,10%</td>
+                                </tr>
+                                <tr>
+                                    <td>3+1</td>
+                                    <td>150 kr</td>
+                                    <td>1:706</td>
+                                    <td>0,14%</td>
+                                </tr>
+                                <tr>
+                                    <td>3+0</td>
+                                    <td>120 kr</td>
+                                    <td>1:314</td>
+                                    <td>0,32%</td>
+                                </tr>
+                                <tr>
+                                    <td>1+2</td>
+                                    <td>90 kr</td>
+                                    <td>1:188</td>
+                                    <td>0,53%</td>
+                                </tr>
+                                <tr>
+                                    <td>2+1</td>
+                                    <td>65 kr</td>
+                                    <td>1:49</td>
+                                    <td>2,04%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="odds-summary">
+                        Chansen att <strong>vinna något alls</strong> i en enskild dragning är cirka 1 på 32, eller 3,1%. 
+                        Det betyder att 96,9% av alla lottrader ger ingen vinst alls.
+                    </p>
+
+                    <h3>Ett realistiskt perspektiv</h3>
+                    <p>
+                        För att sätta oddsen i perspektiv:
+                    </p>
+                    <ul>
+                        <li>Du har större chans att bli träffad av blixten (ca 1 på 500 000) än att vinna jackpotten</li>
+                        <li>Du har större chans att dö i en flygkrasch (ca 1 på 11 miljoner) än att vinna jackpotten</li>
+                        <li>Om du spelade en gång varje dag skulle det ta över 380 000 år i genomsnitt innan du vinner jackpotten</li>
+                        <li>Om alla 10,5 miljoner svenskar spelade en rad skulle statistiskt sett endast 0,075 personer vinna jackpotten</li>
+                    </ul>
+
+                    <h3>Matematiken bakom</h3>
+                    <p>
+                        Antalet möjliga kombinationer i Eurojackpot beräknas genom att kombinera valen av huvudnummer och stjärnnummer:
+                    </p>
+                    <ul>
+                        <li>5 nummer av 50 möjliga: 2 118 760 kombinationer</li>
+                        <li>2 stjärnnummer av 12 möjliga: 66 kombinationer</li>
+                        <li>Totalt: 2 118 760 × 66 = <strong>139 838 160 möjliga kombinationer</strong></li>
+                    </ul>
+                    <p>
+                        Det är därför oddsen för jackpotten är exakt 1 på 139 838 160. Det finns ingen strategi, inget system, 
+                        ingen "turdag" som kan förbättra dessa odds. Varje dragning är helt oberoende av tidigare dragningar.
+                    </p>
+
+                    <h3>Spelberoende och hjälp</h3>
+                    <p>
+                        Lotterispel kan för vissa utvecklas till ett allvarligt problem. Om du eller någon du känner har svårt att 
+                        kontrollera sitt spelande, finns det hjälp att få.
+                    </p>
+                    <div class="help-box">
+                        <h4>Stödlinjen - hjälp vid spelberoende</h4>
+                        <p>
+                            <strong>Telefon:</strong> 020-819 100 (öppet alla dagar 09:00-21:00)<br>
+                            <strong>Webb:</strong> <a href="https://www.stodlinjen.se" target="_blank">www.stodlinjen.se</a>
+                        </p>
+                        <p>
+                            Stödlinjen erbjuder kostnadsfri och anonym rådgivning till personer med spelproblem och deras anhöriga. 
+                            Det är aldrig för sent att söka hjälp.
+                        </p>
+                    </div>
+
+                    <h3>Varningssignaler för spelproblem</h3>
+                    <p>Tänk efter om något av följande stämmer in på dig:</p>
+                    <ul>
+                        <li>Du tänker ofta på spel och planerar nästa spelomgång</li>
+                        <li>Du spelar för mer pengar än du har råd att förlora</li>
+                        <li>Du försöker vinna tillbaka pengar du förlorat genom att spela mer</li>
+                        <li>Du lånar pengar eller säljer saker för att kunna spela</li>
+                        <li>Du ljuger för familj och vänner om ditt spelande</li>
+                        <li>Du känner stress, ångest eller skuld kopplat till spelande</li>
+                    </ul>
+                    <p>
+                        Om du känner igen dig i något av ovanstående, tveka inte att kontakta Stödlinjen. 
+                        Spelberoende är en erkänd sjukdom och det finns effektiv behandling.
+                    </p>
+
+                    <h3>Ansvarsfullt spelande</h3>
+                    <p>Om du väljer att spela, gör det ansvarsfullt:</p>
+                    <ul>
+                        <li><strong>Sätt en budget</strong> - Bestäm i förväg hur mycket du har råd att förlora</li>
+                        <li><strong>Betrakta det som underhållning</strong> - Inte som en investering eller ett sätt att tjäna pengar</li>
+                        <li><strong>Jaga inte förluster</strong> - Försök aldrig vinna tillbaka pengar du förlorat</li>
+                        <li><strong>Ta pauser</strong> - Spela inte för ofta, gör medvetna val</li>
+                        <li><strong>Håll balans</strong> - Låt inte spelande ta över andra delar av ditt liv</li>
+                    </ul>
+
+                    <h3>Alternativ till lotteri</h3>
+                    <p>
+                        Om du är sugen på spänning eller hoppas kunna säkra din ekonomiska framtid, finns det bättre alternativ:
+                    </p>
+                    <ul>
+                        <li><strong>Långsiktig investering</strong> - Börja spara i fonder eller aktier. Även små belopp växer över tid</li>
+                        <li><strong>Utbildning</strong> - Investera i dig själv genom kurser och vidareutbildning</li>
+                        <li><strong>Nödsparande</strong> - Bygg upp en buffert för oväntade utgifter</li>
+                        <li><strong>Pensionssparande</strong> - Säkra din framtida ekonomi</li>
+                    </ul>
+
+                    <h3>Matematiken ljuger inte</h3>
+                    <p>
+                        Som simulatorn visar: på lång sikt <strong>förlorar du alltid pengar på lotteri</strong>. Det är så lotterispel är designade. 
+                        Endast cirka 50% av insatta pengar återgår till spelarna som vinster - resten går till staten, välgörenhet och administration.
+                    </p>
+                    <p>
+                        Detta betyder att <strong>förväntat värde</strong> för varje lottorad är cirka 12 kr, trots att den kostar 25 kr. 
+                        I genomsnitt förlorar du alltså 13 kr per rad du spelar.
+                    </p>
+
+                    <h3>Om Eurojackpot</h3>
+                    <p>
+                        Eurojackpot lanserades 2012 och är ett sameuropeiskt lotteri som spelas i 18 länder. I Sverige drivs det av Svenska Spel. 
+                        Dragningar sker varje tisdag och fredag kväll.
+                    </p>
+                    <p>
+                        Minimijakpotten är 10 miljoner euro (cirka 120 miljoner SEK) och kan växa till maximalt 120 miljoner euro 
+                        (cirka 1,4 miljarder SEK) om ingen vinner.
+                    </p>
+
+                    <h3>Teknisk information</h3>
+                    <p>
+                        Denna simulator använder samma regler och sannolikheter som det verkliga Eurojackpot-lotteriet. 
+                        All kod körs lokalt i din webbläsare - inga uppgifter skickas någonstans. Simuleringen är baserad på verklig 
+                        slumptalsgenerering och följer Eurojackpots officiella vinstplan.
+                    </p>
+
+                    <h3>Slutsats</h3>
+                    <p>
+                        Lotterispel kan vara en rolig underhållning om det görs med måtta och med realistiska förväntningar. 
+                        Men det är <strong>inte ett sätt att bli rik</strong> och definitivt inte en bra finansiell strategi.
+                    </p>
+                    <p>
+                        Använd denna simulator för att se med egna ögon hur oddsen fungerar. Spela gärna för skojs skull, 
+                        men gör det medvetet och ansvarsfullt.
+                    </p>
+
+                    <div class="help-box">
+                        <p><strong>Behöver du hjälp med spelproblem?</strong></p>
+                        <p>
+                            Kontakta Stödlinjen: 020-819 100 eller besök 
+                            <a href="https://www.stodlinjen.se" target="_blank">www.stodlinjen.se</a>
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>ZeroJackpot - En simulator för att visa sannolikheten i Eurojackpot</p>
+        </footer>
+    </div>
+</body>
+</html>

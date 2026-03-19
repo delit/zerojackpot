@@ -222,8 +222,8 @@
                     </div>
                     
                     <div class="live-stat-card">
-                        <div class="live-stat-label">Jackpots</div>
-                        <div class="live-stat-value" id="jackpotCount">0</div>
+                        <div class="live-stat-label">Netto resultat</div>
+                        <div class="live-stat-value" id="netResult" style="font-size: 1.1rem;">0 kr</div>
                     </div>
                 </div>
             </section>
@@ -267,7 +267,6 @@
         // Global state
         let totalWinnings = 0;
         let bestWin = { amount: 0, category: null, drawNumber: 0 };
-        let jackpotCount = 0;
         let currentDrawNumber = 0;
         
         // Seeded random number generator (for consistent draws based on timestamp)
@@ -411,7 +410,6 @@
         function simulateHistoricalDraws(secondsElapsed) {
             totalWinnings = 0;
             bestWin = { amount: 0, category: null, drawNumber: 0 };
-            jackpotCount = 0;
             
             // Sample every 100th draw for performance on long durations
             const sampleRate = secondsElapsed > 10000 ? 100 : 1;
@@ -432,10 +430,6 @@
                             drawNumber: i + 1
                         };
                     }
-                    
-                    if (matches.mainMatches === 5 && matches.starMatches === 2) {
-                        jackpotCount += sampleRate;
-                    }
                 }
             }
         }
@@ -444,13 +438,14 @@
             const days = Math.floor(secondsElapsed / 86400);
             const totalDrawsCount = secondsElapsed;
             const totalCost = totalDrawsCount * COST_PER_DRAW;
+            const netResult = totalWinnings - totalCost;
             
             document.getElementById('daysElapsed').textContent = formatNumber(days);
             document.getElementById('totalDraws').textContent = formatNumber(totalDrawsCount);
             document.getElementById('totalCost').textContent = formatCurrency(totalCost);
             document.getElementById('totalWin').textContent = formatCurrency(totalWinnings);
             document.getElementById('bestWin').textContent = formatCurrency(bestWin.amount);
-            document.getElementById('jackpotCount').textContent = formatNumber(jackpotCount);
+            document.getElementById('netResult').textContent = formatCurrency(netResult);
         }
         
         function tick() {
@@ -482,10 +477,6 @@
                         category: win.name,
                         drawNumber: currentDrawNumber
                     };
-                }
-                
-                if (matches.mainMatches === 5 && matches.starMatches === 2) {
-                    jackpotCount++;
                 }
             }
             

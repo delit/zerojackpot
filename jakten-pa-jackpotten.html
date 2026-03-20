@@ -129,7 +129,40 @@
             background: var(--light-gray);
             padding: 25px;
             border-radius: 15px;
+            /* Samma vertikal marginal som övriga <section> (Statistik → Vinthistorik) */
+        }
+        
+        .live-result-box {
+            text-align: center;
+            padding: 15px 20px;
+            background: var(--white);
+            border-radius: 12px;
             margin-bottom: 20px;
+            margin-top: 30px;
+            width: fit-content;
+            max-width: 100%;
+            min-width: min(300px, 100%);
+            margin-left: auto;
+            margin-right: auto;
+            box-sizing: border-box;
+        }
+        
+        .live-result-match {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #888;
+            margin: 0;
+        }
+        
+        .live-result-win {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 6px 0 0 0;
+        }
+        
+        .live-result-win.is-loss {
+            font-weight: 500;
+            color: #b8b8b8;
         }
         
         .stats-grid {
@@ -189,6 +222,123 @@
                 font-size: 1.1rem;
             }
         }
+        
+        /* Vinthistorik (senaste / högsta) */
+        .win-history-section {
+            background: var(--light-gray);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            /* Justeras av JS så långa belopp + bollar får plats på en rad, lika för alla rader */
+            --win-history-amount-fs: 0.95rem;
+            --win-history-ball-size: 36px;
+            --win-history-ball-fs: 0.9rem;
+        }
+        
+        .win-history-heading {
+            font-size: 1.5rem;
+            margin: 0 0 12px 0;
+            color: var(--primary-orange);
+        }
+        
+        .win-history-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+        
+        .win-history-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .win-history-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: nowrap;
+            background: var(--white);
+            padding: 10px 12px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+        
+        .win-history-balls {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 6px;
+            align-items: center;
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .win-history-row .live-ball {
+            width: var(--win-history-ball-size);
+            height: var(--win-history-ball-size);
+            font-size: var(--win-history-ball-fs);
+            flex-shrink: 0;
+        }
+        
+        /* Ingen pulse eller glow i vinthistoriken */
+        .win-history-row .live-ball.match {
+            animation: none;
+            box-shadow: none;
+        }
+        
+        /* Gröna stjärnor: vit siffra (samma läsbarhet som huvudnummer) */
+        .win-history-row .live-ball.star.match {
+            color: var(--white);
+        }
+        
+        /* Stjärnor utan träff: orange som övriga missar, inte gul stjärn-stil */
+        .win-history-row .live-ball.star:not(.match) {
+            background: var(--primary-orange);
+            color: var(--white);
+            border: 3px solid var(--dark-orange);
+            box-shadow: none;
+        }
+        
+        .win-history-amount {
+            font-weight: 700;
+            font-size: var(--win-history-amount-fs);
+            color: var(--dark-gray);
+            white-space: nowrap;
+            flex-shrink: 0;
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+            line-height: 1.2;
+        }
+        
+        .win-history-empty {
+            color: #888;
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+        
+        @media (max-width: 767px) {
+            .win-history-section {
+                --win-history-ball-size: 32px;
+                --win-history-ball-fs: 0.8rem;
+            }
+            
+            .win-history-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+            
+            .win-history-row {
+                flex-wrap: nowrap;
+                overflow: hidden;
+            }
+            
+            .win-history-amount {
+                text-align: right;
+            }
+        }
     </style>
 </head>
 <body>
@@ -218,9 +368,9 @@
                     </div>
                 </div>
                 
-                <div style="text-align: center; padding: 15px; background: var(--white); border-radius: 12px; margin-bottom: 20px; margin-top: 30px;">
-                    <p style="font-size: 1.1rem; font-weight: 600; color: var(--dark-gray);" id="currentMatch">-</p>
-                    <p style="font-size: 1.3rem; font-weight: 700; margin-top: 5px;" id="currentWin">-</p>
+                <div class="live-result-box">
+                    <p class="live-result-match" id="currentMatch">-</p>
+                    <p class="live-result-win is-loss" id="currentWin">-</p>
                 </div>
             </section>
             
@@ -255,6 +405,19 @@
                     <div class="live-stat-card">
                         <div class="live-stat-label">Netto resultat</div>
                         <div class="live-stat-value" id="netResult" style="font-size: 1.1rem;">0 kr</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="win-history-section" aria-label="Senaste och högsta vinster">
+                <div class="win-history-grid">
+                    <div class="win-history-column">
+                        <h2 class="win-history-heading">Senaste vinster</h2>
+                        <div class="win-history-list" id="recentWinsList"></div>
+                    </div>
+                    <div class="win-history-column">
+                        <h2 class="win-history-heading">Högsta vinster</h2>
+                        <div class="win-history-list" id="topWinsList"></div>
                     </div>
                 </div>
             </section>
@@ -298,11 +461,124 @@
         ];
         
         const COST_PER_DRAW = 25;
+        const WIN_HISTORY_RECENT = 5;
+        const WIN_HISTORY_TOP = 5;
         
         // Global state
         let totalWinnings = 0;
         let bestWin = { amount: 0, category: null, drawNumber: 0 };
         let currentDrawNumber = 0;
+        /** @type {{ draw: { main: number[], stars: number[] }, amount: number, name: string, secondIndex: number }[]} */
+        let recentWins = [];
+        /** @type {{ draw: { main: number[], stars: number[] }, amount: number, name: string, secondIndex: number }[]} */
+        let topWins = [];
+        
+        function cloneDraw(draw) {
+            return { main: [...draw.main], stars: [...draw.stars] };
+        }
+        
+        function recordWin(draw, win, secondIndex) {
+            const entry = {
+                draw: cloneDraw(draw),
+                amount: win.amount,
+                name: win.name,
+                secondIndex
+            };
+            recentWins.unshift(entry);
+            recentWins = recentWins.slice(0, WIN_HISTORY_RECENT);
+            topWins.push(entry);
+            topWins.sort((a, b) => b.amount - a.amount || b.secondIndex - a.secondIndex);
+            topWins = topWins.slice(0, WIN_HISTORY_TOP);
+        }
+        
+        function renderHistoryPanels() {
+            const recentEl = document.getElementById('recentWinsList');
+            const topEl = document.getElementById('topWinsList');
+            recentEl.innerHTML = '';
+            topEl.innerHTML = '';
+            
+            if (recentWins.length === 0) {
+                const p = document.createElement('p');
+                p.className = 'win-history-empty';
+                p.textContent = 'Ingen vinst ännu i historiken.';
+                recentEl.appendChild(p);
+            } else {
+                recentWins.forEach(entry => recentEl.appendChild(buildWinHistoryRow(entry)));
+            }
+            
+            if (topWins.length === 0) {
+                const p = document.createElement('p');
+                p.className = 'win-history-empty';
+                p.textContent = 'Ingen vinst registrerad ännu.';
+                topEl.appendChild(p);
+            } else {
+                topWins.forEach(entry => topEl.appendChild(buildWinHistoryRow(entry)));
+            }
+            
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => syncWinHistoryLayout());
+            });
+        }
+        
+        /** En och samma belopps- och bollstorlek för alla vinstrader så allt får plats på en rad */
+        function syncWinHistoryLayout() {
+            const section = document.querySelector('.win-history-section');
+            if (!section) return;
+            const rows = section.querySelectorAll('.win-history-row');
+            if (rows.length === 0) {
+                section.style.removeProperty('--win-history-amount-fs');
+                section.style.removeProperty('--win-history-ball-size');
+                section.style.removeProperty('--win-history-ball-fs');
+                return;
+            }
+            
+            const isMobile = window.matchMedia('(max-width: 767px)').matches;
+            const maxBall = isMobile ? 32 : 36;
+            const maxBallFs = isMobile ? 0.8 : 0.9;
+            const minBall = 20;
+            const maxAmtRem = 0.95;
+            const minAmtRem = 0.46;
+            const stepAmt = 0.03;
+            const ballStep = 2;
+            
+            function fits() {
+                let ok = true;
+                rows.forEach(row => {
+                    if (row.scrollWidth > row.clientWidth + 2) ok = false;
+                });
+                return ok;
+            }
+            
+            for (let ball = maxBall; ball >= minBall; ball -= ballStep) {
+                const ballFs = Math.max(0.55, (ball / maxBall) * maxBallFs);
+                for (let amt = maxAmtRem; amt >= minAmtRem - 0.001; amt -= stepAmt) {
+                    section.style.setProperty('--win-history-amount-fs', amt.toFixed(3) + 'rem');
+                    section.style.setProperty('--win-history-ball-size', ball + 'px');
+                    section.style.setProperty('--win-history-ball-fs', ballFs.toFixed(3) + 'rem');
+                    void section.offsetHeight;
+                    if (fits()) return;
+                }
+            }
+        }
+        
+        function buildWinHistoryRow(entry) {
+            const row = document.createElement('div');
+            row.className = 'win-history-row';
+            const ballsWrap = document.createElement('div');
+            ballsWrap.className = 'win-history-balls';
+            entry.draw.main.forEach(num => {
+                ballsWrap.appendChild(createBall(num, 'main', MY_NUMBERS.main.includes(num)));
+            });
+            entry.draw.stars.forEach(num => {
+                ballsWrap.appendChild(createBall(num, 'star', MY_NUMBERS.stars.includes(num)));
+            });
+            const amt = document.createElement('div');
+            amt.className = 'win-history-amount';
+            amt.textContent = formatCurrency(entry.amount);
+            row.appendChild(ballsWrap);
+            row.appendChild(amt);
+            return row;
+        }
         
         // Seeded random number generator (for consistent draws based on timestamp)
         function seededRandom(seed) {
@@ -436,8 +712,15 @@
                     
                     const win = getWinAmount(matches.mainMatches, matches.starMatches);
                     const winText = win.amount > 0 ? `${win.name}: ${formatCurrency(win.amount)}` : 'Ingen vinst';
-                    document.getElementById('currentWin').textContent = winText;
-                    document.getElementById('currentWin').style.color = win.amount > 0 ? 'var(--success)' : '#999';
+                    const winEl = document.getElementById('currentWin');
+                    winEl.textContent = winText;
+                    if (win.amount > 0) {
+                        winEl.classList.remove('is-loss');
+                        winEl.style.color = 'var(--success)';
+                    } else {
+                        winEl.classList.add('is-loss');
+                        winEl.style.color = '';
+                    }
                 }
             }, intervalTime);
         }
@@ -445,19 +728,18 @@
         function simulateHistoricalDraws(secondsElapsed) {
             totalWinnings = 0;
             bestWin = { amount: 0, category: null, drawNumber: 0 };
+            recentWins = [];
+            topWins = [];
             
-            // Sample every 100th draw for performance on long durations
-            const sampleRate = secondsElapsed > 10000 ? 100 : 1;
-            
-            for (let i = 0; i < secondsElapsed; i += sampleRate) {
+            // En iteration per sekund för korrekta totaler, topplista och senaste vinster
+            for (let i = 0; i < secondsElapsed; i++) {
                 const timestamp = Math.floor(START_DATE.getTime() / 1000) + i;
                 const draw = generateDrawFromTimestamp(timestamp);
                 const matches = checkMatches(MY_NUMBERS, draw);
                 const win = getWinAmount(matches.mainMatches, matches.starMatches);
                 
                 if (win.amount > 0) {
-                    totalWinnings += win.amount * sampleRate;
-                    
+                    totalWinnings += win.amount;
                     if (win.amount > bestWin.amount) {
                         bestWin = {
                             amount: win.amount,
@@ -465,6 +747,7 @@
                             drawNumber: i + 1
                         };
                     }
+                    recordWin(draw, win, i);
                 }
             }
         }
@@ -530,10 +813,16 @@
                         drawNumber: currentDrawNumber
                     };
                 }
+                
+                recordWin(currentDraw, win, currentDrawNumber);
             }
             
             // Update all stats
             updateStats(secondsElapsed);
+            
+            if (win.amount > 0) {
+                renderHistoryPanels();
+            }
         }
         
         // Initialize
@@ -549,11 +838,19 @@
                 simulateHistoricalDraws(secondsElapsed);
             }
             
+            renderHistoryPanels();
+            
             // First tick immediately
             tick();
             
             // Then tick every second
             setInterval(tick, 1000);
+            
+            let winHistoryResizeT;
+            window.addEventListener('resize', () => {
+                clearTimeout(winHistoryResizeT);
+                winHistoryResizeT = setTimeout(syncWinHistoryLayout, 150);
+            });
         }
         
         // Start when page loads

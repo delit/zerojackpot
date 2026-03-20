@@ -840,6 +840,11 @@ footer p {
         gap: 12px;
     }
 
+    /* Stjärnval 1–12: två rader à 6 (desktop) */
+    .picker-grid.picker-grid--stars {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
     .number-slot {
         width: 70px;
         height: 70px;

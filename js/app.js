@@ -36,6 +36,7 @@ function openNumberPicker(slotIndex, type) {
         : `Välj stjärnnummer (1-12)`;
     
     pickerGrid.innerHTML = '';
+    pickerGrid.classList.toggle('picker-grid--stars', type === 'star');
     
     for (let i = 1; i <= max; i++) {
         const btn = document.createElement('button');

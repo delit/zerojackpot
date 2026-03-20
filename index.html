@@ -4,9 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZeroJackpot - Eurojackpot Simulator</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="ZeroJackpot - Gratis Eurojackpot simulator som visar oddsen i verkligheten. Simulera miljontals dragningar på sekunder och se varför lotteri nästan aldrig lönar sig.">
+    <meta name="keywords" content="eurojackpot simulator, lotteri odds, eurojackpot sannolikhet, lotteri kalkylator, svenska spel, lotteri simulator">
+    <link rel="canonical" href="https://delit.github.io/zerojackpot/">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="ZeroJackpot - Eurojackpot Simulator">
+    <meta property="og:description" content="Simulera miljontals Eurojackpot-dragningar på sekunder. Se oddsen i verkligheten och förstå varför chansen att vinna är nästan obefintlig.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://delit.github.io/zerojackpot/">
+    <meta property="og:locale" content="sv_SE">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ZeroJackpot - Eurojackpot Simulator">
+    <meta name="twitter:description" content="Simulera miljontals dragningar och se oddsen i verkligheten">
+    
+    <!-- Language -->
+    <link rel="alternate" hreflang="sv" href="https://delit.github.io/zerojackpot/">
+    <link rel="alternate" hreflang="x-default" href="https://delit.github.io/zerojackpot/">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "ZeroJackpot",
+      "description": "Eurojackpot simulator för att visa lotteri-oddsen i verkligheten. Simulera miljontals dragningar och se hur osannolikt det är att vinna.",
+      "url": "https://delit.github.io/zerojackpot/",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "SEK"
+      },
+      "inLanguage": "sv-SE",
+      "creator": {
+        "@type": "Organization",
+        "name": "ZeroJackpot"
+      }
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="js/app.js" as="script">
+    
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/mobile.css">
 </head>
@@ -22,7 +71,10 @@
                 <div class="selection-group">
                     <h2 class="section-title">Välj lottorad</h2>
                     <div class="instructions-inline">
-                        <p>Välj 5 nummer mellan 1 och 50 samt 2 stjärnnummer mellan 1 och 12</p>
+                        <p>
+                            <span class="desktop-text">Välj 5 nummer mellan 1 och 50 samt 2 stjärnnummer mellan 1 och 12</span>
+                            <span class="mobile-text">Välj 5 nummer mellan 1 och 50<br>Välj 2 stjärnnummer mellan 1 och 12</span>
+                        </p>
                     </div>
                     
                     <div class="number-slots-container">
@@ -157,7 +209,7 @@
         </main>
 
         <footer>
-            <p class="footer-links"><a href="jakten-pa-jackpotten.html" class="footer-link">Jakten på Jackpotten</a> | <a href="about.html" class="footer-link">Om ZeroJackpot</a> | <a href="https://www.stodlinjen.se" target="_blank" class="footer-link">Stödlinjen</a></p>
+            <p class="footer-links"><a href="jakten-pa-jackpotten.html" class="footer-link">Jakten på Jackpotten</a> | <a href="about.html" class="footer-link">Om ZeroJackpot</a></p>
             <p class="footer-description">ZeroJackpot - En simulator för att visa sannolikheten i Eurojackpot</p>
         </footer>
     </div>

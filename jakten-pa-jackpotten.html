@@ -3,10 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jakten på Jackpotten - ZeroJackpot</title>
+    <title>Jakten på Jackpotten - Live Eurojackpot Simulering</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Live Eurojackpot-simulering - En dragning varje sekund synkroniserad för alla besökare. Se hur dagarna tickar förbi utan jackpot i realtid.">
+    <meta name="keywords" content="live lotteri simulering, eurojackpot live, realtid lotteri, eurojackpot dragning">
+    <link rel="canonical" href="https://delit.github.io/zerojackpot/jakten-pa-jackpotten.html">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Jakten på Jackpotten - Live Eurojackpot Simulering">
+    <meta property="og:description" content="En dragning varje sekund. Se hur dagarna tickar förbi utan jackpot. Synkroniserad live-simulering för alla besökare.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://delit.github.io/zerojackpot/jakten-pa-jackpotten.html">
+    <meta property="og:locale" content="sv_SE">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Jakten på Jackpotten - Live Simulering">
+    <meta name="twitter:description" content="En dragning varje sekund. Se hur dagarna tickar förbi utan jackpot.">
+    
+    <!-- Language -->
+    <link rel="alternate" hreflang="sv" href="https://delit.github.io/zerojackpot/jakten-pa-jackpotten.html">
+    <link rel="alternate" hreflang="x-default" href="https://delit.github.io/zerojackpot/jakten-pa-jackpotten.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="css/styles.css" as="style">
+    
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/mobile.css">
     <style>
@@ -146,6 +171,16 @@
                 font-size: 1rem;
             }
             
+            .live-row {
+                gap: 12px;
+                margin-bottom: 22px;
+            }
+            
+            .live-row h2 {
+                margin: 0;
+                line-height: 1.2;
+            }
+            
             .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -165,10 +200,6 @@
 
         <main>
             <section class="live-section">
-                <div style="margin-bottom: 15px; text-align: left; width: 100%; align-self: flex-start;">
-                    <a href="index.html" style="color: var(--primary-orange); text-decoration: none; font-weight: 600; display: inline-block;">← Tillbaka till simulatorn</a>
-                </div>
-                
                 <h2 style="font-size: 2rem; margin-bottom: 30px;">Jakten på Jackpotten</h2>
                 
                 <div class="live-row">
@@ -198,12 +229,12 @@
                 <div class="stats-grid">
                     <div class="live-stat-card">
                         <div class="live-stat-label">Dagar utan jackpot</div>
-                        <div class="live-stat-value" id="daysElapsed">0</div>
+                        <div class="live-stat-value" id="daysElapsed" style="font-size: 1.1rem;">0</div>
                     </div>
                     
                     <div class="live-stat-card">
                         <div class="live-stat-label">Dragningar</div>
-                        <div class="live-stat-value" id="totalDraws">0</div>
+                        <div class="live-stat-value" id="totalDraws" style="font-size: 1.1rem;">0</div>
                     </div>
                     
                     <div class="live-stat-card">
@@ -227,10 +258,14 @@
                     </div>
                 </div>
             </section>
+            
+            <div style="margin-top: 30px; text-align: left;">
+                <a href="index.html" style="color: var(--primary-orange); text-decoration: none; font-weight: 600; display: inline-block;">← Tillbaka till simulatorn</a>
+            </div>
         </main>
 
         <footer>
-            <p class="footer-links"><a href="jakten-pa-jackpotten.html" class="footer-link">Jakten på Jackpotten</a> | <a href="about.html" class="footer-link">Om ZeroJackpot</a> | <a href="https://www.stodlinjen.se" target="_blank" class="footer-link">Stödlinjen</a></p>
+            <p class="footer-links"><a href="jakten-pa-jackpotten.html" class="footer-link">Jakten på Jackpotten</a> | <a href="about.html" class="footer-link">Om ZeroJackpot</a></p>
             <p class="footer-description">ZeroJackpot - En simulator för att visa sannolikheten i Eurojackpot</p>
         </footer>
     </div>
@@ -446,6 +481,23 @@
             document.getElementById('totalWin').textContent = formatCurrency(totalWinnings);
             document.getElementById('bestWin').textContent = formatCurrency(bestWin.amount);
             document.getElementById('netResult').textContent = formatCurrency(netResult);
+            
+            // Dynamic font sizing based on largest value
+            const maxValue = Math.max(totalCost, totalWinnings, Math.abs(netResult), bestWin.amount);
+            const statValues = document.querySelectorAll('.live-stat-value');
+            
+            let fontSize = '1.1rem';
+            if (maxValue >= 100000000000) { // 100 miljarder
+                fontSize = '0.8rem';
+            } else if (maxValue >= 10000000000) { // 10 miljarder
+                fontSize = '0.9rem';
+            } else if (maxValue >= 1000000000) { // 1 miljard
+                fontSize = '1.0rem';
+            }
+            
+            statValues.forEach(element => {
+                element.style.fontSize = fontSize;
+            });
         }
         
         function tick() {

@@ -111,6 +111,14 @@ h3 {
     font-weight: 500;
 }
 
+.mobile-text {
+    display: none;
+}
+
+.desktop-text {
+    display: inline;
+}
+
 .number-slots-container {
     display: flex;
     gap: 20px;

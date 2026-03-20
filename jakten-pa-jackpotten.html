@@ -207,11 +207,20 @@
             .live-row {
                 gap: 12px;
                 margin-bottom: 22px;
+                align-items: center;
             }
             
             .live-row h2 {
                 margin: 0;
                 line-height: 1.2;
+                text-align: center;
+                width: 100%;
+            }
+            
+            .live-row .live-numbers-container {
+                justify-content: center;
+                width: 100%;
+                flex-wrap: nowrap;
             }
             
             .stats-grid {
@@ -233,6 +242,12 @@
             --win-history-amount-fs: 0.95rem;
             --win-history-ball-size: 36px;
             --win-history-ball-fs: 0.9rem;
+        }
+        
+        /* Samma rubrikstorlek som Senaste/Högsta vinster (mobil sänker annars bara plain h2) */
+        .results-panel > h2 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
         }
         
         .win-history-heading {
@@ -648,7 +663,7 @@
             });
             
             MY_NUMBERS.stars.forEach(num => {
-                mainContainer.appendChild(createBall(num, 'star'));
+                starContainer.appendChild(createBall(num, 'star'));
             });
         }
         

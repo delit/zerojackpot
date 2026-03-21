@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1177.54 132.05">
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="-45 -55 1268 242" preserveAspectRatio="xMidYMid meet" overflow="visible">
   <defs>
     <style>
       .cls-1 {
         stroke: #f0c839;
-        stroke-width: 35px;
+        stroke-width: 35;
       }
 
       .cls-1, .cls-2 {
@@ -19,7 +19,7 @@
 
       .cls-2 {
         stroke: #2b0808;
-        stroke-width: 25px;
+        stroke-width: 25;
       }
     </style>
   </defs>

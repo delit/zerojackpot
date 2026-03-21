@@ -41,15 +41,18 @@ body {
 header {
     background: #a83001;
     color: var(--white);
-    padding: 20px 20px;
+    padding: 22px 20px 18px;
     text-align: center;
+    overflow: visible;
 }
 
 .header-logo-link {
     display: inline-block;
-    line-height: 0;
+    line-height: 1;
     text-decoration: none;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
+    padding: 8px 0 4px;
+    overflow: visible;
 }
 
 .header-logo-link:hover {
@@ -62,14 +65,14 @@ header {
     border-radius: 4px;
 }
 
-/* Tydliga dimensioner så SVG syns även innan den laddat klart */
 .header-logo {
     display: block;
-    width: min(100%, 500px);
+    width: auto;
+    max-width: min(100%, 680px);
     height: auto;
-    max-height: 56px;
+    max-height: 88px;
     object-fit: contain;
-    object-position: center;
+    object-position: center bottom;
     margin: 0 auto;
 }
 
@@ -872,8 +875,8 @@ footer p {
     }
 
     .header-logo {
-        width: min(100%, 580px);
-        max-height: 64px;
+        max-width: min(100%, 720px);
+        max-height: 100px;
     }
 
     .summary-cards {

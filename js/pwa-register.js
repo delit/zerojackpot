@@ -7,6 +7,117 @@
         });
     }
 
+    // #region agent log
+    (function splashManifestProbe() {
+        var ep = 'http://127.0.0.1:7278/ingest/b87b8319-fe26-443a-a40f-6ca003a086d6';
+        function send(msg, hypothesisId, data) {
+            fetch(ep, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'X-Debug-Session-Id': '9bfec0' },
+                body: JSON.stringify({
+                    sessionId: '9bfec0',
+                    hypothesisId: hypothesisId,
+                    location: 'pwa-register.js:splashManifestProbe',
+                    message: msg,
+                    data: data || {},
+                    timestamp: Date.now()
+                })
+            }).catch(function () {});
+        }
+        var dm = window.matchMedia('(display-mode: standalone)').matches
+            ? 'standalone'
+            : window.matchMedia('(display-mode: fullscreen)').matches
+              ? 'fullscreen'
+              : 'browser';
+        var startupLinks = document.querySelectorAll('link[rel="apple-touch-startup-image"]');
+        var startupHrefs = [];
+        for (var si = 0; si < startupLinks.length; si++) {
+            startupHrefs.push(startupLinks[si].getAttribute('href') || '');
+        }
+        send(
+            'runtime context',
+            'H4',
+            {
+                displayMode: dm,
+                navStandalone: !!window.navigator.standalone,
+                href: String(location.href).split('?')[0],
+                path: location.pathname || '',
+                appleStartupLinkCount: startupLinks.length,
+                appleStartupHrefs: startupHrefs
+            }
+        );
+        fetch(new URL('manifest.webmanifest', location.href).href, { cache: 'no-store' })
+            .then(function (res) {
+                return res.text().then(function (text) {
+                    var j;
+                    try {
+                        j = JSON.parse(text);
+                    } catch (e) {
+                        send('manifest JSON parse error', 'H2', { status: res.status, err: String(e) });
+                        return;
+                    }
+                    send(
+                        'manifest fetched',
+                        'H2',
+                        {
+                            status: res.status,
+                            ok: res.ok,
+                            background_color: j.background_color,
+                            theme_color: j.theme_color,
+                            iconSrcs: (j.icons || []).map(function (i) {
+                                return i.src;
+                            }),
+                            iconPurposes: (j.icons || []).map(function (i) {
+                                return i.purpose || '';
+                            })
+                        }
+                    );
+                    var base = new URL('.', location.href).href;
+                    var summary = {
+                        path: location.pathname || '',
+                        displayMode: dm,
+                        manifestStatus: res.status,
+                        manifestOk: res.ok,
+                        background_color: j.background_color,
+                        iconResults: []
+                    };
+                    return Promise.all(
+                        (j.icons || []).map(function (icon) {
+                            var abs = new URL(icon.src, base).href;
+                            return fetch(abs, { method: 'GET', cache: 'no-store' })
+                                .then(function (ir) {
+                                    var row = {
+                                        src: icon.src,
+                                        abs: abs,
+                                        status: ir.status,
+                                        ok: ir.ok,
+                                        ct: ir.headers.get('content-type')
+                                    };
+                                    summary.iconResults.push(row);
+                                    send('icon fetch', 'H1', row);
+                                    return row;
+                                })
+                                .catch(function (err) {
+                                    var row = { src: icon.src, abs: abs, err: String(err) };
+                                    summary.iconResults.push(row);
+                                    send('icon fetch fail', 'H1', row);
+                                    return row;
+                                });
+                        })
+                    ).then(function () {
+                        try {
+                            window.__splashProbeSummary = summary;
+                        } catch (e) {}
+                        send('probe complete', 'H0', summary);
+                    });
+                });
+            })
+            .catch(function (err) {
+                send('manifest fetch fail', 'H2', { err: String(err) });
+            });
+    })();
+    // #endregion
+
     function isStandalone() {
         return (
             window.matchMedia('(display-mode: standalone)').matches ||

@@ -38,6 +38,116 @@ body {
     overflow: hidden;
 }
 
+/* Språk i footer: flagga + hover/klick-meny */
+.footer-lang {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 14px;
+}
+
+.footer-lang-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.12);
+    cursor: pointer;
+    font-size: 1.65rem;
+    line-height: 1;
+    transition: background 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
+}
+
+.footer-lang-trigger:hover,
+.footer-lang-trigger:focus-visible {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.55);
+    transform: scale(1.06);
+    outline: none;
+}
+
+.footer-lang-dropdown {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 200px;
+    padding: 10px;
+    background: var(--white);
+    color: var(--dark-gray);
+    border-radius: 14px;
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.28);
+    z-index: 50;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.18s ease, visibility 0.18s ease;
+}
+
+.footer-lang:hover .footer-lang-dropdown,
+.footer-lang.is-open .footer-lang-dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.footer-lang-opt {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-family: inherit;
+    text-align: left;
+    color: var(--dark-gray);
+    transition: background 0.15s ease;
+}
+
+.footer-lang-opt:hover,
+.footer-lang-opt:focus-visible {
+    background: var(--light-gray);
+    outline: none;
+}
+
+.footer-lang-emoji {
+    font-size: 1.4rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.footer-lang-name {
+    font-weight: 500;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.about-content .odds-summary {
+    white-space: pre-line;
+}
+
 header {
     background: #a83001;
     color: var(--white);
@@ -345,6 +455,7 @@ h3 {
     min-width: 120px;
     position: relative;
     border: 3px solid transparent;
+    line-height: 1.25;
 }
 
 .btn-sim.active {

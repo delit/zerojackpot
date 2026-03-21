@@ -28,8 +28,16 @@ ZeroJackpot låter dig välja eller slumpa fram egna lottorader och sedan simule
 ## Installation
 
 1. Klona eller ladda ner projektet
-2. Öppna `index.html` i din webbläsare
-3. Börja spela!
+2. Kör en **lokal webbserver** (i18n laddar `i18n/*.json` via `fetch` – `file://` fungerar oftast inte), t.ex. `npx serve .` eller VS Code Live Server
+3. Öppna sidan via `http://localhost:...`
+
+## Språk (i18n)
+
+- Språkfiler: `i18n/sv.json`, `en.json`, `de.json`, `es.json` (samma nyckelstruktur).
+- Förvalt språk följer webbläsaren; valet sparas i `localStorage` (`zerojackpot-lang`). Språk väljs längst ned i footern: klicka på **aktuell flagga** eller hovra över den för att se alla språk (🇸🇪 🇬🇧 🇩🇪 🇪🇸).
+- **Svenska:** SEK, radpris 25. **Engelska/tyska/spanska:** EUR, radpris 2,50 (ungefärligt), prisnivåer härledda från SEK med fast kurs i `js/logic.js`.
+- Logik: `js/i18n.js` (laddning, `data-i18n`, meta/JSON-LD), `js/logic.js` (valuta & `Intl`), `js/jakten.js` (live-sidan).
+- Uppdatera översättningar: redigera JSON-filerna. För att återgenerera en/de/es från strukturen kan du använda `node scripts/build-i18n-en-de-es.js` (skriver över `en.json`, `de.json`, `es.json`).
 
 ## Användning
 

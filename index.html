@@ -32,28 +32,8 @@
     <link rel="alternate" hreflang="sv" href="https://delit.github.io/zerojackpot/">
     <link rel="alternate" hreflang="x-default" href="https://delit.github.io/zerojackpot/">
     
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "ZeroJackpot",
-      "description": "Eurojackpot simulator för att visa lotteri-oddsen i verkligheten. Simulera miljontals dragningar och se hur osannolikt det är att vinna.",
-      "url": "https://delit.github.io/zerojackpot/",
-      "applicationCategory": "EducationalApplication",
-      "operatingSystem": "Any",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "SEK"
-      },
-      "inLanguage": "sv-SE",
-      "creator": {
-        "@type": "Organization",
-        "name": "ZeroJackpot"
-      }
-    }
-    </script>
+    <!-- Structured Data (ifylls av i18n.js enligt språk/valuta) -->
+    <script type="application/ld+json" id="app-jsonld">{}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@400;700&display=swap" rel="stylesheet">
@@ -68,20 +48,20 @@
 <body>
     <div class="container">
         <header>
-            <a href="index.html" class="header-logo-link" aria-label="ZeroJackpot – till startsidan">
+            <a href="index.html" class="header-logo-link" data-i18n="common.headerLogoAria" data-i18n-attr="aria-label" aria-label="ZeroJackpot">
                 <img src="grafik/01logo-zero-jackpot@2x.png" alt="ZeroJackpot" class="header-logo" width="1178" height="132" decoding="async">
             </a>
-            <p class="subtitle">Eurojackpot Simulator</p>
+            <p class="subtitle" data-i18n="common.subtitle">Eurojackpot Simulator</p>
         </header>
 
         <main>
             <section class="selection-panel">
                 <div class="selection-group">
-                    <h2 class="section-title">Välj lottorad</h2>
+                    <h2 class="section-title" data-i18n="home.pickRow">Välj lottorad</h2>
                     <div class="instructions-inline">
                         <p>
-                            <span class="desktop-text">Välj 5 nummer mellan 1 och 50 samt 2 stjärnnummer mellan 1 och 12</span>
-                            <span class="mobile-text">Välj 5 nummer mellan 1 och 50<br>Välj 2 stjärnnummer mellan 1 och 12</span>
+                            <span class="desktop-text" data-i18n="home.instrDesktop">Välj 5 nummer mellan 1 och 50 samt 2 stjärnnummer mellan 1 och 12</span>
+                            <span class="mobile-text"><span data-i18n="home.instrMobileLine1">Välj 5 nummer mellan 1 och 50</span><br><span data-i18n="home.instrMobileLine2">Välj 2 stjärnnummer mellan 1 och 12</span></span>
                         </p>
                     </div>
                     
@@ -102,30 +82,30 @@
                 </div>
 
                 <div class="action-buttons">
-                    <button class="btn btn-secondary" id="generateBtn">Slumpa rad</button>
-                    <button class="btn btn-primary" id="resetBtn">Rensa val</button>
+                    <button class="btn btn-secondary" id="generateBtn" data-i18n="home.btnRandom">Slumpa rad</button>
+                    <button class="btn btn-primary" id="resetBtn" data-i18n="home.btnClear">Rensa val</button>
                 </div>
             </section>
 
             <div class="number-picker-modal" id="numberPicker" style="display: none;">
                 <div class="modal-overlay" id="modalOverlay"></div>
                 <div class="modal-content">
-                    <h3 id="pickerTitle">Välj ett nummer</h3>
+                    <h3 id="pickerTitle" data-i18n="home.pickerDefaultTitle">Välj ett nummer</h3>
                     <div class="picker-grid" id="pickerGrid"></div>
-                    <button class="btn btn-secondary" id="closePickerBtn">Stäng</button>
+                    <button class="btn btn-secondary" id="closePickerBtn" data-i18n="home.btnClose">Stäng</button>
                 </div>
             </div>
 
             <section class="simulation-panel inactive">
-                <h2>Simulera antal dragningar</h2>
+                <h2 data-i18n="home.simHeading">Simulera antal dragningar</h2>
                 
                 <div class="simulation-buttons">
-                    <button class="btn btn-sim" id="sim100" disabled>100 st</button>
-                    <button class="btn btn-sim" id="sim1000" disabled>1 000 st</button>
-                    <button class="btn btn-sim" id="sim10000" disabled>10 000 st</button>
-                    <button class="btn btn-sim" id="sim100000" disabled>100 000 st</button>
-                    <button class="btn btn-sim" id="sim1000000" disabled>1 000 000 st</button>
-                    <button class="btn btn-sim" id="sim10000000" disabled>10 000 000 st</button>
+                    <button class="btn btn-sim" id="sim100" disabled data-i18n="home.sim100">100 st</button>
+                    <button class="btn btn-sim" id="sim1000" disabled data-i18n="home.sim1000">1 000 st</button>
+                    <button class="btn btn-sim" id="sim10000" disabled data-i18n="home.sim10000">10 000 st</button>
+                    <button class="btn btn-sim" id="sim100000" disabled data-i18n="home.sim100000">100 000 st</button>
+                    <button class="btn btn-sim" id="sim1000000" disabled data-i18n="home.sim1000000">1 000 000 st</button>
+                    <button class="btn btn-sim" id="sim10000000" disabled data-i18n="home.sim10000000">10 000 000 st</button>
                 </div>
 
                 <div class="progress-container" id="progressContainer" style="display: none;">
@@ -137,36 +117,36 @@
             </section>
 
             <section class="results-panel" id="resultsPanel" style="display: none;">
-                <h2>Resultat</h2>
+                <h2 data-i18n="home.resultsHeading">Resultat</h2>
                 
                 <div class="summary-cards">
                     <div class="summary-card">
-                        <span class="card-label">Antal dragningar</span>
+                        <span class="card-label" data-i18n="home.labelTotalDraws">Antal dragningar</span>
                         <span class="card-value" id="totalDraws">0</span>
                     </div>
                     <div class="summary-card">
-                        <span class="card-label">Total kostnad</span>
+                        <span class="card-label" data-i18n="home.labelTotalCost">Total kostnad</span>
                         <span class="card-value" id="totalCost">0 kr</span>
                     </div>
                     <div class="summary-card">
-                        <span class="card-label">Total vinst</span>
+                        <span class="card-label" data-i18n="home.labelTotalWin">Total vinst</span>
                         <span class="card-value" id="totalWin">0 kr</span>
                     </div>
                     <div class="summary-card highlight">
-                        <span class="card-label">Netto resultat</span>
+                        <span class="card-label" data-i18n="home.labelNet">Netto resultat</span>
                         <span class="card-value" id="netResult">0 kr</span>
                     </div>
                 </div>
 
                 <div class="results-table-container">
-                    <h2>Vinstfördelning</h2>
+                    <h2 data-i18n="home.winDistHeading">Vinstfördelning</h2>
                     <table class="results-table" id="resultsTable">
                         <thead>
                             <tr>
-                                <th>Antal rätt</th>
-                                <th>Antal</th>
-                                <th>Vinst per rad</th>
-                                <th>Total vinst</th>
+                                <th data-i18n="home.thMatch">Antal rätt</th>
+                                <th data-i18n="home.thCount">Antal</th>
+                                <th data-i18n="home.thPrizePer">Vinst per rad</th>
+                                <th data-i18n="home.thTotalWin">Total vinst</th>
                             </tr>
                         </thead>
                         <tbody id="resultsBody">
@@ -175,31 +155,29 @@
                 </div>
 
                 <div class="best-result" id="bestResult" style="display: none;">
-                    <h2 id="bestResultTitle">Bästa dragning</h2>
+                    <h2 id="bestResultTitle" data-i18n="home.bestDrawHeading">Bästa dragning</h2>
                     <div class="best-result-content" id="bestResultContent"></div>
                 </div>
 
                 <div class="investment-comparison" id="investmentComparison" style="display: none;">
-                    <h2>Om du investerat istället</h2>
+                    <h2 data-i18n="home.investHeading">Om du investerat istället</h2>
                     <div class="investment-content">
-                        <p class="investment-description">
-                            Om du investerat 25 kr per dag i en global indexfond med 7% årlig avkastning:
-                        </p>
+                        <p class="investment-description"></p>
                         <div class="investment-cards">
                             <div class="investment-card">
-                                <span class="card-label">Investerat belopp</span>
+                                <span class="card-label" data-i18n="home.labelInvested">Investerat belopp</span>
                                 <span class="card-value" id="investedAmount">0 kr</span>
                             </div>
                             <div class="investment-card">
-                                <span class="card-label">Värde efter ränta</span>
+                                <span class="card-label" data-i18n="home.labelValueAfter">Värde efter ränta</span>
                                 <span class="card-value" id="investmentValue">0 kr</span>
                             </div>
                             <div class="investment-card">
-                                <span class="card-label">Vinst på investering</span>
+                                <span class="card-label" data-i18n="home.labelInvestProfit">Vinst på investering</span>
                                 <span class="card-value" id="investmentProfit">0 kr</span>
                             </div>
                             <div class="investment-card comparison-card">
-                                <span class="card-label" id="comparisonLabel">Skillnad</span>
+                                <span class="card-label" id="comparisonLabel" data-i18n="home.labelDiff">Skillnad</span>
                                 <span class="card-value" id="comparisonValue">0 kr</span>
                             </div>
                         </div>
@@ -209,20 +187,32 @@
 
             <section class="promo-section" id="promoSection" style="display: none;">
                 <div class="promo-card">
-                    <h2>Jakten på Jackpotten</h2>
-                    <p>En dragning varje sekund. Se hur dagarna tickar förbi utan jackpot.</p>
-                    <a href="jakten-pa-jackpotten.html" class="btn btn-promo">Se Live-simuleringen</a>
+                    <h2 data-i18n="home.promoTitle">Jakten på Jackpotten</h2>
+                    <p data-i18n="home.promoText">En dragning varje sekund. Se hur dagarna tickar förbi utan jackpot.</p>
+                    <a href="jakten-pa-jackpotten.html" class="btn btn-promo" data-i18n="home.promoBtn">Se Live-simuleringen</a>
                 </div>
             </section>
         </main>
 
         <footer>
-            <p class="footer-links"><a href="jakten-pa-jackpotten.html" class="footer-link">Jakten på Jackpotten</a> | <a href="about.html" class="footer-link">Om ZeroJackpot</a></p>
-            <p class="footer-description">ZeroJackpot - En simulator för att visa sannolikheten i Eurojackpot</p>
+            <p class="footer-links"><a href="jakten-pa-jackpotten.html" class="footer-link" data-i18n="common.footerJakten">Jakten på Jackpotten</a> | <a href="about.html" class="footer-link" data-i18n="common.footerAbout">Om ZeroJackpot</a></p>
+            <p class="footer-description" data-i18n="common.footerTagline">ZeroJackpot - En simulator för att visa sannolikheten i Eurojackpot</p>
+            <div class="footer-lang" data-footer-lang>
+                <button type="button" class="footer-lang-trigger" aria-expanded="false" aria-haspopup="menu" aria-controls="footer-lang-menu" data-i18n="common.langLabel" data-i18n-attr="aria-label">
+                    <span class="footer-lang-current" data-footer-lang-current aria-hidden="true">🇸🇪</span>
+                </button>
+                <div class="footer-lang-dropdown" id="footer-lang-menu" role="menu">
+                    <button type="button" class="footer-lang-opt" role="menuitem" data-lang-set="sv"><span class="footer-lang-emoji" aria-hidden="true">🇸🇪</span><span class="footer-lang-name" data-i18n="common.langNameSv">Svenska</span></button>
+                    <button type="button" class="footer-lang-opt" role="menuitem" data-lang-set="en"><span class="footer-lang-emoji" aria-hidden="true">🇬🇧</span><span class="footer-lang-name" data-i18n="common.langNameEn">English</span></button>
+                    <button type="button" class="footer-lang-opt" role="menuitem" data-lang-set="de"><span class="footer-lang-emoji" aria-hidden="true">🇩🇪</span><span class="footer-lang-name" data-i18n="common.langNameDe">Deutsch</span></button>
+                    <button type="button" class="footer-lang-opt" role="menuitem" data-lang-set="es"><span class="footer-lang-emoji" aria-hidden="true">🇪🇸</span><span class="footer-lang-name" data-i18n="common.langNameEs">Español</span></button>
+                </div>
+            </div>
         </footer>
     </div>
 
     <script src="js/logic.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

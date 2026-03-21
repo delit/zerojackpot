@@ -224,6 +224,9 @@
         min-width: unset;
         max-width: unset;
         flex: none;
+        font-size: 0.78rem;
+        padding: 10px 6px;
+        line-height: 1.25;
     }
 
     .summary-cards {

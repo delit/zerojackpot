@@ -32,47 +32,8 @@
     <link rel="alternate" hreflang="sv" href="https://delit.github.io/zerojackpot/about.html">
     <link rel="alternate" hreflang="x-default" href="https://delit.github.io/zerojackpot/about.html">
     
-    <!-- FAQ Structured Data for AEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Vilka är oddsen att vinna Eurojackpot?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sannolikheten att vinna jackpotten i Eurojackpot är 1 på 139 838 160. Om du spelade en gång per vecka skulle det ta i genomsnitt nästan 2,7 miljoner år innan du vinner jackpotten."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Hur stor är chansen att vinna något alls i Eurojackpot?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Chansen att vinna något alls i en enskild dragning är cirka 1 på 32, eller 3,1%. Det betyder att 96,9% av alla lottrader ger ingen vinst alls."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Hur mycket kostar en Eurojackpot-rad?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "En lottorad i Eurojackpot kostar 25 kr. I genomsnitt förlorar du 13 kr per rad eftersom förväntat värde är cirka 12 kr."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Vad händer om jag investerar istället för att spela lotteri?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Om du spelar lotteri varje vecka i 10 år har du lagt 13 000 kr och förmodligen vunnit några hundralappar. Om du istället investerat samma pengar i en global indexfond med 7% årlig avkastning hade du haft över 18 000 kr. Efter 30 år är skillnaden ännu mer dramatisk."
-          }
-        }
-      ]
-    }
-    </script>
+    <!-- FAQ Structured Data (ifylls av i18n.js) -->
+    <script type="application/ld+json" id="faq-jsonld">{}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@400;700&display=swap" rel="stylesheet">
@@ -86,232 +47,104 @@
 <body>
     <div class="container">
         <header>
-            <a href="index.html" class="header-logo-link" aria-label="ZeroJackpot – till startsidan">
+            <a href="index.html" class="header-logo-link" data-i18n="common.headerLogoAria" data-i18n-attr="aria-label" aria-label="ZeroJackpot">
                 <img src="grafik/01logo-zero-jackpot@2x.png" alt="ZeroJackpot" class="header-logo" width="1178" height="132" decoding="async">
             </a>
-            <p class="subtitle">Eurojackpot Simulator</p>
+            <p class="subtitle" data-i18n="common.subtitle">Eurojackpot Simulator</p>
         </header>
 
         <main>
             <section class="about-section">
                 <div class="nav-link">
-                    <a href="index.html" class="back-link">← Tillbaka till simulatorn</a>
+                    <a href="index.html" class="back-link" data-i18n="about.backLink">← Tillbaka till simulatorn</a>
                 </div>
 
-                <h2>Om ZeroJackpot</h2>
+                <h2 data-i18n="about.h2">Om ZeroJackpot</h2>
                 
                 <div class="about-content">
-                    <p>
-                        ZeroJackpot är en simulator som visar den hårda sanningen om Eurojackpot: <strong>chansen att vinna är nästan obefintlig</strong>. 
-                        Många spelar lotteri varje vecka utan att förstå de extremt låga oddsen. Denna simulator låter dig se resultatet 
-                        av tusentals, eller till och med miljontals dragningar på några sekunder.
-                    </p>
-                    <p>
-                        När du simulerar 10 000 dragningar och fortfarande inte har vunnit mer än några hundralappar, börjar verkligheten att sjunka in. 
-                        När du simulerar 1 000 000 dragningar (motsvarande nästan 2 740 år av veckovisa spel) och kanske fortfarande inte har vunnit 
-                        jackpotten, förstår du hur osannolik en vinst egentligen är.
-                    </p>
+                    <p data-i18n="about.intro1"></p>
+                    <p data-i18n="about.intro2"></p>
 
-                    <blockquote class="highlight-quote">
-                        Om du spelade en gång per vecka skulle det ta i genomsnitt nästan 2,7 miljoner år innan du vinner jackpotten.
-                    </blockquote>
+                    <blockquote class="highlight-quote" data-i18n="about.quote"></blockquote>
 
-                    <h3>Syftet med simulatorn</h3>
-                    <p>
-                        Målet är inte att förstöra drömmen om att vinna, utan att ge en <strong>realistisk bild av sannolikheten</strong>. 
-                        Vi vill att du ska:
-                    </p>
+                    <h3 data-i18n="about.purposeH"></h3>
+                    <p data-i18n="about.purposeP"></p>
                     <ul>
-                        <li>Förstå de verkliga oddsen innan de spelar</li>
-                        <li>Inse att lotteri är underhållning, inte en investering</li>
-                        <li>Se vad som händer om man lägger samma pengar på långsiktig investering istället</li>
-                        <li>Fatta informerade beslut om hur de spenderar sina pengar</li>
+                        <li data-i18n="about.purposeLi1"></li>
+                        <li data-i18n="about.purposeLi2"></li>
+                        <li data-i18n="about.purposeLi3"></li>
+                        <li data-i18n="about.purposeLi4"></li>
                     </ul>
 
-                    <h3>Investeringsjämförelsen</h3>
-                    <p>
-                        Simulatorn visar vad som händer om du investerar samma 25 kr per vecka i en global indexfond med 7% årlig avkastning istället. 
-                        För de flesta blir skillnaden chockerande - efter bara några år växer ett litet veckovist sparande till betydande summor tack 
-                        vare ränta-på-ränta-effekten.
-                    </p>
-                    <p>
-                        En lottorad kostar 25 kr. Om du spelar varje vecka i 10 år har du lagt 13 000 kr och förmodligen vunnit några hundralappar. 
-                        Om du istället investerat de pengarna hade du haft över 18 000 kr. Efter 30 år är skillnaden ännu mer dramatisk.
-                    </p>
+                    <h3 data-i18n="about.investH"></h3>
+                    <p data-i18n="about.investP1"></p>
+                    <p data-i18n="about.investP2"></p>
 
-                    <h3>Om Eurojackpot</h3>
-                    <p>
-                        Eurojackpot är ett europeiskt lotterispel där du väljer 5 nummer mellan 1-50 och 2 stjärnnummer mellan 1-12. 
-                        Det finns 12 vinstkategorier, från jackpotten (5+2) ner till minsta vinsten (2+1).
-                    </p>
+                    <h3 data-i18n="about.ejH"></h3>
+                    <p data-i18n="about.ejP"></p>
 
-                    <h3>De verkliga oddsen</h3>
-                    <p>Här är sannolikheten för varje vinstkategori i Eurojackpot:</p>
+                    <h3 data-i18n="about.oddsH"></h3>
+                    <p data-i18n="about.oddsIntro"></p>
                     
                     <div class="odds-table-container">
                         <table class="odds-table">
                             <thead>
                                 <tr>
-                                    <th>Kategori</th>
-                                    <th>Vinst (ca)</th>
-                                    <th>Odds</th>
-                                    <th>Sannolikhet</th>
+                                    <th data-i18n="about.thRight"></th>
+                                    <th data-i18n="about.thPrizeApprox"></th>
+                                    <th data-i18n="about.thOdds"></th>
+                                    <th data-i18n="about.thProb"></th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>5+2</td>
-                                    <td>400 000 000 kr</td>
-                                    <td>1:139 838 160</td>
-                                    <td>0,0000007%</td>
-                                </tr>
-                                <tr>
-                                    <td>5+1</td>
-                                    <td>2 000 000 kr</td>
-                                    <td>1:6 991 908</td>
-                                    <td>0,000014%</td>
-                                </tr>
-                                <tr>
-                                    <td>5+0</td>
-                                    <td>400 000 kr</td>
-                                    <td>1:3 107 515</td>
-                                    <td>0,000032%</td>
-                                </tr>
-                                <tr>
-                                    <td>4+2</td>
-                                    <td>16 000 kr</td>
-                                    <td>1:621 503</td>
-                                    <td>0,00016%</td>
-                                </tr>
-                                <tr>
-                                    <td>4+1</td>
-                                    <td>900 kr</td>
-                                    <td>1:31 075</td>
-                                    <td>0,0032%</td>
-                                </tr>
-                                <tr>
-                                    <td>3+2</td>
-                                    <td>500 kr</td>
-                                    <td>1:14 125</td>
-                                    <td>0,0071%</td>
-                                </tr>
-                                <tr>
-                                    <td>4+0</td>
-                                    <td>400 kr</td>
-                                    <td>1:13 811</td>
-                                    <td>0,0072%</td>
-                                </tr>
-                                <tr>
-                                    <td>2+2</td>
-                                    <td>175 kr</td>
-                                    <td>1:985</td>
-                                    <td>0,10%</td>
-                                </tr>
-                                <tr>
-                                    <td>3+1</td>
-                                    <td>150 kr</td>
-                                    <td>1:706</td>
-                                    <td>0,14%</td>
-                                </tr>
-                                <tr>
-                                    <td>3+0</td>
-                                    <td>120 kr</td>
-                                    <td>1:314</td>
-                                    <td>0,32%</td>
-                                </tr>
-                                <tr>
-                                    <td>1+2</td>
-                                    <td>90 kr</td>
-                                    <td>1:188</td>
-                                    <td>0,53%</td>
-                                </tr>
-                                <tr>
-                                    <td>2+1</td>
-                                    <td>65 kr</td>
-                                    <td>1:49</td>
-                                    <td>2,04%</td>
-                                </tr>
-                            </tbody>
+                            <tbody id="oddsTableBody"></tbody>
                         </table>
                     </div>
 
-                    <p class="odds-summary">
-                        <strong>Sannolikheten att vinna jackpotten är 1 på 139 838 160.</strong><br><br>
-                        Chansen att <strong>vinna något alls</strong> i en enskild dragning är cirka 1 på 32, eller 3,1%. 
-                        Det betyder att 96,9% av alla lottrader ger ingen vinst alls.
-                    </p>
+                    <p class="odds-summary" data-i18n="about.oddsSummary"></p>
 
-                    <h3>För att sätta oddsen i perspektiv:</h3>
+                    <h3 data-i18n="about.perspH"></h3>
                     
                     <div class="perspective-grid">
                         <div class="perspective-card">
                             <div class="perspective-icon">⚡</div>
-                            <div class="perspective-text">
-                                Du har <strong>större chans att bli träffad av blixten</strong> (ca 1 på 500 000) än att vinna jackpotten
-                            </div>
+                            <div class="perspective-text" data-i18n="about.persp1"></div>
                         </div>
-                        
                         <div class="perspective-card">
                             <div class="perspective-icon">✈️</div>
-                            <div class="perspective-text">
-                                Du har <strong>större chans att dö i en flygkrasch</strong> (ca 1 på 11 miljoner) än att vinna jackpotten
-                            </div>
+                            <div class="perspective-text" data-i18n="about.persp2"></div>
                         </div>
-                        
                         <div class="perspective-card">
                             <div class="perspective-icon">📅</div>
-                            <div class="perspective-text">
-                                Om du spelade <strong>en gång varje dag</strong> skulle det ta över <strong>380 000 år</strong> i genomsnitt innan du vinner jackpotten
-                            </div>
+                            <div class="perspective-text" data-i18n="about.persp3"></div>
                         </div>
-                        
                         <div class="perspective-card">
                             <div class="perspective-icon">🇸🇪</div>
-                            <div class="perspective-text">
-                                Om <strong>alla 10,5 miljoner svenskar</strong> spelade en rad skulle statistiskt sett endast <strong>0,075 personer</strong> vinna jackpotten
-                            </div>
+                            <div class="perspective-text" data-i18n="about.persp4"></div>
                         </div>
                     </div>
 
-                    <h3>Matematiken bakom</h3>
-                    <p>
-                        Antalet möjliga kombinationer i Eurojackpot beräknas genom att kombinera valen av huvudnummer och stjärnnummer:
-                    </p>
+                    <h3 data-i18n="about.mathH"></h3>
+                    <p data-i18n="about.mathP1"></p>
                     <ul>
-                        <li>5 nummer av 50 möjliga: 2 118 760 kombinationer</li>
-                        <li>2 stjärnnummer av 12 möjliga: 66 kombinationer</li>
-                        <li>Totalt: 2 118 760 × 66 = <strong>139 838 160 möjliga kombinationer</strong></li>
+                        <li data-i18n="about.mathLi1"></li>
+                        <li data-i18n="about.mathLi2"></li>
+                        <li data-i18n="about.mathLi3"></li>
                     </ul>
-                    <p>
-                        Det är därför oddsen för jackpotten är exakt 1 på 139 838 160. Det finns ingen strategi, inget system, 
-                        ingen "turdag" som kan förbättra dessa odds. Varje dragning är helt oberoende av tidigare dragningar.
-                    </p>
+                    <p data-i18n="about.mathP2"></p>
 
-                    <h3>Matematiken ljuger inte</h3>
-                    <p>
-                        Som simulatorn visar: på lång sikt <strong>förlorar du alltid pengar på lotteri</strong>. Det är så lotterispel är designade. 
-                        Endast cirka 50% av insatta pengar återgår till spelarna som vinster - resten går till staten, välgörenhet och administration.
-                    </p>
-                    <p>
-                        Detta betyder att <strong>förväntat värde</strong> för varje lottorad är cirka 12 kr, trots att den kostar 25 kr. 
-                        I genomsnitt förlorar du alltså 13 kr per rad du spelar.
-                    </p>
+                    <h3 data-i18n="about.truthH"></h3>
+                    <p data-i18n="about.truthP1"></p>
+                    <p data-i18n="about.truthP2"></p>
 
-                    <h3>Spelberoende och hjälp</h3>
-                    <p>
-                        Lotterispel kan för vissa utvecklas till ett allvarligt problem. Om du eller någon du känner har svårt att 
-                        kontrollera sitt spelande, finns det hjälp att få.
-                    </p>
+                    <h3 data-i18n="about.gambleH"></h3>
+                    <p data-i18n="about.gambleP"></p>
                     <div class="help-box">
-                        <h4>Stödlinjen - hjälp vid spelberoende</h4>
+                        <h4 data-i18n="about.helpH"></h4>
                         <p>
-                            <strong>Telefon:</strong> 020-819 100 (öppet alla dagar 09:00-21:00)<br>
-                            <strong>Webb:</strong> <a href="https://www.stodlinjen.se" target="_blank">www.stodlinjen.se</a>
+                            <strong data-i18n="about.helpPhone"></strong> 020-819 100 (öppet alla dagar 09:00-21:00)<br>
+                            <strong data-i18n="about.helpWeb"></strong> <a href="https://www.stodlinjen.se" target="_blank">www.stodlinjen.se</a>
                         </p>
-                        <p>
-                            Stödlinjen erbjuder kostnadsfri och anonym rådgivning till personer med spelproblem och deras anhöriga. 
-                            Det är aldrig för sent att söka hjälp.
-                        </p>
+                        <p data-i18n="about.helpP2"></p>
                     </div>
 
                 </div>
@@ -319,9 +152,22 @@
         </main>
 
         <footer>
-            <p class="footer-links"><a href="jakten-pa-jackpotten.html" class="footer-link">Jakten på Jackpotten</a> | <a href="about.html" class="footer-link">Om ZeroJackpot</a></p>
-            <p class="footer-description">ZeroJackpot - En simulator för att visa sannolikheten i Eurojackpot</p>
+            <p class="footer-links"><a href="jakten-pa-jackpotten.html" class="footer-link" data-i18n="common.footerJakten">Jakten på Jackpotten</a> | <a href="about.html" class="footer-link" data-i18n="common.footerAbout">Om ZeroJackpot</a></p>
+            <p class="footer-description" data-i18n="common.footerTagline">ZeroJackpot - En simulator för att visa sannolikheten i Eurojackpot</p>
+            <div class="footer-lang" data-footer-lang>
+                <button type="button" class="footer-lang-trigger" aria-expanded="false" aria-haspopup="menu" aria-controls="footer-lang-menu-about" data-i18n="common.langLabel" data-i18n-attr="aria-label">
+                    <span class="footer-lang-current" data-footer-lang-current aria-hidden="true">🇸🇪</span>
+                </button>
+                <div class="footer-lang-dropdown" id="footer-lang-menu-about" role="menu">
+                    <button type="button" class="footer-lang-opt" role="menuitem" data-lang-set="sv"><span class="footer-lang-emoji" aria-hidden="true">🇸🇪</span><span class="footer-lang-name" data-i18n="common.langNameSv">Svenska</span></button>
+                    <button type="button" class="footer-lang-opt" role="menuitem" data-lang-set="en"><span class="footer-lang-emoji" aria-hidden="true">🇬🇧</span><span class="footer-lang-name" data-i18n="common.langNameEn">English</span></button>
+                    <button type="button" class="footer-lang-opt" role="menuitem" data-lang-set="de"><span class="footer-lang-emoji" aria-hidden="true">🇩🇪</span><span class="footer-lang-name" data-i18n="common.langNameDe">Deutsch</span></button>
+                    <button type="button" class="footer-lang-opt" role="menuitem" data-lang-set="es"><span class="footer-lang-emoji" aria-hidden="true">🇪🇸</span><span class="footer-lang-name" data-i18n="common.langNameEs">Español</span></button>
+                </div>
+            </div>
         </footer>
     </div>
+    <script src="js/logic.js"></script>
+    <script src="js/i18n.js"></script>
 </body>
 </html>

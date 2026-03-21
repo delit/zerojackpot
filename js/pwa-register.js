@@ -10,7 +10,6 @@
     var box = document.getElementById('about-pwa-download');
     if (!box) return;
 
-    var btn = document.getElementById('pwa-install-btn');
     var browserNote = document.getElementById('pwa-install-browser-note');
     var standaloneNote = document.getElementById('pwa-standalone-note');
     var instructions = box.querySelector('[data-pwa-instructions]');
@@ -51,25 +50,16 @@
         }
     }
 
-    function syncInstallChrome() {
-        if (isStandalone) return;
-        var hasPrompt = !!deferredPrompt;
-        setHidden(btn, !hasPrompt);
-        setHidden(browserNote, hasPrompt);
-    }
-
     function runInstallPrompt() {
         if (!deferredPrompt) return;
         deferredPrompt.prompt();
         deferredPrompt.userChoice.finally(function () {
             deferredPrompt = null;
-            syncInstallChrome();
         });
     }
 
     if (isStandalone) {
         setHidden(instructions, true);
-        setHidden(btn, true);
         setHidden(browserNote, true);
         setHidden(androidLink, true);
         setHidden(standaloneNote, false);
@@ -77,27 +67,19 @@
     }
 
     setHidden(standaloneNote, true);
+    setHidden(browserNote, false);
     syncAndroidManualLink();
-    syncInstallChrome();
+
     window.addEventListener('beforeinstallprompt', function (e) {
         e.preventDefault();
         deferredPrompt = e;
-        syncInstallChrome();
     });
 
     window.addEventListener('appinstalled', function () {
         deferredPrompt = null;
-        setHidden(btn, true);
-        setHidden(browserNote, false);
     });
 
-    if (btn) {
-        btn.addEventListener('click', function () {
-            runInstallPrompt();
-        });
-    }
-
-    /* Orange CTA: PWA-dialog via prompt() när beforeinstallprompt finns; annars mjuk scroll till steg (ingen # i URL) */
+    /* Android CTA: prompt() när webbläsaren erbjudit installation; annars mjuk scroll till steg */
     if (androidLink) {
         androidLink.addEventListener('click', function () {
             if (deferredPrompt) {

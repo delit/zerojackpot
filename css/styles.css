@@ -957,15 +957,9 @@ footer p,
     margin-bottom: 0;
 }
 
-/* Luft mellan knappar och hjälptext bara när minst en CTA syns */
-.about-pwa-cta-row:has(#pwa-install-btn:not([hidden])),
+/* Luft mellan Android-knapp och hjälptext när knappen syns */
 .about-pwa-cta-row:has(.about-pwa-android-visible) {
     margin-bottom: 10px;
-}
-
-.about-pwa-cta-row .about-pwa-install-btn {
-    margin-top: 0;
-    margin-bottom: 0;
 }
 
 .about-pwa-cta-row .btn {
@@ -986,11 +980,6 @@ footer p,
 
 .about-pwa-android-link.about-pwa-android-visible {
     display: inline-flex !important;
-}
-
-.about-pwa-install-btn {
-    margin-top: 14px;
-    margin-bottom: 8px;
 }
 
 .about-pwa-cta-row + #pwa-install-browser-note {

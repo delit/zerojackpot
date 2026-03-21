@@ -4,7 +4,7 @@
     "htmlLang": "en",
     "intlLocale": "en-GB",
     "currency": "EUR",
-    "ticketPrice": 2.5,
+    "ticketPrice": 2,
     "ogLocale": "en_GB"
   },
   "common": {
@@ -52,8 +52,8 @@
     "purposeLi3": "See what happens if you put the same money into long-term investing instead",
     "purposeLi4": "Make informed choices about how you spend your money",
     "investH": "Investment comparison",
-    "investP1": "The simulator shows what happens if you invest the same €2.50 per week in a global index fund with 7% annual return instead. For most people the gap is shocking – even a small weekly sum grows fast thanks to compound interest.",
-    "investP2": "A line costs about €2.50. Playing every week for 10 years means spending roughly €1,300, often winning only small amounts. Investing that money instead could leave you with over €1,600. After 30 years the gap is even bigger.",
+    "investP1": "The simulator shows what happens if you invest the same €2 per week in a global index fund with 7% annual return instead. For most people the gap is shocking – even a small weekly sum grows fast thanks to compound interest.",
+    "investP2": "A line costs €2. Playing every week for 10 years means spending roughly €1,040, often winning only small amounts. Investing that money instead could leave you with over €1,280. After 30 years the gap is even bigger.",
     "ejH": "About Eurojackpot",
     "ejP": "Eurojackpot is a European lottery: pick 5 numbers from 1–50 and 2 star numbers from 1–12. There are 12 prize tiers, from the jackpot (5+2) down to the smallest win (2+1).",
     "oddsH": "The real odds",
@@ -76,7 +76,7 @@
     "mathP2": "That is why jackpot odds are exactly 1 in 139,838,160. No strategy or system changes this. Each draw is independent.",
     "truthH": "The maths do not lie",
     "truthP1": "As the simulator shows: long term you lose money on the lottery. That is by design. Only about 50% of stakes return to players as prizes; the rest goes to the state, good causes and costs.",
-    "truthP2": "Expected value per line is only about €1.20 even though the line costs €2.50 – so on average you lose about €1.30 per line.",
+    "truthP2": "Expected value per line is only about €0.95 even though the line costs €2 – so on average you lose about €1.05 per line.",
     "gambleH": "Problem gambling and help",
     "gambleP": "For some people, gambling becomes a serious problem. If you or someone you know struggles to control play, help is available.",
     "helpH": "Sweden: Stödlinjen (gambling support)",
@@ -171,11 +171,11 @@
     },
     "q3": {
       "question": "How much does a Eurojackpot line cost?",
-      "answer": "A line costs about €2.50 in many countries. On average you get back only about €1.20 per line, so you lose about €1.30 per line played."
+      "answer": "A Eurojackpot line costs €2 in the UK, Germany and Spain. On average you get back only about €0.95 per line, so you lose about €1.05 per line played."
     },
     "q4": {
       "question": "What if I invest instead of playing?",
-      "answer": "Playing weekly for 10 years costs roughly €1,300 with usually only small wins. Investing the same in a global index fund at 7% could give over €1,600. After 30 years the gap is much larger."
+      "answer": "Playing weekly for 10 years costs roughly €1,040 with usually only small wins. Investing the same in a global index fund at 7% could give over €1,280. After 30 years the gap is much larger."
     }
   },
   "oddsProb": {

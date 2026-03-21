@@ -4,7 +4,7 @@
     "htmlLang": "de",
     "intlLocale": "de-DE",
     "currency": "EUR",
-    "ticketPrice": 2.5,
+    "ticketPrice": 2,
     "ogLocale": "de_DE"
   },
   "common": {
@@ -52,8 +52,8 @@
     "purposeLi3": "siehst, was passiert, wenn du dasselbe Geld langfristig anlegst",
     "purposeLi4": "informiert entscheidest, wie du dein Geld ausgibst",
     "investH": "Investitionsvergleich",
-    "investP1": "Der Simulator zeigt, was passiert, wenn du dieselben 2,50 € pro Woche stattdessen in einen globalen Indexfonds mit 7 % Rendite anlegst. Für die meisten ist der Unterschied schockierend – schon kleine Beträge wachsen durch Zinseszins.",
-    "investP2": "Ein Tipp kostet etwa 2,50 €. Jede Woche 10 Jahre lang sind das rund 1 300 €, oft nur Kleingewinne. Investiert hättest du über 1 600 €. Nach 30 Jahren ist die Lücke noch größer.",
+    "investP1": "Der Simulator zeigt, was passiert, wenn du dieselben 2 € pro Woche stattdessen in einen globalen Indexfonds mit 7 % Rendite anlegst. Für die meisten ist der Unterschied schockierend – schon kleine Beträge wachsen durch Zinseszins.",
+    "investP2": "Ein Tipp kostet 2 €. Jede Woche 10 Jahre lang sind das rund 1 040 €, oft nur Kleingewinne. Investiert hättest du über 1 280 €. Nach 30 Jahren ist die Lücke noch größer.",
     "ejH": "Über Eurojackpot",
     "ejP": "Eurojackpot ist eine europäische Lotterie: 5 Zahlen aus 1–50 und 2 Eurozahlen aus 1–12. Es gibt 12 Gewinnklassen, vom Jackpot (5+2) bis zum kleinsten Gewinn (2+1).",
     "oddsH": "Die echten Chancen",
@@ -76,7 +76,7 @@
     "mathP2": "Deshalb genau 1 zu 139 838 160 für den Jackpot. Kein System ändert das. Jede Ziehung ist unabhängig.",
     "truthH": "Die Mathematik lügt nicht",
     "truthP1": "Langfristig verlierst du beim Lotto Geld – so ist es konstruiert. Nur etwa 50 % der Einsätze fließen als Gewinne zurück.",
-    "truthP2": "Der Erwartungswert pro Tipp liegt bei nur etwa 1,20 € bei Kosten von 2,50 € – im Schnitt verlierst du etwa 1,30 € pro Tipp.",
+    "truthP2": "Der Erwartungswert pro Tipp liegt bei nur etwa 0,95 € bei Kosten von 2 € – im Schnitt verlierst du etwa 1,05 € pro Tipp.",
     "gambleH": "Spielsucht und Hilfe",
     "gambleP": "Glücksspiel kann zur Sucht werden. Wenn du oder jemand in deinem Umfeld Probleme hat, Hilfe zu suchen lohnt sich.",
     "helpH": "Schweden: Stödlinjen",
@@ -171,11 +171,11 @@
     },
     "q3": {
       "question": "Was kostet ein Eurojackpot-Tipp?",
-      "answer": "Ein Tipp kostet in vielen Ländern etwa 2,50 €. Im Schnitt bekommst du nur etwa 1,20 € zurück – Verlust etwa 1,30 € pro Tipp."
+      "answer": "Ein Eurojackpot-Tipp kostet in Deutschland, im Vereinigten Königreich und in Spanien 2 €. Im Schnitt bekommst du nur etwa 0,95 € zurück – Verlust etwa 1,05 € pro Tipp."
     },
     "q4": {
       "question": "Was, wenn ich stattdessen investiere?",
-      "answer": "10 Jahre wöchentlich spielen: rund 1 300 € mit meist Kleingewinnen. Investiert über 1 600 € möglich bei 7 %. Nach 30 Jahren viel mehr."
+      "answer": "10 Jahre wöchentlich spielen: rund 1 040 € mit meist Kleingewinnen. Investiert über 1 280 € möglich bei 7 %. Nach 30 Jahren viel mehr."
     }
   },
   "oddsProb": {

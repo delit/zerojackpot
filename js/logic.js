@@ -49,7 +49,7 @@ function getPrizeTiers() {
 function getTicketPrice() {
     const m = getMeta();
     const p = m.ticketPrice;
-    return typeof p === 'number' && !isNaN(p) ? p : m.currency === 'EUR' ? 2.5 : 25;
+    return typeof p === 'number' && !isNaN(p) ? p : m.currency === 'EUR' ? 2 : 25;
 }
 
 function generateRandomNumbers(min, max, count) {

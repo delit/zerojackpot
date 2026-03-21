@@ -5,7 +5,7 @@ const svPath = path.join(__dirname, '../i18n/sv.json');
 const sv = JSON.parse(fs.readFileSync(svPath, 'utf8'));
 
 const en = JSON.parse(JSON.stringify(sv));
-en.meta = { locale: 'en', htmlLang: 'en', intlLocale: 'en-GB', currency: 'EUR', ticketPrice: 2.5, ogLocale: 'en_GB' };
+en.meta = { locale: 'en', htmlLang: 'en', intlLocale: 'en-GB', currency: 'EUR', ticketPrice: 2, ogLocale: 'en_GB' };
 Object.assign(en.common, {
     langNameSv: 'Swedish',
     langNameEn: 'English',
@@ -67,9 +67,9 @@ Object.assign(en.about, {
     purposeLi4: 'Make informed choices about how you spend your money',
     investH: 'Investment comparison',
     investP1:
-        'The simulator shows what happens if you invest the same €2.50 per week in a global index fund with 7% annual return instead. For most people the gap is shocking – even a small weekly sum grows fast thanks to compound interest.',
+        'The simulator shows what happens if you invest the same €2 per week in a global index fund with 7% annual return instead. For most people the gap is shocking – even a small weekly sum grows fast thanks to compound interest.',
     investP2:
-        'A line costs about €2.50. Playing every week for 10 years means spending roughly €1,300, often winning only small amounts. Investing that money instead could leave you with over €1,600. After 30 years the gap is even bigger.',
+        'A line costs €2. Playing every week for 10 years means spending roughly €1,040, often winning only small amounts. Investing that money instead could leave you with over €1,280. After 30 years the gap is even bigger.',
     ejH: 'About Eurojackpot',
     ejP:
         'Eurojackpot is a European lottery: pick 5 numbers from 1–50 and 2 star numbers from 1–12. There are 12 prize tiers, from the jackpot (5+2) down to the smallest win (2+1).',
@@ -98,7 +98,7 @@ Object.assign(en.about, {
     truthP1:
         'As the simulator shows: long term you lose money on the lottery. That is by design. Only about 50% of stakes return to players as prizes; the rest goes to the state, good causes and costs.',
     truthP2:
-        'Expected value per line is only about €1.20 even though the line costs €2.50 – so on average you lose about €1.30 per line.',
+        'Expected value per line is only about €0.95 even though the line costs €2 – so on average you lose about €1.05 per line.',
     gambleH: 'Problem gambling and help',
     gambleP:
         'For some people, gambling becomes a serious problem. If you or someone you know struggles to control play, help is available.',
@@ -189,12 +189,12 @@ en.faq = {
     q3: {
         question: 'How much does a Eurojackpot line cost?',
         answer:
-            'A line costs about €2.50 in many countries. On average you get back only about €1.20 per line, so you lose about €1.30 per line played.'
+            'A Eurojackpot line costs €2 in the UK, Germany and Spain. On average you get back only about €0.95 per line, so you lose about €1.05 per line played.'
     },
     q4: {
         question: 'What if I invest instead of playing?',
         answer:
-            'Playing weekly for 10 years costs roughly €1,300 with usually only small wins. Investing the same in a global index fund at 7% could give over €1,600. After 30 years the gap is much larger.'
+            'Playing weekly for 10 years costs roughly €1,040 with usually only small wins. Investing the same in a global index fund at 7% could give over €1,280. After 30 years the gap is much larger.'
     }
 };
 en.oddsProb = {
@@ -213,7 +213,7 @@ en.oddsProb = {
 };
 
 const de = JSON.parse(JSON.stringify(en));
-de.meta = { locale: 'de', htmlLang: 'de', intlLocale: 'de-DE', currency: 'EUR', ticketPrice: 2.5, ogLocale: 'de_DE' };
+de.meta = { locale: 'de', htmlLang: 'de', intlLocale: 'de-DE', currency: 'EUR', ticketPrice: 2, ogLocale: 'de_DE' };
 Object.assign(de.common, {
     langNameSv: 'Schwedisch',
     langNameEn: 'Englisch',
@@ -276,9 +276,9 @@ Object.assign(de.about, {
     purposeLi4: 'informiert entscheidest, wie du dein Geld ausgibst',
     investH: 'Investitionsvergleich',
     investP1:
-        'Der Simulator zeigt, was passiert, wenn du dieselben 2,50 € pro Woche stattdessen in einen globalen Indexfonds mit 7 % Rendite anlegst. Für die meisten ist der Unterschied schockierend – schon kleine Beträge wachsen durch Zinseszins.',
+        'Der Simulator zeigt, was passiert, wenn du dieselben 2 € pro Woche stattdessen in einen globalen Indexfonds mit 7 % Rendite anlegst. Für die meisten ist der Unterschied schockierend – schon kleine Beträge wachsen durch Zinseszins.',
     investP2:
-        'Ein Tipp kostet etwa 2,50 €. Jede Woche 10 Jahre lang sind das rund 1 300 €, oft nur Kleingewinne. Investiert hättest du über 1 600 €. Nach 30 Jahren ist die Lücke noch größer.',
+        'Ein Tipp kostet 2 €. Jede Woche 10 Jahre lang sind das rund 1 040 €, oft nur Kleingewinne. Investiert hättest du über 1 280 €. Nach 30 Jahren ist die Lücke noch größer.',
     ejH: 'Über Eurojackpot',
     ejP:
         'Eurojackpot ist eine europäische Lotterie: 5 Zahlen aus 1–50 und 2 Eurozahlen aus 1–12. Es gibt 12 Gewinnklassen, vom Jackpot (5+2) bis zum kleinsten Gewinn (2+1).',
@@ -307,7 +307,7 @@ Object.assign(de.about, {
     truthP1:
         'Langfristig verlierst du beim Lotto Geld – so ist es konstruiert. Nur etwa 50 % der Einsätze fließen als Gewinne zurück.',
     truthP2:
-        'Der Erwartungswert pro Tipp liegt bei nur etwa 1,20 € bei Kosten von 2,50 € – im Schnitt verlierst du etwa 1,30 € pro Tipp.',
+        'Der Erwartungswert pro Tipp liegt bei nur etwa 0,95 € bei Kosten von 2 € – im Schnitt verlierst du etwa 1,05 € pro Tipp.',
     gambleH: 'Spielsucht und Hilfe',
     gambleP:
         'Glücksspiel kann zur Sucht werden. Wenn du oder jemand in deinem Umfeld Probleme hat, Hilfe zu suchen lohnt sich.',
@@ -398,17 +398,17 @@ de.faq = {
     q3: {
         question: 'Was kostet ein Eurojackpot-Tipp?',
         answer:
-            'Ein Tipp kostet in vielen Ländern etwa 2,50 €. Im Schnitt bekommst du nur etwa 1,20 € zurück – Verlust etwa 1,30 € pro Tipp.'
+            'Ein Eurojackpot-Tipp kostet in Deutschland, im Vereinigten Königreich und in Spanien 2 €. Im Schnitt bekommst du nur etwa 0,95 € zurück – Verlust etwa 1,05 € pro Tipp.'
     },
     q4: {
         question: 'Was, wenn ich stattdessen investiere?',
         answer:
-            '10 Jahre wöchentlich spielen: rund 1 300 € mit meist Kleingewinnen. Investiert über 1 600 € möglich bei 7 %. Nach 30 Jahren viel mehr.'
+            '10 Jahre wöchentlich spielen: rund 1 040 € mit meist Kleingewinnen. Investiert über 1 280 € möglich bei 7 %. Nach 30 Jahren viel mehr.'
     }
 };
 
 const es = JSON.parse(JSON.stringify(en));
-es.meta = { locale: 'es', htmlLang: 'es', intlLocale: 'es-ES', currency: 'EUR', ticketPrice: 2.5, ogLocale: 'es_ES' };
+es.meta = { locale: 'es', htmlLang: 'es', intlLocale: 'es-ES', currency: 'EUR', ticketPrice: 2, ogLocale: 'es_ES' };
 Object.assign(es.common, {
     langNameSv: 'Sueco',
     langNameEn: 'Inglés',
@@ -471,9 +471,9 @@ Object.assign(es.about, {
     purposeLi4: 'Tomes decisiones informadas sobre cómo gastas tu dinero',
     investH: 'Comparación con inversión',
     investP1:
-        'El simulador muestra qué pasa si inviertes los mismos 2,50 € por semana en un fondo indexado global al 7 % anual. Para muchos el salto es brutal: incluso poco dinero crece con el interés compuesto.',
+        'El simulador muestra qué pasa si inviertes los mismos 2 € por semana en un fondo indexado global al 7 % anual. Para muchos el salto es brutal: incluso poco dinero crece con el interés compuesto.',
     investP2:
-        'Una apuesta cuesta unos 2,50 €. Jugando cada semana 10 años gastas unos 1 300 €, a menudo con premios pequeños. Invirtiendo podrías tener más de 1 600 €. A 30 años la diferencia es enorme.',
+        'Una apuesta cuesta 2 €. Jugando cada semana 10 años gastas unos 1 040 €, a menudo con premios pequeños. Invirtiendo podrías tener más de 1 280 €. A 30 años la diferencia es enorme.',
     ejH: 'Sobre Eurojackpot',
     ejP:
         'Eurojackpot es una lotería europea: 5 números del 1 al 50 y 2 estrellas del 1 al 12. Hay 12 categorías de premio, del bote (5+2) al premio más bajo (2+1).',
@@ -502,7 +502,7 @@ Object.assign(es.about, {
     truthP1:
         'A largo plazo pierdes dinero en la lotería: así está diseñado. Solo unos 50 % de lo apostado vuelve en premios.',
     truthP2:
-        'El valor esperado por apuesta es solo unos 1,20 € aunque cueste 2,50 €: de media pierdes unos 1,30 € por apuesta.',
+        'El valor esperado por apuesta es solo unos 0,95 € aunque cueste 2 €: de media pierdes unos 1,05 € por apuesta.',
     gambleH: 'Juego problemático y ayuda',
     gambleP:
         'El juego puede convertirse en un problema grave. Si tú o alguien cercano no controla el juego, hay ayuda.',
@@ -593,12 +593,12 @@ es.faq = {
     q3: {
         question: '¿Cuánto cuesta una apuesta de Eurojackpot?',
         answer:
-            'Una apuesta cuesta unos 2,50 € en muchos países. De media recuperas unos 1,20 €, pierdes unos 1,30 € por apuesta.'
+            'Una apuesta de Eurojackpot cuesta 2 € en Alemania, Reino Unido y España. De media recuperas unos 0,95 €, pierdes unos 1,05 € por apuesta.'
     },
     q4: {
         question: '¿Y si invierto en lugar de jugar?',
         answer:
-            'Jugar cada semana 10 años: unos 1 300 € con premios pequeños. Invirtiendo al 7 % podrías superar 1 600 €. A 30 años la brecha es enorme.'
+            'Jugar cada semana 10 años: unos 1 040 € con premios pequeños. Invirtiendo al 7 % podrías superar 1 280 €. A 30 años la brecha es enorme.'
     }
 };
 

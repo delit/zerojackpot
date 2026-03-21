@@ -4,7 +4,7 @@
     "htmlLang": "es",
     "intlLocale": "es-ES",
     "currency": "EUR",
-    "ticketPrice": 2.5,
+    "ticketPrice": 2,
     "ogLocale": "es_ES"
   },
   "common": {
@@ -52,8 +52,8 @@
     "purposeLi3": "Vea qué pasa si pones el mismo dinero a largo plazo en inversión",
     "purposeLi4": "Tomes decisiones informadas sobre cómo gastas tu dinero",
     "investH": "Comparación con inversión",
-    "investP1": "El simulador muestra qué pasa si inviertes los mismos 2,50 € por semana en un fondo indexado global al 7 % anual. Para muchos el salto es brutal: incluso poco dinero crece con el interés compuesto.",
-    "investP2": "Una apuesta cuesta unos 2,50 €. Jugando cada semana 10 años gastas unos 1 300 €, a menudo con premios pequeños. Invirtiendo podrías tener más de 1 600 €. A 30 años la diferencia es enorme.",
+    "investP1": "El simulador muestra qué pasa si inviertes los mismos 2 € por semana en un fondo indexado global al 7 % anual. Para muchos el salto es brutal: incluso poco dinero crece con el interés compuesto.",
+    "investP2": "Una apuesta cuesta 2 €. Jugando cada semana 10 años gastas unos 1 040 €, a menudo con premios pequeños. Invirtiendo podrías tener más de 1 280 €. A 30 años la diferencia es enorme.",
     "ejH": "Sobre Eurojackpot",
     "ejP": "Eurojackpot es una lotería europea: 5 números del 1 al 50 y 2 estrellas del 1 al 12. Hay 12 categorías de premio, del bote (5+2) al premio más bajo (2+1).",
     "oddsH": "Las probabilidades reales",
@@ -76,7 +76,7 @@
     "mathP2": "Por eso la probabilidad del bote es exactamente 1 entre 139 838 160. Ningún sistema lo cambia. Cada sorteo es independiente.",
     "truthH": "Las matemáticas no mienten",
     "truthP1": "A largo plazo pierdes dinero en la lotería: así está diseñado. Solo unos 50 % de lo apostado vuelve en premios.",
-    "truthP2": "El valor esperado por apuesta es solo unos 1,20 € aunque cueste 2,50 €: de media pierdes unos 1,30 € por apuesta.",
+    "truthP2": "El valor esperado por apuesta es solo unos 0,95 € aunque cueste 2 €: de media pierdes unos 1,05 € por apuesta.",
     "gambleH": "Juego problemático y ayuda",
     "gambleP": "El juego puede convertirse en un problema grave. Si tú o alguien cercano no controla el juego, hay ayuda.",
     "helpH": "Suecia: Stödlinjen",
@@ -171,11 +171,11 @@
     },
     "q3": {
       "question": "¿Cuánto cuesta una apuesta de Eurojackpot?",
-      "answer": "Una apuesta cuesta unos 2,50 € en muchos países. De media recuperas unos 1,20 €, pierdes unos 1,30 € por apuesta."
+      "answer": "Una apuesta de Eurojackpot cuesta 2 € en Alemania, Reino Unido y España. De media recuperas unos 0,95 €, pierdes unos 1,05 € por apuesta."
     },
     "q4": {
       "question": "¿Y si invierto en lugar de jugar?",
-      "answer": "Jugar cada semana 10 años: unos 1 300 € con premios pequeños. Invirtiendo al 7 % podrías superar 1 600 €. A 30 años la brecha es enorme."
+      "answer": "Jugar cada semana 10 años: unos 1 040 € con premios pequeños. Invirtiendo al 7 % podrías superar 1 280 €. A 30 años la brecha es enorme."
     }
   },
   "oddsProb": {

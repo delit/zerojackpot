@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="grafik/logo-zerojackpot.svg" alt="ZeroJackpot" width="320" />
+  <img src="grafik/01logo-zero-jackpot@2x.png" alt="ZeroJackpot" width="480" />
 </p>
 
 # ZeroJackpot
@@ -39,7 +39,7 @@ ZeroJackpot låter dig välja eller slumpa fram egna lottorader och sedan simule
 
 - Språkfiler: `i18n/sv.json`, `en.json`, `de.json`, `es.json` (samma nyckelstruktur).
 - Förvalt språk följer webbläsaren; valet sparas i `localStorage` (`zerojackpot-lang`). Språk väljs längst ned i footern: klicka på **aktuell flagga** eller hovra över den för att se alla språk (🇸🇪 🇬🇧 🇩🇪 🇪🇸).
-- **Svenska:** SEK, radpris 25. **Engelska/tyska/spanska:** EUR, radpris 2,50 (ungefärligt), prisnivåer härledda från SEK med fast kurs i `js/logic.js`.
+- **Svenska:** SEK, radpris 25. **Engelska/tyska/spanska:** EUR, radpris 2 (Storbritannien, Tyskland, Spanien), prisnivåer för EUR i `js/logic.js` / `meta.ticketPrice` i respektive språkfil.
 - Logik: `js/i18n.js` (laddning, `data-i18n`, meta/JSON-LD), `js/logic.js` (valuta & `Intl`), `js/jakten.js` (live-sidan).
 - Uppdatera översättningar: redigera JSON-filerna. För att återgenerera en/de/es från strukturen kan du använda `node scripts/build-i18n-en-de-es.js` (skriver över `en.json`, `de.json`, `es.json`).
 

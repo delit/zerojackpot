@@ -109,9 +109,10 @@
         font-size: 1.3rem;
     }
 
-    /* Samma storlek som "Om ZeroJackpot" på About (h2 = 1.3rem) */
-    .section-title {
-        font-size: 1.3rem;
+    /* Som "Om ZeroJackpot": .about-section h2 är 2rem i styles.css och slår generella h2 här */
+    .selection-group .section-title {
+        font-size: 2rem;
+        line-height: 1.2;
     }
 
     .simulation-panel {
@@ -458,6 +459,12 @@
         margin-top: 20px;
         padding-left: 3px;
         padding-right: 3px;
+    }
+
+    .help-box h4 {
+        font-size: 1.05rem;
+        line-height: 1.25;
+        margin-bottom: 12px;
     }
 
 }

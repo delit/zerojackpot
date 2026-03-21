@@ -58,6 +58,15 @@
         setHidden(browserNote, hasPrompt);
     }
 
+    function runInstallPrompt() {
+        if (!deferredPrompt) return;
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.finally(function () {
+            deferredPrompt = null;
+            syncInstallChrome();
+        });
+    }
+
     if (isStandalone) {
         setHidden(instructions, true);
         setHidden(btn, true);
@@ -84,12 +93,17 @@
 
     if (btn) {
         btn.addEventListener('click', function () {
-            if (!deferredPrompt) return;
-            deferredPrompt.prompt();
-            deferredPrompt.userChoice.finally(function () {
-                deferredPrompt = null;
-                syncInstallChrome();
-            });
+            runInstallPrompt();
+        });
+    }
+
+    /* Orange länk: öppna systemets PWA-installation om webbläsaren erbjudit det; annars scrolla till manuella steg */
+    if (androidLink) {
+        androidLink.addEventListener('click', function (e) {
+            if (deferredPrompt) {
+                e.preventDefault();
+                runInstallPrompt();
+            }
         });
     }
 })();

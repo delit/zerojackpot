@@ -109,8 +109,9 @@
         font-size: 1.3rem;
     }
 
+    /* Samma storlek som "Om ZeroJackpot" på About (h2 = 1.3rem) */
     .section-title {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .simulation-panel {
@@ -420,9 +421,13 @@
         box-sizing: border-box;
     }
 
+    .about-section h2 {
+        margin-bottom: 6px;
+    }
+
     .about-content {
         background: var(--white);
-        padding: 20px 14px;
+        padding: 10px 14px 22px;
         border-radius: 0;
         border: none;
         box-shadow: none;

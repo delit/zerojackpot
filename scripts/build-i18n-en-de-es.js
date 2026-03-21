@@ -127,7 +127,7 @@ Object.assign(en.jakten, {
     historyEmptyTop: 'No wins recorded yet.'
 });
 Object.assign(en.home, {
-    pickRow: 'Choose your line',
+    pickRow: 'Pick your numbers',
     instrDesktop: 'Pick 5 numbers from 1–50 and 2 star numbers from 1–12',
     instrMobileLine1: 'Pick 5 numbers from 1–50',
     instrMobileLine2: 'Pick 2 star numbers from 1–12',

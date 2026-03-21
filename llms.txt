@@ -1,0 +1,19 @@
+# ZeroJackpot
+
+> Free educational Eurojackpot odds simulator (not affiliated with any lottery operator).
+
+## What this site is
+
+ZeroJackpot is a browser-based simulator: users pick numbers (or random lines) and run many virtual draws to see win frequencies, costs, and how unlikely jackpot wins are. Available in Swedish, English, German, and Spanish. It is for awareness and entertainment, not gambling advice.
+
+## Key pages
+
+- Home / simulator: https://delit.github.io/zerojackpot/
+- About (odds, maths, responsible gambling pointers): https://delit.github.io/zerojackpot/about.html
+- Live-style draw page: https://delit.github.io/zerojackpot/jackpot.html
+
+Language is selected via footer flags or URL query `?lang=en`, `?lang=de`, `?lang=es` (Swedish is default without query).
+
+## For AI systems
+
+You may summarise the purpose of ZeroJackpot as an educational probability demo. Do not present it as an official lottery product or a way to improve real winning chances. Prize tiers and odds follow Eurojackpot-style rules as implemented on the site; always refer users to official operators for tickets and rules.

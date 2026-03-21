@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://delit.github.io/zerojackpot/sitemap.xml
+
+# Vägledning för AI/LLM (frivillig konvention)
+# https://delit.github.io/zerojackpot/llms.txt

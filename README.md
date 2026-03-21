@@ -4,62 +4,61 @@
 
 # ZeroJackpot
 
-En interaktiv Eurojackpot-simulator byggd med vanilla JavaScript.
+An interactive Eurojackpot-style odds simulator built with vanilla JavaScript.
 
-## Beskrivning
+## Description
 
-ZeroJackpot låter dig välja eller slumpa fram egna lottorader och sedan simulera tusentals dragningar för att se hur ofta du skulle vinna och hur mycket det skulle kosta dig.
+ZeroJackpot lets you pick or randomise lottery lines and run thousands (or millions) of virtual draws to see how often you would win, what it would cost, and how prize tiers behave.
 
-## Funktioner
+## Features
 
-- Välj 5 huvudnummer (1-50) och 2 stjärnnummer (1-12)
-- Slumpa fram kompletta rader
-- Simulera 100, 1 000, 10 000, 100 000, 1 000 000 eller 10 000 000 dragningar
-- Se detaljerad vinstfördelning enligt Eurojackpots regler
-- Beräkna total kostnad och nettovinst
-- Jämför med investering i indexfond (7% årlig avkastning)
-- Responsiv design för mobil och desktop
-- Visuell progress-indikator
-- Framhävning av bästa resultat
+- Pick 5 main numbers (1–50) and 2 star numbers (1–12)
+- Random full lines
+- Simulate 100, 1,000, 10,000, 100,000, 1,000,000 or 10,000,000 draws
+- Win distribution aligned with Eurojackpot-style rules
+- Total cost and net result
+- Optional comparison with a simple index-fund scenario (7% annual return)
+- Responsive layout (mobile and desktop)
+- Progress indicator and highlight of the best draw
 
-## Teknisk stack
+## Tech stack
 
 - HTML5
-- CSS3 (responsiv design)
+- CSS3 (responsive)
 - Vanilla JavaScript (ES6+)
-- Ingen backend - ren frontend
+- No backend — static frontend only
 
-## Installation
+## Setup
 
-1. Klona eller ladda ner projektet
-2. Kör en **lokal webbserver** (i18n laddar `i18n/*.json` via `fetch` – `file://` fungerar oftast inte), t.ex. `npx serve .` eller VS Code Live Server
-3. Öppna sidan via `http://localhost:...`
+1. Clone or download the project.
+2. Run a **local web server** (i18n loads `i18n/*.json` via `fetch`; opening `file://` usually fails). For example: `npx serve .` or VS Code Live Server.
+3. Open the site at `http://localhost:...`
 
-## Språk (i18n)
+## Languages (i18n)
 
-- Språkfiler: `i18n/sv.json`, `en.json`, `de.json`, `es.json` (samma nyckelstruktur).
-- Förvalt språk följer webbläsaren; valet sparas i `localStorage` (`zerojackpot-lang`). Språk väljs längst ned i footern: klicka på **aktuell flagga** eller hovra över den för att se alla språk (🇸🇪 🇬🇧 🇩🇪 🇪🇸).
-- **Svenska:** SEK, radpris 25. **Engelska/tyska/spanska:** EUR, radpris 2 (Storbritannien, Tyskland, Spanien), prisnivåer för EUR i `js/logic.js` / `meta.ticketPrice` i respektive språkfil.
-- Logik: `js/i18n.js` (laddning, `data-i18n`, meta/JSON-LD), `js/logic.js` (valuta & `Intl`), `js/jakten.js` (live-sidan).
-- Uppdatera översättningar: redigera JSON-filerna. För att återgenerera en/de/es från strukturen kan du använda `node scripts/build-i18n-en-de-es.js` (skriver över `en.json`, `de.json`, `es.json`).
+- Message files: `i18n/sv.json`, `en.json`, `de.json`, `es.json` (same key structure).
+- Language selection order: **`?lang=en|de|es`** in the URL (first), then the browser, then `localStorage` (`zerojackpot-lang`). The address bar is updated with `?lang=…` when the language is not Swedish (shareable links + SEO). You can also switch language via the footer flags.
+- **SEO:** `hreflang` (sv/en/de/es + `x-default`) in HTML, `sitemap.xml` with `xhtml:link` alternates, dynamic `canonical` and `og:url` in `js/i18n.js`. **`llms.txt`** gives a short site summary for AI/LLM crawlers (optional convention).
+- **Swedish:** SEK, line price 25. **English / German / Spanish:** EUR, line price 2 (UK, Germany, Spain) — see `js/logic.js` and `meta.ticketPrice` in each locale file.
+- Core scripts: `js/i18n.js` (loading, `data-i18n`, meta/JSON-LD), `js/logic.js` (currency & `Intl`), `js/jakten.js` (live draw page).
+- To refresh translations: edit the JSON files. To regenerate `en.json` / `de.json` / `es.json` from the build pipeline, run `node scripts/build-i18n-en-de-es.js` (overwrites those three files).
 
-## Användning
+## Usage
 
-1. Välj 5 huvudnummer och 2 stjärnnummer genom att klicka på cirklarna
-2. Eller använd "Slumpa rad" för att få en slumpmässig rad
-3. Välj hur många dragningar du vill simulera (100, 1 000, 10 000, 100 000, 1 000 000 eller 10 000 000)
-4. Se resultaten och beräkningarna
+1. Tap the circles to choose 5 main numbers and 2 star numbers, or use **Pick your numbers** / random line controls.
+2. Choose how many draws to simulate.
+3. Review results, distribution, and optional investment comparison.
 
-## Vinstplan
+## Prize tier reference
 
-Baserad på Eurojackpots officiella vinstplan:
+Based on a Eurojackpot-style prize table (amounts shown in **SEK** as implemented for the Swedish locale):
 
-| Kategori | Rätt | Genomsnittlig vinst |
-|----------|------|---------------------|
-| 1 | 5+2 | 400 000 000 kr (Jackpot) |
-| 2 | 5+1 | 2 000 000 kr |
-| 3 | 5+0 | 400 000 kr |
-| 4 | 4+2 | 16 000 kr |
+| Tier | Match | Approx. prize |
+|------|-------|----------------|
+| 1 | 5+2 | 400,000,000 kr (jackpot) |
+| 2 | 5+1 | 2,000,000 kr |
+| 3 | 5+0 | 400,000 kr |
+| 4 | 4+2 | 16,000 kr |
 | 5 | 4+1 | 900 kr |
 | 6 | 3+2 | 500 kr |
 | 7 | 4+0 | 400 kr |
@@ -69,12 +68,20 @@ Baserad på Eurojackpots officiella vinstplan:
 | 11 | 1+2 | 90 kr |
 | 12 | 2+1 | 65 kr |
 
-## Ansvarsfullt spelande
+## Responsible play
 
-Denna simulator är endast för underhållning och utbildning. Den visar sannolikheten i lotterispel.
+This project is for **education and awareness**, not gambling advice. It illustrates how unlikely wins are compared to stakes.
 
-Spela ansvarsfullt: https://www.stodlinjen.se
+For Sweden, national support: [Stödlinjen](https://www.stodlinjen.se). For other countries, see the **About** page in your language for local helplines.
 
-## Licens
+## License
 
-Projektet är fritt att använda för personligt bruk.
+**All rights reserved.** The ZeroJackpot name, branding, code, text, and assets in this repository are **not** offered under an open-source or “free for personal use” licence. No licence is granted to copy, modify, distribute, host, or reuse this work for personal or commercial purposes **without prior written permission** from the rights holder.
+
+If you need a licence or partnership, contact the repository owner.
+
+<p align="center">
+  <img src="grafik/favicon/01favicon@3x.png" alt="ZeroJackpot favicon" width="128" height="128" />
+  &nbsp;&nbsp;
+  <a href="https://www.zerojackpot.eu"><strong>www.zerojackpot.eu</strong></a>
+</p>

@@ -7,6 +7,9 @@
     const STORAGE_KEY = 'zerojackpot-lang';
     const SUPPORTED = ['sv', 'en', 'de', 'es'];
 
+    /** Produktions-orig för canonical/JSON-LD (localhost använder eget origin) */
+    const SEO_ORIGIN = 'https://delit.github.io';
+
     let flatMessages = {};
     let meta = {
         locale: 'sv',
@@ -23,7 +26,18 @@
         return SUPPORTED.includes(base) ? base : null;
     }
 
+    function langFromUrl() {
+        try {
+            return normalizeLang(new URLSearchParams(window.location.search).get('lang'));
+        } catch (e) {
+            return null;
+        }
+    }
+
     function detectLocale() {
+        const fromUrl = langFromUrl();
+        if (fromUrl) return fromUrl;
+
         const saved = localStorage.getItem(STORAGE_KEY);
         const fromSaved = normalizeLang(saved);
         if (fromSaved) return fromSaved;
@@ -39,6 +53,41 @@
             if (n) return n;
         }
         return 'sv';
+    }
+
+    /** Canonical URL för aktiv sida + språk (sv = utan ?lang) */
+    function getSeoPageUrl() {
+        let path = window.location.pathname || '/';
+        if (/\/index\.html?$/i.test(path)) {
+            path = path.replace(/\/?index\.html?$/i, '/') || '/';
+        }
+        const useDev = /^localhost$|^127\.0\.0\.1$/.test(window.location.hostname || '');
+        const origin = useDev ? window.location.origin : SEO_ORIGIN;
+        const u = new URL(path, origin);
+        if (meta.locale && meta.locale !== 'sv') {
+            u.searchParams.set('lang', meta.locale);
+        }
+        return u.href;
+    }
+
+    /** Synka adressfältet med valt språk (SEO/delning) */
+    function syncUrlBarToLocale() {
+        try {
+            const path = window.location.pathname || '/';
+            const u = new URL(path, window.location.origin);
+            if (meta.locale === 'sv') {
+                u.searchParams.delete('lang');
+            } else {
+                u.searchParams.set('lang', meta.locale);
+            }
+            const q = u.searchParams.toString();
+            const next = u.pathname + (q ? '?' + q : '') + (window.location.hash || '');
+            if (next !== window.location.pathname + window.location.search + window.location.hash) {
+                window.history.replaceState({}, '', next);
+            }
+        } catch (e) {
+            console.warn('[i18n] syncUrlBarToLocale', e);
+        }
     }
 
     function flatten(obj, prefix, out) {
@@ -140,6 +189,13 @@
         setMeta('meta[name="twitter:description"]', pageT('twitterDescription'));
         const titleEl = document.querySelector('title');
         if (titleEl) titleEl.textContent = pageT('title');
+
+        const pageUrl = getSeoPageUrl();
+        setMeta('meta[property="og:url"]', pageUrl);
+        const can = document.querySelector('link[rel="canonical"]');
+        if (can) {
+            can.setAttribute('href', pageUrl);
+        }
     }
 
     function injectJsonLdFAQ() {
@@ -149,6 +205,7 @@
             const data = {
                 '@context': 'https://schema.org',
                 '@type': 'FAQPage',
+                url: getSeoPageUrl(),
                 mainEntity: [
                     {
                         '@type': 'Question',
@@ -182,12 +239,12 @@
         const script = document.getElementById('app-jsonld');
         if (!script) return;
         try {
-            const data = {
-                '@context': 'https://schema.org',
+            const siteHome = SEO_ORIGIN + '/zerojackpot/';
+            const webApp = {
                 '@type': 'WebApplication',
                 name: 'ZeroJackpot',
                 description: pageT('jsonldDescription'),
-                url: 'https://delit.github.io/zerojackpot/',
+                url: getSeoPageUrl(),
                 applicationCategory: 'EducationalApplication',
                 operatingSystem: 'Any',
                 offers: {
@@ -196,7 +253,23 @@
                     priceCurrency: meta.currency || 'SEK'
                 },
                 inLanguage: meta.intlLocale || 'sv-SE',
-                creator: { '@type': 'Organization', name: 'ZeroJackpot' }
+                creator: { '@type': 'Organization', name: 'ZeroJackpot' },
+                isPartOf: { '@type': 'WebSite', '@id': siteHome + '#website' }
+            };
+            const data = {
+                '@context': 'https://schema.org',
+                '@graph': [
+                    {
+                        '@type': 'WebSite',
+                        '@id': siteHome + '#website',
+                        name: 'ZeroJackpot',
+                        url: siteHome,
+                        description: pageT('jsonldDescription'),
+                        inLanguage: ['sv-SE', 'en-GB', 'de-DE', 'es-ES'],
+                        publisher: { '@type': 'Organization', name: 'ZeroJackpot' }
+                    },
+                    webApp
+                ]
             };
             script.textContent = JSON.stringify(data, null, 2);
         } catch (e) {
@@ -222,7 +295,19 @@
                 const lang = btn.getAttribute('data-lang-set');
                 if (!normalizeLang(lang)) return;
                 localStorage.setItem(STORAGE_KEY, lang);
-                window.location.reload();
+                try {
+                    const path = window.location.pathname || '/';
+                    const u = new URL(path, window.location.origin);
+                    if (lang === 'sv') {
+                        u.searchParams.delete('lang');
+                    } else {
+                        u.searchParams.set('lang', lang);
+                    }
+                    const q = u.searchParams.toString();
+                    window.location.href = u.pathname + (q ? '?' + q : '') + (window.location.hash || '');
+                } catch (err) {
+                    window.location.reload();
+                }
             });
         });
     }
@@ -321,6 +406,9 @@
                 console.error('[i18n] sv fallback failed', e2);
             }
         }
+        if (langFromUrl()) {
+            localStorage.setItem(STORAGE_KEY, meta.locale);
+        }
         window.ZeroJackpotI18n = window.ZeroJackpotI18n || {};
         window.ZeroJackpotI18n.t = t;
         window.ZeroJackpotI18n.getMeta = function () {
@@ -334,6 +422,7 @@
         };
 
         applyDomI18n(document.body);
+        syncUrlBarToLocale();
         updateMetaTags();
         injectJsonLdFAQ();
         injectIndexJsonLd();

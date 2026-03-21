@@ -99,6 +99,19 @@ Object.assign(en.about, {
         'As the simulator shows: long term you lose money on the lottery. That is by design. Only about 50% of stakes return to players as prizes; the rest goes to the state, good causes and costs.',
     truthP2:
         'Expected value per line is only about €0.95 even though the line costs €2 – so on average you lose about €1.05 per line.',
+    downloadH: 'Install on your phone',
+    downloadIosH: 'iPhone or iPad (Safari)',
+    downloadIos1: 'Tap the Share button (square with an arrow pointing up).',
+    downloadIos2: 'Scroll and choose “Add to Home Screen”.',
+    downloadIos3: 'Confirm with “Add”.',
+    downloadAndroidH: 'Android (Chrome or another browser that supports install)',
+    downloadAndroid1: 'Open the browser menu and choose “Install app” or “Add to Home screen”.',
+    downloadAndroid2: 'You may need to visit the site a few times before the option appears.',
+    downloadInstallBtn: 'Install app',
+    downloadInstallBrowserNote:
+        'If the button above does not appear, the browser may already have offered installation, or your device may not support it — follow the iOS or Android steps above.',
+    downloadStandaloneP:
+        'You are using ZeroJackpot as an installed web app. Content saved locally on your device is used when you are offline.',
     gambleH: 'Problem gambling and help',
     gambleP:
         'For some people, gambling becomes a serious problem. If you or someone you know struggles to control play, help is available.',
@@ -308,6 +321,19 @@ Object.assign(de.about, {
         'Langfristig verlierst du beim Lotto Geld – so ist es konstruiert. Nur etwa 50 % der Einsätze fließen als Gewinne zurück.',
     truthP2:
         'Der Erwartungswert pro Tipp liegt bei nur etwa 0,95 € bei Kosten von 2 € – im Schnitt verlierst du etwa 1,05 € pro Tipp.',
+    downloadH: 'Auf dem Smartphone installieren',
+    downloadIosH: 'iPhone oder iPad (Safari)',
+    downloadIos1: 'Tippe auf „Teilen“ (Quadrat mit Pfeil nach oben).',
+    downloadIos2: 'Scrolle und wähle „Zum Home-Bildschirm“.',
+    downloadIos3: 'Bestätige mit „Hinzufügen“.',
+    downloadAndroidH: 'Android (Chrome oder ein anderer Browser mit Installationsunterstützung)',
+    downloadAndroid1: 'Öffne das Browsermenü und wähle „App installieren“ oder „Zum Startbildschirm hinzufügen“.',
+    downloadAndroid2: 'Manchmal musst du die Seite mehrmals besuchen, bevor die Option erscheint.',
+    downloadInstallBtn: 'App installieren',
+    downloadInstallBrowserNote:
+        'Wenn die Schaltfläche oben fehlt, hat der Browser die Installation vielleicht schon angeboten, oder dein Gerät unterstützt es nicht – folge den Schritten für iOS oder Android oben.',
+    downloadStandaloneP:
+        'Du nutzt ZeroJackpot als installierte Web-App. Lokal auf dem Gerät gespeicherte Inhalte werden offline verwendet.',
     gambleH: 'Spielsucht und Hilfe',
     gambleP:
         'Glücksspiel kann zur Sucht werden. Wenn du oder jemand in deinem Umfeld Probleme hat, Hilfe zu suchen lohnt sich.',
@@ -503,6 +529,19 @@ Object.assign(es.about, {
         'A largo plazo pierdes dinero en la lotería: así está diseñado. Solo unos 50 % de lo apostado vuelve en premios.',
     truthP2:
         'El valor esperado por apuesta es solo unos 0,95 € aunque cueste 2 €: de media pierdes unos 1,05 € por apuesta.',
+    downloadH: 'Instalar en el móvil',
+    downloadIosH: 'iPhone o iPad (Safari)',
+    downloadIos1: 'Pulsa el botón Compartir (cuadrado con flecha hacia arriba).',
+    downloadIos2: 'Desplázate y elige «Añadir a la pantalla de inicio».',
+    downloadIos3: 'Confirma con «Añadir».',
+    downloadAndroidH: 'Android (Chrome u otro navegador compatible con instalación)',
+    downloadAndroid1: 'Abre el menú del navegador y elige «Instalar aplicación» o «Añadir a la pantalla de inicio».',
+    downloadAndroid2: 'Puede que tengas que visitar la página varias veces antes de que aparezca la opción.',
+    downloadInstallBtn: 'Instalar la app',
+    downloadInstallBrowserNote:
+        'Si no ves el botón de arriba, el navegador puede haber ofrecido ya la instalación o tu dispositivo no la admite: sigue los pasos para iOS o Android anteriores.',
+    downloadStandaloneP:
+        'Estás usando ZeroJackpot como aplicación web instalada. El contenido guardado localmente en el dispositivo se usa cuando no hay conexión.',
     gambleH: 'Juego problemático y ayuda',
     gambleP:
         'El juego puede convertirse en un problema grave. Si tú o alguien cercano no controla el juego, hay ayuda.',

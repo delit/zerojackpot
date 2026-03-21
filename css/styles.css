@@ -927,6 +927,45 @@ footer p,
     font-weight: 600;
 }
 
+.about-pwa-box h3 {
+    color: var(--primary-orange);
+    margin-bottom: 12px;
+}
+
+.about-pwa-install-btn {
+    margin-top: 14px;
+    margin-bottom: 8px;
+}
+
+.download-pwa-section {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--gray);
+}
+
+.download-pwa-section h4 {
+    color: var(--dark-gray);
+    font-size: 1.05rem;
+    margin: 18px 0 8px;
+    font-weight: 700;
+}
+
+.download-pwa-section .download-pwa-steps {
+    margin: 8px 0 12px 24px;
+    color: var(--dark-gray);
+}
+
+.download-pwa-section .download-pwa-steps li {
+    margin-bottom: 8px;
+}
+
+#pwa-install-browser-note {
+    font-size: 0.95rem;
+    margin-top: 10px;
+    margin-bottom: 0;
+    color: var(--dark-gray);
+}
+
 .odds-table-container {
     overflow-x: auto;
     margin: 20px 0;

@@ -209,6 +209,16 @@
         flex: 1;
     }
 
+    /* Samma knapphöjd som Slumpa rad / Rensa val (bas .btn: 15px padding, 1rem) */
+    .action-buttons .btn,
+    .simulation-buttons .btn-sim {
+        min-height: 50px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
     .simulation-panel {
         padding: 20px 15px;
     }
@@ -224,8 +234,9 @@
         min-width: unset;
         max-width: unset;
         flex: none;
-        font-size: 0.78rem;
-        padding: 10px 6px;
+        font-size: 1rem;
+        /* Vertikal padding kompenserar för .btn-sims 3px border så yttre höjd ≈ .btn */
+        padding: 12px 10px;
         line-height: 1.25;
     }
 

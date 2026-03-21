@@ -72,7 +72,7 @@ Object.assign(en.about, {
         'A line costs about €2.50. Playing every week for 10 years means spending roughly €1,300, often winning only small amounts. Investing that money instead could leave you with over €1,600. After 30 years the gap is even bigger.',
     ejH: 'About Eurojackpot',
     ejP:
-        'Eurojackpot is a European lottery: pick 5 numbers from 1–50 and 2 Euro numbers from 1–12. There are 12 prize tiers, from the jackpot (5+2) down to the smallest win (2+1).',
+        'Eurojackpot is a European lottery: pick 5 numbers from 1–50 and 2 star numbers from 1–12. There are 12 prize tiers, from the jackpot (5+2) down to the smallest win (2+1).',
     oddsH: 'The real odds',
     oddsIntro: 'Here is the probability for each Eurojackpot prize tier:',
     thRight: 'Match',
@@ -88,9 +88,9 @@ Object.assign(en.about, {
     persp4:
         'If all 10.5 million Swedes played one line, statistically only about 0.075 people would win the jackpot',
     mathH: 'The maths behind it',
-    mathP1: 'The number of combinations in Eurojackpot comes from main numbers and Euro numbers:',
+    mathP1: 'The number of combinations in Eurojackpot comes from main numbers and star numbers:',
     mathLi1: '5 numbers from 50: 2,118,760 combinations',
-    mathLi2: '2 Euro numbers from 12: 66 combinations',
+    mathLi2: '2 star numbers from 12: 66 combinations',
     mathLi3: 'Total: 2,118,760 × 66 = 139,838,160 possible combinations',
     mathP2:
         'That is why jackpot odds are exactly 1 in 139,838,160. No strategy or system changes this. Each draw is independent.',
@@ -121,17 +121,17 @@ Object.assign(en.jakten, {
     statNet: 'Net result',
     recentWins: 'Recent wins',
     topWins: 'Top wins',
-    matchLine: '{{main}} main + {{stars}} Euro numbers',
+    matchLine: '{{main}} main + {{stars}} star numbers',
     noWinThisDraw: 'No win',
     historyEmptyRecent: 'No wins in history yet.',
     historyEmptyTop: 'No wins recorded yet.'
 });
 Object.assign(en.home, {
     pickRow: 'Choose your line',
-    instrDesktop: 'Pick 5 numbers from 1–50 and 2 Euro numbers from 1–12',
+    instrDesktop: 'Pick 5 numbers from 1–50 and 2 star numbers from 1–12',
     instrMobileLine1: 'Pick 5 numbers from 1–50',
-    instrMobileLine2: 'Pick 2 Euro numbers from 1–12',
-    btnRandom: 'Random line',
+    instrMobileLine2: 'Pick 2 star numbers from 1–12',
+    btnRandom: 'Random numbers',
     btnClear: 'Clear',
     pickerDefaultTitle: 'Pick a number',
     btnClose: 'Close',
@@ -165,7 +165,7 @@ Object.assign(en.home, {
 });
 Object.assign(en.picker, {
     titleMain: 'Pick main numbers (1–50)',
-    titleStar: 'Pick Euro numbers (1–12)'
+    titleStar: 'Pick star numbers (1–12)'
 });
 Object.assign(en.sim, {
     noWin: 'No win',

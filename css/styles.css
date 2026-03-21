@@ -38,13 +38,35 @@ body {
     overflow: hidden;
 }
 
+/* Footer: centrerad text + flagga längst till höger (spacer balanserar bredden) */
+.footer-inner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 100%;
+}
+
+.footer-lang-spacer {
+    width: 48px;
+    flex-shrink: 0;
+    pointer-events: none;
+}
+
+.footer-copy {
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+}
+
 /* Språk i footer: flagga + hover/klick-meny */
 .footer-lang {
     position: relative;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 14px;
+    flex-shrink: 0;
+    width: 48px;
+    z-index: 5;
 }
 
 .footer-lang-trigger {
@@ -58,8 +80,7 @@ body {
     border: 2px solid rgba(255, 255, 255, 0.35);
     background: rgba(255, 255, 255, 0.12);
     cursor: pointer;
-    font-size: 1.65rem;
-    line-height: 1;
+    line-height: 0;
     transition: background 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
 }
 
@@ -73,7 +94,7 @@ body {
 
 .footer-lang-dropdown {
     position: absolute;
-    bottom: calc(100% + 10px);
+    bottom: calc(100% + 6px);
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -90,6 +111,20 @@ body {
     visibility: hidden;
     pointer-events: none;
     transition: opacity 0.18s ease, visibility 0.18s ease;
+}
+
+/*
+ * Brygga glipan mellan knapp och meny: utan denna försvinner :hover när musen
+ * rör sig i luften mellan dem, och menyn stängs innan man når valen.
+ */
+.footer-lang-dropdown::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    /* Täcker glipan (6px) + lite marginal utan att täcka hela flaggknappen */
+    height: 10px;
+    bottom: -10px;
 }
 
 .footer-lang:hover .footer-lang-dropdown,
@@ -122,10 +157,20 @@ body {
     outline: none;
 }
 
-.footer-lang-emoji {
-    font-size: 1.4rem;
-    line-height: 1;
+/* SVG-flaggor (Chrome/Windows saknar ofta färg-emoji för landsflaggor) */
+.footer-lang-flag-img {
+    display: block;
+    width: 28px;
+    height: 21px;
+    object-fit: contain;
     flex-shrink: 0;
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
+}
+
+.footer-lang-trigger .footer-lang-flag-img {
+    width: 26px;
+    height: 20px;
 }
 
 .footer-lang-name {
@@ -712,10 +757,13 @@ footer {
     background: var(--dark-gray);
     color: var(--white);
     padding: 20px;
-    text-align: center;
+    overflow: visible;
+    position: relative;
+    z-index: 1;
 }
 
-footer p {
+footer p,
+.footer-copy p {
     margin: 5px 0;
 }
 

@@ -204,7 +204,16 @@
         }
     }
 
-    const LANG_FLAGS = { sv: '🇸🇪', en: '🇬🇧', de: '🇩🇪', es: '🇪🇸' };
+    /** Filnamn under grafik/flags/ (SVG – fungerar i Chrome på Windows där emoji-flaggor ofta saknas) */
+    const LANG_TO_FLAG_FILE = { sv: 'sv', en: 'gb', de: 'de', es: 'es' };
+
+    function flagSvgUrl(fileCode) {
+        try {
+            return new URL('grafik/flags/' + fileCode + '.svg', window.location.href).href;
+        } catch (e) {
+            return 'grafik/flags/' + fileCode + '.svg';
+        }
+    }
 
     function wireLanguageSwitcher() {
         document.querySelectorAll('[data-lang-set]').forEach(function (btn) {
@@ -226,7 +235,21 @@
             const current = wrap.querySelector('[data-footer-lang-current]');
 
             function syncFlag() {
-                if (current) current.textContent = LANG_FLAGS[meta.locale] || '🌐';
+                if (!current) return;
+                const file = LANG_TO_FLAG_FILE[meta.locale] || 'sv';
+                const url = flagSvgUrl(file);
+                let img = current.querySelector('img.footer-lang-flag-img');
+                if (!img) {
+                    img = document.createElement('img');
+                    img.className = 'footer-lang-flag-img';
+                    img.alt = '';
+                    img.width = 28;
+                    img.height = 21;
+                    img.decoding = 'async';
+                    current.textContent = '';
+                    current.appendChild(img);
+                }
+                img.src = url;
             }
             syncFlag();
 

@@ -1,5 +1,5 @@
 /* ZeroJackpot — offline cache; bump CACHE_VERSION when static assets change */
-const CACHE_VERSION = 'zerojackpot-v13';
+const CACHE_VERSION = 'zerojackpot-v14';
 const PRECACHE_URLS = [
     './',
     './index.html',
@@ -12,7 +12,7 @@ const PRECACHE_URLS = [
     './js/i18n.js',
     './js/app.js',
     './js/jakten.js',
-    './js/pwa-register.js',
+    './js/pwa-register.js?v=14',
     './i18n/sv.json',
     './i18n/en.json',
     './i18n/de.json',

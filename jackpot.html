@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Favicon: SVG för moderna webbläsare, PNG som fallback, högupplöst för Apple/hemskärm -->
+    <link rel="icon" href="grafik/favicon/01favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="grafik/favicon/01favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="grafik/favicon/01favicon@3x.png">
+    
+    <title>Jakten på Jackpotten - Live Eurojackpot Simulering</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Live Eurojackpot-simulering - En dragning varje sekund synkroniserad för alla besökare. Se hur dagarna tickar förbi utan jackpot i realtid.">
+    <meta name="keywords" content="live lotteri simulering, eurojackpot live, realtid lotteri, eurojackpot dragning">
+    <link rel="canonical" href="https://delit.github.io/zerojackpot/jackpot.html">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Jakten på Jackpotten - Live Eurojackpot Simulering">
+    <meta property="og:description" content="En dragning varje sekund. Se hur dagarna tickar förbi utan jackpot. Synkroniserad live-simulering för alla besökare.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://delit.github.io/zerojackpot/jackpot.html">
+    <meta property="og:locale" content="sv_SE">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Jakten på Jackpotten - Live Simulering">
+    <meta name="twitter:description" content="En dragning varje sekund. Se hur dagarna tickar förbi utan jackpot.">
+    
+    <!-- Language -->
+    <link rel="alternate" hreflang="sv" href="https://delit.github.io/zerojackpot/jackpot.html">
+    <link rel="alternate" hreflang="x-default" href="https://delit.github.io/zerojackpot/jackpot.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="css/styles.css" as="style">
+    
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <style>
+        .live-ball {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .live-ball.main {
+            background: var(--primary-orange);
+            color: var(--white);
+            border: 3px solid var(--dark-orange);
+        }
+        
+        .live-ball.star {
+            background: var(--star-yellow);
+            color: var(--dark-gray);
+            border: 3px solid #ffc800;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+        }
+        
+        .live-ball.match {
+            background: var(--success);
+            border-color: #2e7d32;
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.6);
+            animation: pulse 0.5s ease;
+        }
+        
+        .live-ball.star.match {
+            color: var(--white);
+        }
+        
+        .live-ball.rolling {
+            animation: none;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .live-numbers-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .live-row {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .live-row h2 {
+            font-size: 1.2rem;
+            color: #666;
+        }
+        
+        @media (min-width: 768px) {
+            .live-section {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .live-row {
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                width: 100%;
+                max-width: 750px;
+            }
+            
+            .live-row h2 {
+                margin: 0;
+                width: 220px;
+                text-align: right;
+                padding-right: 20px;
+                flex-shrink: 0;
+            }
+            
+            .live-row .live-numbers-container {
+                justify-content: flex-start;
+                flex: 0 0 auto;
+            }
+        }
+        
+        .live-section {
+            background: var(--light-gray);
+            padding: 25px;
+            border-radius: 15px;
+            /* Samma vertikal marginal som övriga <section> (Statistik → Vinthistorik) */
+        }
+        
+        .live-result-box {
+            text-align: center;
+            padding: 15px 20px;
+            background: var(--white);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            margin-top: 30px;
+            width: fit-content;
+            max-width: 100%;
+            min-width: min(300px, 100%);
+            margin-left: auto;
+            margin-right: auto;
+            box-sizing: border-box;
+        }
+        
+        .live-result-match {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #888;
+            margin: 0;
+        }
+        
+        .live-result-win {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 6px 0 0 0;
+        }
+        
+        .live-result-win.is-loss {
+            font-weight: 500;
+            color: #b8b8b8;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        @media (min-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .live-stat-card {
+            background: var(--white);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px var(--shadow);
+            text-align: center;
+        }
+        
+        .live-stat-label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .live-stat-value {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+        }
+        @media (max-width: 767px) {
+            .live-ball {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .live-row {
+                gap: 12px;
+                margin-bottom: 22px;
+                align-items: center;
+            }
+            
+            .live-row h2 {
+                margin: 0;
+                line-height: 1.2;
+                text-align: center;
+                width: 100%;
+            }
+            
+            .live-row .live-numbers-container {
+                justify-content: center;
+                width: 100%;
+                flex-wrap: nowrap;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .live-stat-value {
+                font-size: 1.1rem;
+            }
+        }
+        
+        /* Vinthistorik (senaste / högsta) */
+        .win-history-section {
+            background: var(--light-gray);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            /* Justeras av JS så långa belopp + bollar får plats på en rad, lika för alla rader */
+            --win-history-amount-fs: 0.95rem;
+            --win-history-ball-size: 36px;
+            --win-history-ball-fs: 0.9rem;
+        }
+        
+        /* Samma rubrikstorlek som Senaste/Högsta vinster (mobil sänker annars bara plain h2) */
+        .results-panel > h2 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+        
+        .win-history-heading {
+            font-size: 1.5rem;
+            margin: 0 0 12px 0;
+            color: var(--primary-orange);
+        }
+        
+        .win-history-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+        
+        .win-history-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .win-history-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: nowrap;
+            background: var(--white);
+            padding: 10px 12px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+        
+        .win-history-balls {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 6px;
+            align-items: center;
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .win-history-row .live-ball {
+            width: var(--win-history-ball-size);
+            height: var(--win-history-ball-size);
+            font-size: var(--win-history-ball-fs);
+            flex-shrink: 0;
+        }
+        
+        /* Ingen pulse eller glow i vinthistoriken */
+        .win-history-row .live-ball.match {
+            animation: none;
+            box-shadow: none;
+        }
+        
+        /* Gröna stjärnor: vit siffra (samma läsbarhet som huvudnummer) */
+        .win-history-row .live-ball.star.match {
+            color: var(--white);
+        }
+        
+        /* Stjärnor utan träff: orange som övriga missar, inte gul stjärn-stil */
+        .win-history-row .live-ball.star:not(.match) {
+            background: var(--primary-orange);
+            color: var(--white);
+            border: 3px solid var(--dark-orange);
+            box-shadow: none;
+        }
+        
+        .win-history-amount {
+            font-weight: 700;
+            font-size: var(--win-history-amount-fs);
+            color: var(--dark-gray);
+            white-space: nowrap;
+            flex-shrink: 0;
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+            line-height: 1.2;
+        }
+        
+        .win-history-empty {
+            color: #888;
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+        
+        @media (max-width: 767px) {
+            .win-history-section {
+                --win-history-ball-size: 32px;
+                --win-history-ball-fs: 0.8rem;
+            }
+            
+            .win-history-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+            
+            .win-history-row {
+                flex-wrap: nowrap;
+                overflow: hidden;
+            }
+            
+            .win-history-amount {
+                text-align: right;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="header-logo-link" data-i18n="common.headerLogoAria" data-i18n-attr="aria-label" aria-label="ZeroJackpot">
+                <img src="grafik/01logo-zero-jackpot@2x.png" alt="ZeroJackpot" class="header-logo" width="1178" height="132" decoding="async">
+            </a>
+            <p class="subtitle" data-i18n="common.subtitle">Eurojackpot Simulator</p>
+        </header>
+
+        <main>
+            <section class="live-section">
+                <h2 style="font-size: 2rem; margin-bottom: 30px;" data-i18n="jakten.title">Jakten på Jackpotten</h2>
+                
+                <div class="live-row">
+                    <h2 data-i18n="jakten.myRow">Lottorad</h2>
+                    <div class="live-numbers-container">
+                        <div id="myMainNumbers" style="display: flex; gap: 10px;"></div>
+                        <div id="myStarNumbers" style="display: flex; gap: 10px;"></div>
+                    </div>
+                </div>
+                
+                <div class="live-row">
+                    <h2 data-i18n="jakten.draw">Dragning</h2>
+                    <div class="live-numbers-container">
+                        <div id="liveMainNumbers" style="display: flex; gap: 10px;"></div>
+                        <div id="liveStarNumbers" style="display: flex; gap: 10px;"></div>
+                    </div>
+                </div>
+                
+                <div class="live-result-box">
+                    <p class="live-result-match" id="currentMatch">-</p>
+                    <p class="live-result-win is-loss" id="currentWin">-</p>
+                </div>
+            </section>
+            
+            <section class="results-panel">
+                <h2 data-i18n="jakten.statsHeading">Statistik</h2>
+                <div class="stats-grid">
+                    <div class="live-stat-card">
+                        <div class="live-stat-label" data-i18n="jakten.statDaysNoJp">Dagar utan jackpot</div>
+                        <div class="live-stat-value" id="daysElapsed" style="font-size: 1.1rem;">0</div>
+                    </div>
+                    
+                    <div class="live-stat-card">
+                        <div class="live-stat-label" data-i18n="jakten.statDraws">Dragningar</div>
+                        <div class="live-stat-value" id="totalDraws" style="font-size: 1.1rem;">0</div>
+                    </div>
+                    
+                    <div class="live-stat-card">
+                        <div class="live-stat-label" data-i18n="jakten.statTotalCost">Total kostnad</div>
+                        <div class="live-stat-value" id="totalCost" style="font-size: 1.1rem;">0 kr</div>
+                    </div>
+                    
+                    <div class="live-stat-card">
+                        <div class="live-stat-label" data-i18n="jakten.statTotalWin">Total vinst</div>
+                        <div class="live-stat-value" id="totalWin" style="font-size: 1.1rem;">0 kr</div>
+                    </div>
+                    
+                    <div class="live-stat-card">
+                        <div class="live-stat-label" data-i18n="jakten.statBestWin">Högsta vinst</div>
+                        <div class="live-stat-value" id="bestWin" style="font-size: 1.1rem;">0 kr</div>
+                    </div>
+                    
+                    <div class="live-stat-card">
+                        <div class="live-stat-label" data-i18n="jakten.statNet">Netto resultat</div>
+                        <div class="live-stat-value" id="netResult" style="font-size: 1.1rem;">0 kr</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="win-history-section" aria-label="Senaste och högsta vinster">
+                <div class="win-history-grid">
+                    <div class="win-history-column">
+                        <h2 class="win-history-heading" data-i18n="jakten.recentWins">Senaste vinster</h2>
+                        <div class="win-history-list" id="recentWinsList"></div>
+                    </div>
+                    <div class="win-history-column">
+                        <h2 class="win-history-heading" data-i18n="jakten.topWins">Högsta vinster</h2>
+                        <div class="win-history-list" id="topWinsList"></div>
+                    </div>
+                </div>
+            </section>
+            
+            <div style="margin-top: 30px; text-align: left;">
+                <a href="index.html" style="color: var(--primary-orange); text-decoration: none; font-weight: 600; display: inline-block;" data-i18n="home.backToSim">← Tillbaka till simulatorn</a>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-inner">
+                <div class="footer-lang-spacer" aria-hidden="true"></div>
+                <div class="footer-copy">
+                    <p class="footer-links"><a href="jackpot.html" class="footer-link" data-i18n="common.footerJakten">Jakten på Jackpotten</a> | <a href="about.html" class="footer-link" data-i18n="common.footerAbout">Om ZeroJackpot</a></p>
+                    <p class="footer-description" data-i18n="common.footerTagline">En simulator för att visa sannolikheten i Eurojackpot</p>
+                </div>
+                <div class="footer-lang" data-footer-lang>
+                <button type="button" class="footer-lang-trigger" aria-expanded="false" aria-haspopup="menu" aria-controls="footer-lang-menu-jakten" data-i18n="common.langLabel" data-i18n-attr="aria-label">
+                    <span class="footer-lang-current" data-footer-lang-current aria-hidden="true"><img class="footer-lang-flag-img" src="grafik/flags/sv.svg" alt="" width="28" height="21" decoding="async"></span>
+                </button>
+                <div class="footer-lang-dropdown" id="footer-lang-menu-jakten" role="menu">
+                    <button type="button" class="footer-lang-opt" role="menuitem" data-lang-set="sv"><img class="footer-lang-flag-img" src="grafik/flags/sv.svg" alt="" width="28" height="21" decoding="async"><span class="footer-lang-name" data-i18n="common.langNameSv">Svenska</span></button>
+                    <button type="button" class="footer-lang-opt" role="menuitem" data-lang-set="en"><img class="footer-lang-flag-img" src="grafik/flags/gb.svg" alt="" width="28" height="21" decoding="async"><span class="footer-lang-name" data-i18n="common.langNameEn">English</span></button>
+                    <button type="button" class="footer-lang-opt" role="menuitem" data-lang-set="de"><img class="footer-lang-flag-img" src="grafik/flags/de.svg" alt="" width="28" height="21" decoding="async"><span class="footer-lang-name" data-i18n="common.langNameDe">Deutsch</span></button>
+                    <button type="button" class="footer-lang-opt" role="menuitem" data-lang-set="es"><img class="footer-lang-flag-img" src="grafik/flags/es.svg" alt="" width="28" height="21" decoding="async"><span class="footer-lang-name" data-i18n="common.langNameEs">Español</span></button>
+                </div>
+            </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/logic.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/jakten.js"></script>
+</body>
+</html>

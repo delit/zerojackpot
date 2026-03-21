@@ -79,10 +79,9 @@
     "truthP2": "Der Erwartungswert pro Tipp liegt bei nur etwa 0,95 € bei Kosten von 2 € – im Schnitt verlierst du etwa 1,05 € pro Tipp.",
     "gambleH": "Spielsucht und Hilfe",
     "gambleP": "Glücksspiel kann zur Sucht werden. Wenn du oder jemand in deinem Umfeld Probleme hat, Hilfe zu suchen lohnt sich.",
-    "helpH": "Schweden: Stödlinjen",
-    "helpPhone": "Telefon:",
-    "helpWeb": "Web:",
-    "helpP2": "Stödlinjen bietet kostenlose, anonyme Beratung. Es ist nie zu spät, Hilfe zu suchen."
+    "helpH": "Hilfsorganisationen (Deutschland)",
+    "helpResources": "<p><strong>BZgA – Spielen mit Verantwortung</strong>: kostenlose Hotline <strong>0800 1 37 27 00</strong> · <a href=\"https://www.spielen-mit-verantwortung.de\" target=\"_blank\" rel=\"noopener noreferrer\">spielen-mit-verantwortung.de</a> (Bundeszentrale für gesundheitliche Aufklärung)</p><p><strong>Deutsche Hauptstelle für Suchtfragen (DHS)</strong>: Information und Anlaufstellen · <a href=\"https://www.dhs.de\" target=\"_blank\" rel=\"noopener noreferrer\">dhs.de</a></p>",
+    "helpP2": "Diese Anlaufstellen bieten Beratung bei Spielsucht und anderen Suchtproblemen. Es ist nie zu spät, Hilfe zu suchen."
   },
   "jakten": {
     "page": {

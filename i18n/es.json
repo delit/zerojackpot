@@ -79,10 +79,9 @@
     "truthP2": "El valor esperado por apuesta es solo unos 0,95 € aunque cueste 2 €: de media pierdes unos 1,05 € por apuesta.",
     "gambleH": "Juego problemático y ayuda",
     "gambleP": "El juego puede convertirse en un problema grave. Si tú o alguien cercano no controla el juego, hay ayuda.",
-    "helpH": "Suecia: Stödlinjen",
-    "helpPhone": "Teléfono:",
-    "helpWeb": "Web:",
-    "helpP2": "Stödlinjen ofrece asesoramiento gratuito y anónimo. Nunca es tarde para pedir ayuda."
+    "helpH": "Organizaciones de ayuda (España)",
+    "helpResources": "<p><strong>JugarBIEN</strong> (Ministerio de Consumo): información sobre juego responsable · <a href=\"https://www.jugarbien.es\" target=\"_blank\" rel=\"noopener noreferrer\">jugarbien.es</a></p><p><strong>FEJAR</strong> (Federación Española de Jugadores de Azar Rehabilitados): apoyo a personas afectadas · <a href=\"https://www.fejar.org\" target=\"_blank\" rel=\"noopener noreferrer\">fejar.org</a></p>",
+    "helpP2": "Estas organizaciones ofrecen orientación y apoyo. Nunca es tarde para pedir ayuda."
   },
   "jakten": {
     "page": {

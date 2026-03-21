@@ -102,11 +102,11 @@ Object.assign(en.about, {
     gambleH: 'Problem gambling and help',
     gambleP:
         'For some people, gambling becomes a serious problem. If you or someone you know struggles to control play, help is available.',
-    helpH: 'Sweden: Stödlinjen (gambling support)',
-    helpPhone: 'Phone:',
-    helpWeb: 'Web:',
+    helpH: 'Support organisations (United Kingdom)',
+    helpResources:
+        '<p><strong>National Gambling Helpline</strong> (GamCare): <strong>0808 8020 133</strong> (free, 24/7) · <a href="https://www.gamcare.org.uk" target="_blank" rel="noopener noreferrer">gamcare.org.uk</a></p><p><strong>Be Gamble Aware</strong>: <a href="https://www.begambleaware.org" target="_blank" rel="noopener noreferrer">begambleaware.org</a></p>',
     helpP2:
-        'Stödlinjen offers free, anonymous advice for people affected by gambling and their families. It is never too late to seek help.'
+        'These organisations offer confidential advice and support if gambling is affecting you or someone close to you. It is never too late to seek help.'
 });
 Object.assign(en.jakten, {
     title: 'The Jackpot Chase',
@@ -311,11 +311,11 @@ Object.assign(de.about, {
     gambleH: 'Spielsucht und Hilfe',
     gambleP:
         'Glücksspiel kann zur Sucht werden. Wenn du oder jemand in deinem Umfeld Probleme hat, Hilfe zu suchen lohnt sich.',
-    helpH: 'Schweden: Stödlinjen',
-    helpPhone: 'Telefon:',
-    helpWeb: 'Web:',
+    helpH: 'Hilfsorganisationen (Deutschland)',
+    helpResources:
+        '<p><strong>BZgA – Spielen mit Verantwortung</strong>: kostenlose Hotline <strong>0800 1 37 27 00</strong> · <a href="https://www.spielen-mit-verantwortung.de" target="_blank" rel="noopener noreferrer">spielen-mit-verantwortung.de</a> (Bundeszentrale für gesundheitliche Aufklärung)</p><p><strong>Deutsche Hauptstelle für Suchtfragen (DHS)</strong>: Information und Anlaufstellen · <a href="https://www.dhs.de" target="_blank" rel="noopener noreferrer">dhs.de</a></p>',
     helpP2:
-        'Stödlinjen bietet kostenlose, anonyme Beratung. Es ist nie zu spät, Hilfe zu suchen.'
+        'Diese Anlaufstellen bieten Beratung bei Spielsucht und anderen Suchtproblemen. Es ist nie zu spät, Hilfe zu suchen.'
 });
 Object.assign(de.jakten, {
     title: 'Die Jagd nach dem Jackpot',
@@ -506,11 +506,11 @@ Object.assign(es.about, {
     gambleH: 'Juego problemático y ayuda',
     gambleP:
         'El juego puede convertirse en un problema grave. Si tú o alguien cercano no controla el juego, hay ayuda.',
-    helpH: 'Suecia: Stödlinjen',
-    helpPhone: 'Teléfono:',
-    helpWeb: 'Web:',
+    helpH: 'Organizaciones de ayuda (España)',
+    helpResources:
+        '<p><strong>JugarBIEN</strong> (Ministerio de Consumo): información sobre juego responsable · <a href="https://www.jugarbien.es" target="_blank" rel="noopener noreferrer">jugarbien.es</a></p><p><strong>FEJAR</strong> (Federación Española de Jugadores de Azar Rehabilitados): apoyo a personas afectadas · <a href="https://www.fejar.org" target="_blank" rel="noopener noreferrer">fejar.org</a></p>',
     helpP2:
-        'Stödlinjen ofrece asesoramiento gratuito y anónimo. Nunca es tarde para pedir ayuda.'
+        'Estas organizaciones ofrecen orientación y apoyo. Nunca es tarde para pedir ayuda.'
 });
 Object.assign(es.jakten, {
     title: 'La caza del bote',

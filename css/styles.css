@@ -92,11 +92,13 @@ body {
     outline: none;
 }
 
+/* right: 0 + ingen translate – undviker att halva menyn hamnar utanför .container (overflow:hidden) */
 .footer-lang-dropdown {
     position: absolute;
     bottom: calc(100% + 6px);
-    left: 50%;
-    transform: translateX(-50%);
+    left: auto;
+    right: 0;
+    transform: none;
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -915,7 +917,8 @@ footer p,
     font-size: 1.2rem;
 }
 
-.help-box p {
+.help-box p,
+.help-box .help-resources p {
     margin-bottom: 10px;
 }
 

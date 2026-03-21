@@ -119,7 +119,7 @@
     function pagePrefix() {
         const p = (window.location.pathname || '').toLowerCase();
         if (p.indexOf('about') !== -1) return 'about';
-        if (p.indexOf('jakten') !== -1) return 'jakten';
+        if (p.indexOf('jackpot.html') !== -1 || p.indexOf('jakten') !== -1) return 'jakten';
         return 'index';
     }
 

@@ -79,10 +79,9 @@
     "truthP2": "Expected value per line is only about €0.95 even though the line costs €2 – so on average you lose about €1.05 per line.",
     "gambleH": "Problem gambling and help",
     "gambleP": "For some people, gambling becomes a serious problem. If you or someone you know struggles to control play, help is available.",
-    "helpH": "Sweden: Stödlinjen (gambling support)",
-    "helpPhone": "Phone:",
-    "helpWeb": "Web:",
-    "helpP2": "Stödlinjen offers free, anonymous advice for people affected by gambling and their families. It is never too late to seek help."
+    "helpH": "Support organisations (United Kingdom)",
+    "helpResources": "<p><strong>National Gambling Helpline</strong> (GamCare): <strong>0808 8020 133</strong> (free, 24/7) · <a href=\"https://www.gamcare.org.uk\" target=\"_blank\" rel=\"noopener noreferrer\">gamcare.org.uk</a></p><p><strong>Be Gamble Aware</strong>: <a href=\"https://www.begambleaware.org\" target=\"_blank\" rel=\"noopener noreferrer\">begambleaware.org</a></p>",
+    "helpP2": "These organisations offer confidential advice and support if gambling is affecting you or someone close to you. It is never too late to seek help."
   },
   "jakten": {
     "page": {

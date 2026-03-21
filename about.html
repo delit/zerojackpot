@@ -61,14 +61,10 @@
 
         <main>
             <section class="about-section">
-                <div class="nav-link">
-                    <a href="index.html" class="back-link" data-i18n="about.backLink">← Tillbaka till simulatorn</a>
-                </div>
-
                 <h2 data-i18n="about.h2">Om ZeroJackpot</h2>
                 
                 <div class="about-content">
-                    <p data-i18n="about.intro1"></p>
+                    <p class="about-ingress" data-i18n="about.intro1"></p>
                     <p data-i18n="about.intro2"></p>
 
                     <blockquote class="highlight-quote" data-i18n="about.quote"></blockquote>
@@ -144,21 +140,24 @@
 
                     <div id="about-pwa-download" class="about-pwa-box download-pwa-section">
                         <h3 id="download-zerojackpot" data-i18n="about.downloadH"></h3>
+                        <div class="about-pwa-cta-row">
+                            <button type="button" class="btn btn-primary about-pwa-install-btn" id="pwa-install-btn" hidden data-i18n="about.downloadInstallBtn"></button>
+                            <a href="#download-android-steps" class="btn btn-secondary about-pwa-android-link" data-pwa-android-cta hidden data-i18n="about.downloadAndroidLink"></a>
+                        </div>
+                        <p id="pwa-install-browser-note" data-i18n="about.downloadInstallBrowserNote"></p>
                         <div data-pwa-instructions>
-                            <h4 data-i18n="about.downloadIosH"></h4>
+                            <h4 id="download-ios-steps" data-i18n="about.downloadIosH"></h4>
                             <ol class="download-pwa-steps">
                                 <li data-i18n="about.downloadIos1"></li>
                                 <li data-i18n="about.downloadIos2"></li>
                                 <li data-i18n="about.downloadIos3"></li>
                             </ol>
-                            <h4 data-i18n="about.downloadAndroidH"></h4>
+                            <h4 id="download-android-steps" data-i18n="about.downloadAndroidH"></h4>
                             <ol class="download-pwa-steps">
                                 <li data-i18n="about.downloadAndroid1"></li>
                                 <li data-i18n="about.downloadAndroid2"></li>
                             </ol>
                         </div>
-                        <button type="button" class="btn btn-primary about-pwa-install-btn" id="pwa-install-btn" hidden data-i18n="about.downloadInstallBtn"></button>
-                        <p id="pwa-install-browser-note" data-i18n="about.downloadInstallBrowserNote"></p>
                         <p id="pwa-standalone-note" hidden data-i18n="about.downloadStandaloneP"></p>
                     </div>
 
@@ -170,6 +169,10 @@
                         <p data-i18n="about.helpP2"></p>
                     </div>
 
+                </div>
+
+                <div class="nav-link nav-link--about-bottom">
+                    <a href="index.html" class="back-link" data-i18n="about.backLink">← Tillbaka till simulatorn</a>
                 </div>
             </section>
         </main>

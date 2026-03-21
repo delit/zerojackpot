@@ -14,6 +14,7 @@
     var browserNote = document.getElementById('pwa-install-browser-note');
     var standaloneNote = document.getElementById('pwa-standalone-note');
     var instructions = box.querySelector('[data-pwa-instructions]');
+    var androidLink = box.querySelector('[data-pwa-android-cta]');
 
     var isStandalone =
         window.matchMedia('(display-mode: standalone)').matches ||
@@ -28,6 +29,28 @@
         else el.removeAttribute('hidden');
     }
 
+    function isAndroidPhoneOrTablet() {
+        var ua = navigator.userAgent || '';
+        if (/iPhone|iPad|iPod/i.test(ua)) return false;
+        return /Android/i.test(ua);
+    }
+
+    function syncAndroidManualLink() {
+        if (!androidLink) return;
+        androidLink.classList.remove('about-pwa-android-visible');
+        if (isStandalone) {
+            setHidden(androidLink, true);
+            return;
+        }
+        var show = isAndroidPhoneOrTablet();
+        if (show) {
+            androidLink.classList.add('about-pwa-android-visible');
+            setHidden(androidLink, false);
+        } else {
+            setHidden(androidLink, true);
+        }
+    }
+
     function syncInstallChrome() {
         if (isStandalone) return;
         var hasPrompt = !!deferredPrompt;
@@ -39,11 +62,13 @@
         setHidden(instructions, true);
         setHidden(btn, true);
         setHidden(browserNote, true);
+        setHidden(androidLink, true);
         setHidden(standaloneNote, false);
         return;
     }
 
     setHidden(standaloneNote, true);
+    syncAndroidManualLink();
     syncInstallChrome();
     window.addEventListener('beforeinstallprompt', function (e) {
         e.preventDefault();

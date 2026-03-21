@@ -100,6 +100,7 @@ Object.assign(en.about, {
     truthP2:
         'Expected value per line is only about €0.95 even though the line costs €2 – so on average you lose about €1.05 per line.',
     downloadH: 'Install on your phone',
+    downloadAndroidLink: 'Add to home screen — Android steps',
     downloadIosH: 'iPhone or iPad (Safari)',
     downloadIos1: 'Tap the Share button (square with an arrow pointing up).',
     downloadIos2: 'Scroll and choose “Add to Home Screen”.',
@@ -322,6 +323,7 @@ Object.assign(de.about, {
     truthP2:
         'Der Erwartungswert pro Tipp liegt bei nur etwa 0,95 € bei Kosten von 2 € – im Schnitt verlierst du etwa 1,05 € pro Tipp.',
     downloadH: 'Auf dem Smartphone installieren',
+    downloadAndroidLink: 'Zum Startbildschirm — Schritte für Android',
     downloadIosH: 'iPhone oder iPad (Safari)',
     downloadIos1: 'Tippe auf „Teilen“ (Quadrat mit Pfeil nach oben).',
     downloadIos2: 'Scrolle und wähle „Zum Home-Bildschirm“.',
@@ -530,6 +532,7 @@ Object.assign(es.about, {
     truthP2:
         'El valor esperado por apuesta es solo unos 0,95 € aunque cueste 2 €: de media pierdes unos 1,05 € por apuesta.',
     downloadH: 'Instalar en el móvil',
+    downloadAndroidLink: 'Añadir a inicio — pasos en Android',
     downloadIosH: 'iPhone o iPad (Safari)',
     downloadIos1: 'Pulsa el botón Compartir (cuadrado con flecha hacia arriba).',
     downloadIos2: 'Desplázate y elige «Añadir a la pantalla de inicio».',

@@ -1,5 +1,5 @@
 /* ZeroJackpot — offline cache; bump CACHE_VERSION when static assets change */
-const CACHE_VERSION = 'zerojackpot-v8';
+const CACHE_VERSION = 'zerojackpot-v10';
 const PRECACHE_URLS = [
     './',
     './index.html',
@@ -23,6 +23,10 @@ const PRECACHE_URLS = [
     './grafik/favicon/01favicon@3x.png',
     './grafik/favicon/icon-192.png',
     './grafik/favicon/icon-512.png',
+    './grafik/splash/splash-pwa-192.png',
+    './grafik/splash/splash-pwa-512.png',
+    './grafik/splash/apple-splash-1170x2532.png',
+    './grafik/splash/apple-splash-1284x2778.png',
     './grafik/flags/sv.svg',
     './grafik/flags/gb.svg',
     './grafik/flags/de.svg',

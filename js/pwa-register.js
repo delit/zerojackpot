@@ -7,6 +7,38 @@
         });
     }
 
+    function isStandalone() {
+        return (
+            window.matchMedia('(display-mode: standalone)').matches ||
+            window.matchMedia('(display-mode: fullscreen)').matches ||
+            window.navigator.standalone === true
+        );
+    }
+
+    function isIndexPage() {
+        var path = window.location.pathname || '';
+        if (path === '/' || path === '') return true;
+        var pl = path.toLowerCase();
+        if (pl.endsWith('/index.html') || pl.endsWith('/index.htm') || pl === '/index.html') return true;
+        if (path.endsWith('/')) return true;
+        var parts = path.split('/').filter(Boolean);
+        var last = parts.length ? parts[parts.length - 1] : '';
+        if (/^index\.html?$/i.test(last)) return true;
+        if (last && !/\.html?$/i.test(last)) return true;
+        return false;
+    }
+
+    if (isStandalone() && isIndexPage()) {
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.addEventListener('pageshow', function () {
+            window.requestAnimationFrame(function () {
+                window.scrollTo(0, 0);
+            });
+        });
+    }
+
     var box = document.getElementById('about-pwa-download');
     if (!box) return;
 
@@ -14,11 +46,6 @@
     var standaloneNote = document.getElementById('pwa-standalone-note');
     var instructions = box.querySelector('[data-pwa-instructions]');
     var androidLink = box.querySelector('[data-pwa-android-cta]');
-
-    var isStandalone =
-        window.matchMedia('(display-mode: standalone)').matches ||
-        window.matchMedia('(display-mode: fullscreen)').matches ||
-        window.navigator.standalone === true;
 
     var deferredPrompt = null;
 
@@ -37,7 +64,7 @@
     function syncAndroidManualLink() {
         if (!androidLink) return;
         androidLink.classList.remove('about-pwa-android-visible');
-        if (isStandalone) {
+        if (isStandalone()) {
             setHidden(androidLink, true);
             return;
         }
@@ -58,7 +85,7 @@
         });
     }
 
-    if (isStandalone) {
+    if (isStandalone()) {
         setHidden(instructions, true);
         setHidden(browserNote, true);
         setHidden(androidLink, true);

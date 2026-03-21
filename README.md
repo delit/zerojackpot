@@ -72,7 +72,12 @@ Based on a Eurojackpot-style prize table (amounts in **EUR** as in the simulator
 
 This project is for **education and awareness**, not gambling advice. It illustrates how unlikely wins are compared to stakes.
 
-For Sweden, national support: [Stödlinjen](https://www.stodlinjen.se). For other countries, see the **About** page in your language for local helplines.
+If gambling is causing problems for you or someone close to you, seek help. The **About** page on the site lists resources per language; here is a short overview:
+
+- **Sweden — [Stödlinjen](https://www.stodlinjen.se)** · phone **020-819 100** (daily 09:00–21:00)
+- **United Kingdom — [GamCare](https://www.gamcare.org.uk)** · National Gambling Helpline **0808 8020 133** (free, 24/7) · **[Be Gamble Aware](https://www.begambleaware.org)**
+- **Germany — [BZgA – Spielen mit Verantwortung](https://www.spielen-mit-verantwortung.de)** · hotline **0800 1 37 27 00** · **[Deutsche Hauptstelle für Suchtfragen (DHS)](https://www.dhs.de)**
+- **Spain — [JugarBIEN](https://www.jugarbien.es)** (Ministerio de Consumo) · **[FEJAR](https://www.fejar.org)** (support for people affected by gambling)
 
 ## License
 
@@ -80,7 +85,7 @@ For Sweden, national support: [Stödlinjen](https://www.stodlinjen.se). For othe
 
 If you need a licence or partnership, contact the repository owner.
 
-<p align="center">
-  <a href="https://www.zerojackpot.eu"><strong>www.zerojackpot.eu</strong></a><br />
+<p>
+  <a href="https://www.zerojackpot.eu"><strong>www.zerojackpot.eu</strong></a><br /><br /><br />
   <img src="grafik/favicon/01favicon@3x.png" alt="ZeroJackpot favicon" width="128" height="128" />
 </p>

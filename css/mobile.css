@@ -359,6 +359,19 @@
         text-align: left;
     }
 
+    /* Länkarna hade 12px sid-padding → första raden mer indragen än tagline; vänsterkant i linje */
+    .footer-links a {
+        padding: 0 6px;
+    }
+
+    .footer-links a:first-of-type {
+        padding-left: 0;
+    }
+
+    .footer-links a:last-of-type {
+        padding-right: 0;
+    }
+
     .footer-lang {
         align-self: center;
         flex-shrink: 0;

@@ -15,7 +15,7 @@ Object.assign(en.common, {
     headerLogoAria: 'ZeroJackpot – home',
     footerJakten: 'The Jackpot Chase',
     footerAbout: 'About ZeroJackpot',
-    footerTagline: 'ZeroJackpot – a simulator showing Eurojackpot odds'
+    footerTagline: 'A simulator showing Eurojackpot odds'
 });
 en.index.page = {
     title: 'ZeroJackpot – Eurojackpot Simulator',
@@ -223,7 +223,7 @@ Object.assign(de.common, {
     headerLogoAria: 'ZeroJackpot – zur Startseite',
     footerJakten: 'Die Jagd nach dem Jackpot',
     footerAbout: 'Über ZeroJackpot',
-    footerTagline: 'ZeroJackpot – Simulator für Eurojackpot-Chancen'
+    footerTagline: 'Ein Simulator für Eurojackpot-Chancen'
 });
 de.index.page = {
     title: 'ZeroJackpot – Eurojackpot-Simulator',
@@ -418,7 +418,7 @@ Object.assign(es.common, {
     headerLogoAria: 'ZeroJackpot – inicio',
     footerJakten: 'La caza del bote',
     footerAbout: 'Sobre ZeroJackpot',
-    footerTagline: 'ZeroJackpot – simulador de probabilidades de Eurojackpot'
+    footerTagline: 'Un simulador de probabilidades de Eurojackpot'
 });
 es.index.page = {
     title: 'ZeroJackpot – Simulador de Eurojackpot',

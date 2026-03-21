@@ -1,6 +1,10 @@
+<p align="center">
+  <img src="grafik/logo-zerojackpot.svg" alt="ZeroJackpot" width="320" />
+</p>
+
 # ZeroJackpot
 
-En interaktiv Eurojackpot-simulator inspirerad av Svenska Spel, byggd med vanilla JavaScript.
+En interaktiv Eurojackpot-simulator byggd med vanilla JavaScript.
 
 ## Beskrivning
 

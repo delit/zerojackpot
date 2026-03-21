@@ -835,6 +835,17 @@ footer p,
     color: var(--primary-orange);
     border: none;
     font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45em;
+    text-decoration: none;
+}
+
+.btn-promo-play {
+    font-size: 0.82em;
+    line-height: 1;
+    opacity: 0.95;
 }
 
 .btn-promo:hover {

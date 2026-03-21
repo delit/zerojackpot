@@ -1,5 +1,5 @@
 /* ZeroJackpot — offline cache; bump CACHE_VERSION when static assets change */
-const CACHE_VERSION = 'zerojackpot-v3';
+const CACHE_VERSION = 'zerojackpot-v8';
 const PRECACHE_URLS = [
     './',
     './index.html',

@@ -167,7 +167,8 @@ Object.assign(en.home, {
     labelInvestProfit: 'Investment gain',
     labelDiff: 'Difference',
     promoTitle: 'The Jackpot Chase',
-    promoText: 'One draw every second. Watch time pass without a jackpot.',
+    promoText:
+        'A new draw every second. How many years does it take for Eurojackpot?',
     promoBtn: 'Open live simulation',
     backToSim: '← Back to simulator',
     sim100: '100 draws',
@@ -390,7 +391,8 @@ Object.assign(de.home, {
     labelInvestProfit: 'Gewinn aus Anlage',
     labelDiff: 'Differenz',
     promoTitle: 'Die Jagd nach dem Jackpot',
-    promoText: 'Eine Ziehung pro Sekunde. Zeit ohne Jackpot.',
+    promoText:
+        'Jede Sekunde eine neue Ziehung. Wie viele Jahre braucht es für Eurojackpot?',
     promoBtn: 'Live-Simulation öffnen',
     backToSim: '← Zurück zum Simulator',
     sim100: '100 Ziehungen',
@@ -599,7 +601,8 @@ Object.assign(es.home, {
     labelInvestProfit: 'Ganancia de la inversión',
     labelDiff: 'Diferencia',
     promoTitle: 'La caza del bote',
-    promoText: 'Un sorteo por segundo. El tiempo pasa sin bote.',
+    promoText:
+        'Un nuevo sorteo cada segundo. ¿Cuántos años se necesitan para Eurojackpot?',
     promoBtn: 'Ver simulación en vivo',
     backToSim: '← Volver al simulador',
     sim100: '100 sorteos',

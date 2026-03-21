@@ -9,6 +9,7 @@
     <link rel="icon" href="grafik/favicon/01favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="grafik/favicon/01favicon@3x.png">
     <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#a83001">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="ZeroJackpot">
     
@@ -146,6 +147,16 @@
             padding: 25px;
             border-radius: 15px;
             /* Samma vertikal marginal som övriga <section> (Statistik → Vinthistorik) */
+        }
+
+        .jakten-page-intro {
+            text-align: center;
+            color: #888;
+            font-size: 1.1rem;
+            font-weight: 500;
+            line-height: 1.45;
+            max-width: 36em;
+            margin: 0 auto 28px;
         }
         
         .live-result-box {
@@ -383,8 +394,9 @@
 
         <main>
             <section class="live-section">
-                <h2 style="font-size: 2rem; margin-bottom: 30px;" data-i18n="jakten.title">Jakten på Jackpotten</h2>
-                
+                <h2 style="font-size: 2rem; margin-bottom: 6px;" data-i18n="jakten.title">Jakten på Jackpotten</h2>
+                <p class="jakten-page-intro" data-i18n="home.promoText">En ny dragning varje sekund. Hur många år krävs det för Eurojackpot?</p>
+
                 <div class="live-row">
                     <h2 data-i18n="jakten.myRow">Lottorad</h2>
                     <div class="live-numbers-container">

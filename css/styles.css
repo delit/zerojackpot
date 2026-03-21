@@ -283,8 +283,8 @@ h3 {
 
 .instructions-inline p {
     font-size: 1.1rem;
-    color: var(--dark-gray);
-    line-height: 1.5;
+    color: #888;
+    line-height: 1.45;
     font-weight: 500;
 }
 
@@ -1129,10 +1129,6 @@ footer p,
         width: 70px;
         height: 70px;
         font-size: 1.4rem;
-    }
-
-    .instructions-inline p {
-        font-size: 1.2rem;
     }
 
     .header-logo {

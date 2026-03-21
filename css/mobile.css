@@ -138,9 +138,11 @@
     }
 
     .instructions-inline p {
-        font-size: 1rem;
+        font-size: 1.1rem;
+        color: #888;
         padding: 0 10px;
-        line-height: 1.4;
+        line-height: 1.45;
+        font-weight: 500;
     }
     
     .desktop-text {
@@ -499,10 +501,6 @@
     }
 
     .picker-number {
-        font-size: 0.95rem;
-    }
-
-    .instructions-inline p {
         font-size: 0.95rem;
     }
 

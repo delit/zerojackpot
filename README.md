@@ -4,7 +4,7 @@
 
 # ZeroJackpot
 
-An interactive Eurojackpot-style odds simulator built with vanilla JavaScript.
+An interactive Eurojackpot-style odds simulator built with vanilla JavaScript. **The site’s purpose is to inform people about gambling, lottery odds, and probability** — turning abstract chances into something you can see and explore through simulation.
 
 ## Description
 
@@ -51,22 +51,22 @@ ZeroJackpot lets you pick or randomise lottery lines and run thousands (or milli
 
 ## Prize tier reference
 
-Based on a Eurojackpot-style prize table (amounts shown in **SEK** as implemented for the Swedish locale):
+Based on a Eurojackpot-style prize table (amounts in **EUR** as in the simulator for English / German / Spanish locales — same tier structure as SEK, converted at **11.25 SEK per €** and rounded):
 
 | Tier | Match | Approx. prize |
 |------|-------|----------------|
-| 1 | 5+2 | 400,000,000 kr (jackpot) |
-| 2 | 5+1 | 2,000,000 kr |
-| 3 | 5+0 | 400,000 kr |
-| 4 | 4+2 | 16,000 kr |
-| 5 | 4+1 | 900 kr |
-| 6 | 3+2 | 500 kr |
-| 7 | 4+0 | 400 kr |
-| 8 | 2+2 | 175 kr |
-| 9 | 3+1 | 150 kr |
-| 10 | 3+0 | 120 kr |
-| 11 | 1+2 | 90 kr |
-| 12 | 2+1 | 65 kr |
+| 1 | 5+2 | €35,555,556 (jackpot) |
+| 2 | 5+1 | €177,778 |
+| 3 | 5+0 | €35,556 |
+| 4 | 4+2 | €1,422 |
+| 5 | 4+1 | €80 |
+| 6 | 3+2 | €44 |
+| 7 | 4+0 | €36 |
+| 8 | 2+2 | €16 |
+| 9 | 3+1 | €13 |
+| 10 | 3+0 | €11 |
+| 11 | 1+2 | €8 |
+| 12 | 2+1 | €6 |
 
 ## Responsible play
 
@@ -81,7 +81,6 @@ For Sweden, national support: [Stödlinjen](https://www.stodlinjen.se). For othe
 If you need a licence or partnership, contact the repository owner.
 
 <p align="center">
+  <a href="https://www.zerojackpot.eu"><strong>www.zerojackpot.eu</strong></a><br />
   <img src="grafik/favicon/01favicon@3x.png" alt="ZeroJackpot favicon" width="128" height="128" />
-  &nbsp;&nbsp;
-  <a href="https://www.zerojackpot.eu"><strong>www.zerojackpot.eu</strong></a>
 </p>

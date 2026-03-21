@@ -974,13 +974,14 @@ footer p,
     text-align: center;
 }
 
-/* Dold som standard: vår inline-flex slog annars över [hidden] i vissa webbläsare */
+/* Knapp: ingen href/#; dold tills .about-pwa-android-visible (Android) */
 .about-pwa-android-link {
-    text-decoration: none;
     display: none !important;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    font: inherit;
+    width: auto;
 }
 
 .about-pwa-android-link.about-pwa-android-visible {

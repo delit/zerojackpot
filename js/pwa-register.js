@@ -97,12 +97,16 @@
         });
     }
 
-    /* Orange länk: öppna systemets PWA-installation om webbläsaren erbjudit det; annars scrolla till manuella steg */
+    /* Orange CTA: PWA-dialog via prompt() när beforeinstallprompt finns; annars mjuk scroll till steg (ingen # i URL) */
     if (androidLink) {
-        androidLink.addEventListener('click', function (e) {
+        androidLink.addEventListener('click', function () {
             if (deferredPrompt) {
-                e.preventDefault();
                 runInstallPrompt();
+                return;
+            }
+            var target = document.getElementById('download-android-steps');
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     }

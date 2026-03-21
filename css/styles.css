@@ -45,16 +45,32 @@ header {
     text-align: center;
 }
 
-header h1 {
-    font-family: "Bitcount Grid Single", "Courier New", monospace;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 2.5rem;
-    margin-bottom: 0;
-    color: yellow;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+.header-logo-link {
+    display: inline-block;
+    line-height: 0;
+    text-decoration: none;
+    margin-bottom: 4px;
+}
+
+.header-logo-link:hover {
+    opacity: 0.92;
+}
+
+.header-logo-link:focus-visible {
+    outline: 2px solid var(--white);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* Tydliga dimensioner så SVG syns även innan den laddat klart */
+.header-logo {
+    display: block;
+    width: min(100%, 500px);
+    height: auto;
+    max-height: 56px;
+    object-fit: contain;
+    object-position: center;
+    margin: 0 auto;
 }
 
 header .subtitle {
@@ -855,8 +871,9 @@ footer p {
         font-size: 1.2rem;
     }
 
-    header h1 {
-        font-size: 3rem;
+    .header-logo {
+        width: min(100%, 580px);
+        max-height: 64px;
     }
 
     .summary-cards {

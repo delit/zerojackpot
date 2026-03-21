@@ -12,8 +12,11 @@
         padding: 20px 15px;
     }
 
-    header h1 {
-        font-size: 2rem;
+    .header-logo {
+        width: 100%;
+        max-width: 100%;
+        max-height: 44px;
+        height: auto;
     }
 
     header .subtitle {

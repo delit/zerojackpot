@@ -1,7 +1,15 @@
 @media (max-width: 767px) {
+    /* Stabilare höjd i PWA (dvh kan “växa” efter tillbaka-navigering); svh + dvh + fill-available */
+    html {
+        min-height: 100%;
+        min-height: 100svh;
+        min-height: 100dvh;
+    }
+
     body {
         padding: 0;
-        min-height: 100vh;
+        min-height: 100%;
+        min-height: 100svh;
         min-height: 100dvh;
     }
 
@@ -9,7 +17,8 @@
         border-radius: 0;
         display: flex;
         flex-direction: column;
-        min-height: 100vh;
+        min-height: 100%;
+        min-height: 100svh;
         min-height: 100dvh;
     }
 
@@ -218,7 +227,7 @@
         flex: 1;
     }
 
-    /* Samma knapphöjd som Slumpa rad / Rensa val (bas .btn: 15px padding, 1rem) */
+    /* Samma knapphöjd som Slumpa nummer / Rensa val (bas .btn: 15px padding, 1rem) */
     .action-buttons .btn,
     .simulation-buttons .btn-sim {
         min-height: 50px;

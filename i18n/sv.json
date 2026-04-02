@@ -127,7 +127,7 @@
     "instrDesktop": "Välj 5 nummer mellan 1 och 50 samt 2 stjärnnummer mellan 1 och 12",
     "instrMobileLine1": "Välj 5 nummer mellan 1 och 50",
     "instrMobileLine2": "Välj 2 stjärnnummer mellan 1 och 12",
-    "btnRandom": "Slumpa rad",
+    "btnRandom": "Slumpa nummer",
     "btnClear": "Rensa val",
     "pickerDefaultTitle": "Välj ett nummer",
     "btnClose": "Stäng",

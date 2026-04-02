@@ -9,3 +9,6 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.log
+
+# App Store export bundles (not used by the static site)
+grafik/manifest/*.zip

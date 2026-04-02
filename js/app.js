@@ -254,6 +254,17 @@ function updateSimulationButtons() {
     } else {
         currentPlayerRow = null;
     }
+
+    const generateBtn = document.getElementById('generateBtn');
+    if (generateBtn) {
+        if (isValid) {
+            generateBtn.classList.remove('btn-secondary');
+            generateBtn.classList.add('btn-primary');
+        } else {
+            generateBtn.classList.remove('btn-primary');
+            generateBtn.classList.add('btn-secondary');
+        }
+    }
 }
 
 async function handleSimulation(numberOfDraws) {

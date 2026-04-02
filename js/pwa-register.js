@@ -32,10 +32,29 @@
         if ('scrollRestoration' in history) {
             history.scrollRestoration = 'manual';
         }
-        window.addEventListener('pageshow', function () {
+        function scrollIndexToTop() {
+            window.scrollTo(0, 0);
+            if (document.documentElement) {
+                document.documentElement.scrollTop = 0;
+            }
+            if (document.body) {
+                document.body.scrollTop = 0;
+            }
+        }
+        function scrollIndexToTopAfterLayout() {
+            scrollIndexToTop();
             window.requestAnimationFrame(function () {
-                window.scrollTo(0, 0);
+                scrollIndexToTop();
+                window.requestAnimationFrame(function () {
+                    scrollIndexToTop();
+                });
             });
+        }
+        window.addEventListener('pageshow', function () {
+            scrollIndexToTopAfterLayout();
+        });
+        window.addEventListener('load', function () {
+            scrollIndexToTopAfterLayout();
         });
     }
 

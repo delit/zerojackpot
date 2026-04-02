@@ -127,7 +127,7 @@
     "instrDesktop": "Pick 5 numbers from 1–50 and 2 star numbers from 1–12",
     "instrMobileLine1": "Pick 5 numbers from 1–50",
     "instrMobileLine2": "Pick 2 star numbers from 1–12",
-    "btnRandom": "Random numbers",
+    "btnRandom": "Pick random numbers",
     "btnClear": "Clear",
     "pickerDefaultTitle": "Pick a number",
     "btnClose": "Close",

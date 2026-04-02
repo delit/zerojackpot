@@ -157,7 +157,7 @@ function simulateDrawings(playerRow, numberOfDraws, progressCallback) {
 
 async function simulateDrawingsAsync(playerRow, numberOfDraws, progressCallback) {
     let bestResult = null;
-    let bestScore = -1;
+    let bestWinnings = -1;
     const winsByCategory = {};
     const tiers = getPrizeTiers();
 
@@ -177,9 +177,9 @@ async function simulateDrawingsAsync(playerRow, numberOfDraws, progressCallback)
         const result = checkResult(playerRow, draw);
         const winnings = calculateWinnings(result);
 
-        const currentScore = result.mainMatches * 10 + result.starMatches;
-        if (currentScore > bestScore) {
-            bestScore = currentScore;
+        /* Bästa dragning = högst faktisk vinst (kr), inte rått antal träffar (4+0 kan slå 3+2 felaktigt annars) */
+        if (winnings > bestWinnings) {
+            bestWinnings = winnings;
             bestResult = Object.assign({}, result, {
                 winnings: winnings,
                 drawNumber: i + 1

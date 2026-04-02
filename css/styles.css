@@ -495,6 +495,32 @@ h3 {
     color: var(--white);
 }
 
+/* Slumpa nummer: solid yta så orange → vit kan animeras (gradient → solid ger blink) */
+#generateBtn {
+    transition: background-color 0.45s cubic-bezier(0.4, 0, 0.2, 1), color 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 0.45s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#generateBtn.btn-secondary {
+    background: var(--primary-orange);
+    background-image: none;
+    color: var(--white);
+    border: 2px solid transparent;
+}
+
+#generateBtn.btn-primary {
+    background: var(--white);
+    background-image: none;
+    color: var(--primary-orange);
+    border: 2px solid var(--primary-orange);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #generateBtn {
+        transition-duration: 0.01ms;
+    }
+}
+
 .btn-sim {
     background: linear-gradient(135deg, #4a90e2, #357abd);
     color: var(--white);
